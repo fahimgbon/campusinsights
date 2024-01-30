@@ -722,7 +722,7 @@ describe("valid queries", function() {
 
 	try {
 
-		validQueries = readFileQueries("valid");
+		validQueries = readFileQueries("customValid");
 
 	} catch (e: unknown) {
 
