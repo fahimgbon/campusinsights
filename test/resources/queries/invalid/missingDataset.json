@@ -1,0 +1,19 @@
+{
+    "title": "missing dataset",
+    "input": {
+        "WHERE": {
+          "GT": {
+            "harvard_avg": 97
+          }
+        },
+        "OPTIONS": {
+          "COLUMNS": [
+            "harvard_dept",
+            "harvard_avg"
+          ],
+          "ORDER": "harvard_avg"
+        }
+    },
+    "errorExpected": true,
+    "expected": "InsightError"
+}
