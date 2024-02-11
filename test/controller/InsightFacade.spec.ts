@@ -12,6 +12,8 @@ import InsightFacade from "../../src/controller/InsightFacade";
 import {assert, expect, use} from "chai";
 import chaiAsPromised from "chai-as-promised";
 import {clearDisk, getContentFromArchives, readFileQueries} from "../TestUtil";
+import Dataset from "../../src/controller/Dataset";
+import Section from "../../src/controller/Section";
 
 use(chaiAsPromised);
 
@@ -360,7 +362,7 @@ describe("Add Datasets", function() {
 		});
 	});
 
-	it("should not add dataset through second object", async function() {
+	it("!!! should not add dataset through second object", async function() {
 		const insightFacade2: InsightFacade = new InsightFacade();
 
 		const content = await getContentFromArchives("courses_valid.zip");
@@ -836,3 +838,91 @@ describe("too large query", function() {
 	});
 
 });
+
+describe("Dataset Class", function() {
+	let dataset: Dataset;
+
+	beforeEach(function () {
+		dataset = new Dataset("ubc", "content", InsightDatasetKind.Sections);
+	});
+
+	it("should check ID", function() {
+		dataset.setId("sfu");
+		expect(dataset.getId()).to.equal("sfu");
+	});
+
+	it("should check content", function() {
+		dataset.setContent("newContent");
+		expect(dataset.getContent()).to.equal("newContent");
+	});
+
+	it("should check kind", function() {
+		dataset.setKind(InsightDatasetKind.Sections);
+		expect(dataset.getKind()).to.equal(InsightDatasetKind.Sections);
+	});
+
+	it("should check numRows", function() {
+		dataset.setNumRows(10);
+		expect(dataset.getNumRows()).to.equal(10);
+	});
+});
+
+describe("Section Class", function() {
+	let section: Section;
+
+	beforeEach(function () {
+		section = new Section(
+			"uuid",
+			"id",
+			"title",
+			"instructor",
+			"dept",
+			2023,
+			80,
+			50,
+			10,
+			5
+		);
+	});
+
+	it("should check UUID", function() {
+		expect(section.getUuid()).to.equal("uuid");
+	});
+
+	it("should check ID", function() {
+		expect(section.getId()).to.equal("id");
+	});
+
+	it("should check title", function() {
+		expect(section.getTitle()).to.equal("title");
+	});
+
+	it("should check instructor", function() {
+		expect(section.getInstructor()).to.equal("instructor");
+	});
+
+	it("should check department", function() {
+		expect(section.getDept()).to.equal("dept");
+	});
+
+	it("should check year", function() {
+		expect(section.getYear()).to.equal(2023);
+	});
+
+	it("should check average", function() {
+		expect(section.getAvg()).to.equal(80);
+	});
+
+	it("should check pass count", function() {
+		expect(section.getPass()).to.equal(50);
+	});
+
+	it("should check fail count", function() {
+		expect(section.getFail()).to.equal(10);
+	});
+
+	it("should check audit count", function() {
+		expect(section.getAudit()).to.equal(5);
+	});
+});
+

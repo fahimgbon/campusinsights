@@ -11,11 +11,6 @@ export default class Dataset implements InsightDataset {
 		this.id = id;
 		this.content = content;
 		this.kind = kind;
-		// !!! if (kind.length > 0) {
-		// 	this.numRows = kind.length;
-		// } else {
-		// 	throw new InsightError("Empty dataset");
-		// }
 		this.numRows = 0;
 	}
 
@@ -34,5 +29,20 @@ export default class Dataset implements InsightDataset {
 	public getNumRows(): number {
 		return this.numRows;
 	}
-}
 
+	public setId(id: string): void {
+		this.id = id;
+	}
+
+	public setContent(content: string): void {
+		this.content = content;
+	}
+
+	public setKind(kind: InsightDatasetKind): void {
+		this.kind = kind;
+	}
+
+	public setNumRows(numRows: number): void {
+		this.numRows = numRows;
+	}
+}
