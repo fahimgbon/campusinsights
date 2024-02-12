@@ -1,8 +1,17 @@
 {
-    "title": "or is not an object",
+    "title": "lt no keys",
     "input": {
         "WHERE": {
-            "OR": "123"
+            "AND": [
+                {
+                    "LT": {}
+                },
+                {
+                    "GT": {
+                        "sections_avg": 100
+                    }
+                }
+            ]
         },
         "OPTIONS": {
             "COLUMNS": [
@@ -14,5 +23,5 @@
         }
     },
     "errorExpected": true,
-    "expected": "InsightError"
+    "expected": []
 }

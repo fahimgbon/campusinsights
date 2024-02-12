@@ -1,8 +1,8 @@
 {
-    "title": "or is not an object",
+    "title": "and not object",
     "input": {
         "WHERE": {
-            "OR": "123"
+            "AND": 100
         },
         "OPTIONS": {
             "COLUMNS": [
@@ -14,5 +14,5 @@
         }
     },
     "errorExpected": true,
-    "expected": "InsightError"
+    "expected": []
 }

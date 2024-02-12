@@ -4,6 +4,7 @@ import {InsightDatasetKind, IInsightFacade, InsightError, InsightDataset, Insigh
 import Section from "./Section";
 import Dataset from "./Dataset";
 import path from "path";
+import {QueryValidator} from "../performQuery/QueryValidator";
 
 const persistDir = "./data";
 
@@ -34,7 +35,17 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
-		throw new Error("Method not implemented.");
+		const queryValidator = new QueryValidator();
+		const isQueryValid = queryValidator.isQueryValid(query);
+		if(!isQueryValid) {
+			return Promise.reject(new InsightError("Insight Error: the query is not valid."));
+		}
+		const dataset = this.datasets.get(queryValidator.idsArray[0]);
+		if(!dataset) {
+			return Promise.reject(new InsightError("Insight Error: dataset not found."));
+		}
+		const results: InsightResult[] = [];
+		return Promise.resolve(results);
 	}
 
 	public async listDatasets(): Promise<InsightDataset[]> {
