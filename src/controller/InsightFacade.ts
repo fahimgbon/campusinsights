@@ -1,6 +1,7 @@
 import JSZip from "jszip";
 import fs from "fs-extra";
-import {InsightDatasetKind, IInsightFacade, InsightError, InsightDataset, InsightResult} from "./IInsightFacade";
+import {InsightDatasetKind, IInsightFacade, InsightError, InsightDataset, InsightResult, NotFoundError} from
+	"./IInsightFacade";
 import Section from "./Section";
 import Dataset from "./Dataset";
 import path from "path";
@@ -8,11 +9,13 @@ import path from "path";
 const persistDir = "./data";
 
 export default class InsightFacade implements IInsightFacade {
+	// private static datasets: Map<string, Dataset> = new Map<string, Dataset>();
 	private datasets: Map<string, Dataset>;
 	private data: Map<string, Section[]>; // data in content param is the most complicated; helpful to have access to
 
 	constructor() {
 		this.datasets = new Map<string, Dataset>();
+		// console.log("Constructor:", this.datasets.keys);
 		this.data = new Map<string, Section[]>();
 
 		// Call the async initialize method immediately after construction
@@ -29,16 +32,39 @@ export default class InsightFacade implements IInsightFacade {
 		}
 	}
 
-	public removeDataset(id: string): Promise<string> {
-		throw new Error("Method not implemented.");
+	public async removeDataset(id: string): Promise<string> {
+		if (!this.isValidId(id)) {
+			return Promise.reject(new InsightError("Invalid id"));
+		}
+
+		const filePath = path.join(persistDir, `${id}.json`);
+		const exists = await fs.pathExists(filePath);
+		if (!exists) {
+			throw new NotFoundError("Dataset not found");
+		}
+
+		try {
+			await fs.unlink(filePath);
+			this.datasets.delete(id); // Also remove from memory
+		} catch (error) {
+			throw new InsightError(`Failed to remove dataset from disk: ${error}`);
+		}
+
+		return id;
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
 		throw new Error("Method not implemented.");
 	}
 
+	// worried may not work for multiple instances of insightafacade because i'm using datasets variable instead of json content
 	public async listDatasets(): Promise<InsightDataset[]> {
-		return Array.from(this.datasets.values());
+		// console.log("Values:", [...this.datasets.values()]);
+		return Array.from(this.datasets.values()).map((dataset) => ({
+			id: dataset.id,
+			kind: dataset.kind,
+			numRows: dataset.numRows
+		}));
 	}
 
 	public async addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
@@ -100,11 +126,15 @@ export default class InsightFacade implements IInsightFacade {
 			this.data.set(id, sectionData);
 
 			let rows = 0;
+			// console.log("Rows init", rows);
+			// console.log("Rows dataset init", dataset.numRows);
 			for (let section of sectionData) {
 				rows++;
 			}
 
 			dataset.numRows = rows;
+			// y
+
 			await this.saveDataset(id, dataset, sectionData); // Await saveDataset() call
 			return Array.from(this.datasets.keys());
 		} catch (error) {
@@ -153,9 +183,9 @@ export default class InsightFacade implements IInsightFacade {
 			});
 	}
 
+	// ChatGPT
 	private isValidId(id: string): boolean {
-        // Taken from interface
-		return /^[^\s_]+$/.test(id);
+		return /^[^\s_][^_]*[^\s_]$/.test(id.trim());
 	}
 
 	private isValidSection(section: any): boolean {
@@ -200,7 +230,7 @@ export default class InsightFacade implements IInsightFacade {
 						const dataset = new Dataset(id, content, kind);
 
 						// Add the dataset to datasets
-						// console.log("Last Set:", this.datasets);
+						// console.log("Last Set:", this.datasets.keys);
 						this.datasets.set(id, dataset);
 					} catch (error) {
 						console.error(`Failed to load dataset from file ${file}: ${error}`);
