@@ -40,7 +40,6 @@ export class QueryValidator {
 			!optionsObjectKeys.includes("COLUMNS")) {
 			return false;
 		}
-
 		const columns: any = optionsObject["COLUMNS"];
 
 		if (typeof columns !== "object" ||
@@ -71,14 +70,14 @@ export class QueryValidator {
 		}
 
 		const order = optionsObject["ORDER"];
-		if (typeof order !== "string") {
+		if (order && typeof order !== "string") {
 			return false;
 		}
 
-		if (!order.includes("_") ||
+		if (order && (!order.includes("_") ||
 			order.split("_").length !== 2 ||
 			this.idsArray[0] !== order.split("_")[0] ||
-			!cols.includes(order.split("_")[1])) {
+			!cols.includes(order.split("_")[1]))) {
 			return false;
 		}
 
@@ -108,9 +107,14 @@ export class QueryValidator {
 					return false;
 				}
 
-				for (const newObject of object[key]) {
-					objects.push(newObject);
+				if (key === "NOT") {
+					objects.push(object[key]);
+				} else {
+					for (const newObject of object[key]) {
+						objects.push(newObject);
+					}
 				}
+
 
 			} else if (
 				key === "GT" ||

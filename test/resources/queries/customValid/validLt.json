@@ -22,18 +22,18 @@
     "errorExpected": false,
     "expected": [
         {
-            "sections_dept": "lfs",
-            "sections_id": "100",
-            "sections_avg": 0
-        },
-        {
-            "sections_dept": "lfs",
-            "sections_id": "100",
-            "sections_avg": 0
-        },
-        {
             "sections_dept": "frst",
             "sections_id": "202",
+            "sections_avg": 0
+        },
+        {
+            "sections_dept": "lfs",
+            "sections_id": "100",
+            "sections_avg": 0
+        },
+        {
+            "sections_dept": "lfs",
+            "sections_id": "100",
             "sections_avg": 0
         }
     ]
