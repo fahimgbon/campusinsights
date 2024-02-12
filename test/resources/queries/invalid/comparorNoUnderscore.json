@@ -1,0 +1,29 @@
+{
+    "title": "compareor no underscore",
+    "input": {
+        "WHERE": {
+            "AND": [
+                {
+                    "LT": {
+                        "sectionsavg": 1
+                    }
+                },
+                {
+                    "GT": {
+                        "sections_avg": 100
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "sections_dept",
+                "sections_id",
+                "sections_avg"
+            ],
+            "ORDER": "sections_avg"
+        }
+    },
+    "errorExpected": true,
+    "expected": []
+}
