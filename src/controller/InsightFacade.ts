@@ -1,11 +1,19 @@
 import JSZip from "jszip";
 import fs from "fs-extra";
-import {InsightDatasetKind, IInsightFacade, InsightError, InsightDataset, InsightResult, NotFoundError} from
+import {
+	InsightDatasetKind,
+	IInsightFacade,
+	InsightError,
+	InsightDataset,
+	InsightResult,
+	NotFoundError,
+	ResultTooLargeError} from
 	"./IInsightFacade";
 import Section from "./Section";
 import Dataset from "./Dataset";
 import path from "path";
 import {QueryValidator} from "../performQuery/QueryValidator";
+import {ApplyQuery} from "../performQuery/ApplyQuery";
 
 const persistDir = "./data";
 
@@ -60,12 +68,16 @@ export default class InsightFacade implements IInsightFacade {
 		if(!isQueryValid) {
 			return Promise.reject(new InsightError("Insight Error: the query is not valid."));
 		}
-		const dataset = this.datasets.get(queryValidator.idsArray[0]);
-		if(!dataset) {
+		const sections = this.data.get(queryValidator.idsArray[0]);
+		if(!sections) {
 			return Promise.reject(new InsightError("Insight Error: dataset not found."));
 		}
-		const results: InsightResult[] = [];
-		return Promise.resolve(results);
+		const applyQuery = new ApplyQuery();
+		const results = applyQuery.getSections(sections, query);
+		if (!results) {
+			return Promise.reject(new ResultTooLargeError());
+		}
+		return Promise.resolve(results as InsightResult[]);
 	}
 
 	// worried may not work for multiple instances of insightafacade because i'm using datasets variable instead of json content
