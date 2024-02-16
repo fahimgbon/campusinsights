@@ -3,26 +3,20 @@ import Section from "../controller/Section";
 
 export class ApplyQuery {
 
-	public errorThrown = false;
-
-	public getSections(sections: Section[], query: any): object | string {
-		this.errorThrown = false;
+	public getSections(sections: Section[], query: any): object | null {
 
 		const whereObject = query.WHERE;
 		if (Object.keys(whereObject).length === 0) {
 			if (sections.length > 5000) {
-				return "resultTooLarge";
+				return null;
 			}
 			return this.makeInsightResult(sections, query.OPTIONS);
 		}
 
 		const sectionsFiltered = this.filterSections(sections, query.WHERE);
 
-		if (sections.length > 5000) {
-			return "resultTooLarge";
-		}
-		if(this.errorThrown) {
-			return "error";
+		if (sectionsFiltered.length > 5000) {
+			return null;
 		}
 		return this.makeInsightResult(sectionsFiltered, query.OPTIONS);
 	}
@@ -90,29 +84,10 @@ export class ApplyQuery {
 		throw new InsightError();
 	}
 
-	public IS(section: Section, currQuery: any) {
+	public IS(section: Section, currQuery: any): boolean {
 		const mainKey = Object.keys(currQuery.IS)[0];
 		const value = currQuery.IS[mainKey];
 		const valueOfSectionCol = (section as any)[mainKey.split("_")[1]];
-
-		if (value === "*" || value === "**") {
-			return true;
-		}
-
-		const charArray = [];
-
-		for(const char of value) {
-			charArray.push(char);
-		}
-
-		if (charArray.filter((char) => char === "*").length > 2) {
-			this.errorThrown = true;
-		}
-
-		if (charArray.filter((char) => char === "*").length === 2 &&
-		(!value.startsWith("*") || !value.endsWith("*"))) {
-			this.errorThrown = true;
-		}
 
 		if (value.startsWith("*") && value.endsWith("*")) {
 			return valueOfSectionCol.includes(value.substring(1, value.length - 1));
