@@ -95,7 +95,7 @@ export class ApplyQuery {
 		const value = currQuery.IS[mainKey];
 		const valueOfSectionCol = (section as any)[mainKey.split("_")[1]];
 
-		if (value === "*") {
+		if (value === "*" || value === "**") {
 			return true;
 		}
 
