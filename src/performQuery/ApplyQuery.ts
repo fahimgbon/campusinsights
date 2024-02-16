@@ -6,14 +6,12 @@ export class ApplyQuery {
 	public errorThrown = false;
 
 	public getSections(sections: Section[], query: any): object | string {
+		this.errorThrown = false;
 
 		const whereObject = query.WHERE;
 		if (Object.keys(whereObject).length === 0) {
 			if (sections.length > 5000) {
 				return "resultTooLarge";
-			}
-			if(this.errorThrown === true) {
-				return "error";
 			}
 			return this.makeInsightResult(sections, query.OPTIONS);
 		}
@@ -23,7 +21,7 @@ export class ApplyQuery {
 		if (sections.length > 5000) {
 			return "resultTooLarge";
 		}
-		if(this.errorThrown === true) {
+		if(this.errorThrown) {
 			return "error";
 		}
 		return this.makeInsightResult(sectionsFiltered, query.OPTIONS);
@@ -97,7 +95,7 @@ export class ApplyQuery {
 		const value = currQuery.IS[mainKey];
 		const valueOfSectionCol = (section as any)[mainKey.split("_")[1]];
 
-		if (value === "*" || value === "**") {
+		if (value === "*") {
 			return true;
 		}
 
@@ -112,7 +110,7 @@ export class ApplyQuery {
 		}
 
 		if (charArray.filter((char) => char === "*").length === 2 &&
-		(charArray[0] !== "*" || charArray[charArray.length - 1] !== "*")) {
+		(!value.startsWith("*") || !value.endsWith("*"))) {
 			this.errorThrown = true;
 		}
 
