@@ -74,11 +74,8 @@ export default class InsightFacade implements IInsightFacade {
 		}
 		const applyQuery = new ApplyQuery();
 		const results = applyQuery.getSections(sections, query);
-		if (results === "resultTooLarge") {
+		if (!results) {
 			return Promise.reject(new ResultTooLargeError());
-		}
-		if (results === "error") {
-			return Promise.reject(new InsightError());
 		}
 		return Promise.resolve(results as InsightResult[]);
 	}
