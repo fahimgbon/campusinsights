@@ -1,8 +1,13 @@
 {
-    "title": "or is empty",
+    "title": "compare operator 0 keys",
     "input": {
         "WHERE": {
-            "OR": []
+            "OR": [
+                {
+                    "GT": {   
+                    }
+                }
+            ]
         },
         "OPTIONS": {
             "COLUMNS": [

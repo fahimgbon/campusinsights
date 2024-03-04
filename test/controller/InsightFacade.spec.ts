@@ -33,6 +33,9 @@ interface GeoResponse {
 
 }
 
+const notFoundError = new NotFoundError();
+const resultTooLargeError = new ResultTooLargeError();
+
 // describe("InsightFacade", function () {
 // 	let facade: IInsightFacade;
 
@@ -797,7 +800,6 @@ describe("invalid queries", function() {
 				expect.fail("Failed to reject invalid query");
 
 			}).catch((error: any) => {
-
 				expect(error).to.be.instanceOf(InsightError);
 
 			});

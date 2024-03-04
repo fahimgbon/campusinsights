@@ -1,8 +1,8 @@
 {
-    "title": "or",
+    "title": "two underscores in col name",
     "input": {
         "WHERE": {
-            "OR": [
+            "AND": [
                 {
                     "LT": {
                         "sections_avg": 1
@@ -17,29 +17,13 @@
         },
         "OPTIONS": {
             "COLUMNS": [
-                "sections_dept",
+                "sections_dept_123",
                 "sections_id",
                 "sections_avg"
             ],
             "ORDER": "sections_avg"
         }
     },
-    "errorExpected": false,
-    "expected": [
-        {
-            "sections_dept": "frst",
-            "sections_id": "202",
-            "sections_avg": 0
-        },
-        {
-            "sections_dept": "lfs",
-            "sections_id": "100",
-            "sections_avg": 0
-        },
-        {
-            "sections_dept": "lfs",
-            "sections_id": "100",
-            "sections_avg": 0
-        }
-    ]
+    "errorExpected": true,
+    "expected": []
 }

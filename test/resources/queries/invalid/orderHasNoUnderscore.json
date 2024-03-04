@@ -1,8 +1,8 @@
 {
-    "title": "or",
+    "title": "order has no underscore",
     "input": {
         "WHERE": {
-            "OR": [
+            "AND": [
                 {
                     "LT": {
                         "sections_avg": 1
@@ -21,25 +21,9 @@
                 "sections_id",
                 "sections_avg"
             ],
-            "ORDER": "sections_avg"
+            "ORDER": "sectionsavg"
         }
     },
-    "errorExpected": false,
-    "expected": [
-        {
-            "sections_dept": "frst",
-            "sections_id": "202",
-            "sections_avg": 0
-        },
-        {
-            "sections_dept": "lfs",
-            "sections_id": "100",
-            "sections_avg": 0
-        },
-        {
-            "sections_dept": "lfs",
-            "sections_id": "100",
-            "sections_avg": 0
-        }
-    ]
+    "errorExpected": true,
+    "expected": []
 }

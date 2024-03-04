@@ -1,6 +1,13 @@
 import JSZip from "jszip";
 import fs from "fs-extra";
-import {InsightDatasetKind, IInsightFacade, InsightError, InsightDataset, InsightResult, NotFoundError} from
+import {
+	InsightDatasetKind,
+	IInsightFacade,
+	InsightError,
+	InsightDataset,
+	InsightResult,
+	NotFoundError,
+	ResultTooLargeError} from
 	"./IInsightFacade";
 import Section from "./Section";
 import Dataset from "./Dataset";
@@ -9,7 +16,8 @@ import {KindProcessor} from "./KindProcessor";
 import SectionProcessor from "./SectionProcessor";
 import RoomProcessor from "./RoomProcessor";
 import Room from "./Room";
-
+import {QueryValidator} from "../performQuery/QueryValidator";
+import {ApplyQuery} from "../performQuery/ApplyQuery";
 
 const persistDir = "./data";
 
@@ -60,7 +68,21 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 	public performQuery(query: unknown): Promise<InsightResult[]> {
-		throw new Error("Method not implemented.");
+		const queryValidator = new QueryValidator();
+		const isQueryValid = queryValidator.isQueryValid(query);
+		if(!isQueryValid) {
+			return Promise.reject(new InsightError("Insight Error: the query is not valid."));
+		}
+		const sections = this.data.get(queryValidator.idsArray[0]);
+		if(!sections) {
+			return Promise.reject(new InsightError("Insight Error: dataset not found."));
+		}
+		const applyQuery = new ApplyQuery();
+		const results = applyQuery.getSections(sections, query);
+		if (!results) {
+			return Promise.reject(new ResultTooLargeError());
+		}
+		return Promise.resolve(results as InsightResult[]);
 	}
 
 	// worried may not work for multiple instances of insightafacade because i'm using datasets variable instead of json content
