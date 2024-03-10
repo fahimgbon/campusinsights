@@ -97,8 +97,9 @@ export default class Room {
 		this.name = this.shortname + "_" + number; // Updates the name as well
 	}
 
+
 	public setName(shortname: string, number: string): void {
-		this.number = shortname + "_" + number;
+		this.name = shortname + "_" + number;
 	}
 
 	public setSeats(seats: number): void {

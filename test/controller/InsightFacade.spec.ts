@@ -15,6 +15,8 @@ import {clearDisk, getContentFromArchives, readFileQueries} from "../TestUtil";
 import Dataset from "../../src/controller/Dataset";
 import Section from "../../src/controller/Section";
 import Room from "../../src/controller/Room";
+import RoomProcessor from "../../src/controller/RoomProcessor";
+import JSZip from "jszip";
 
 
 use(chaiAsPromised);
@@ -963,9 +965,9 @@ describe("Room Class", function() {
 	});
 
 	it("should set and get shortname and update name", function() {
-		room.setShortname("ANGU");
-		expect(room.getShortname()).to.equal("ANGU");
-		expect(room.getName()).to.equal("ANGU_098");
+		room.setShortname("ALRD");
+		expect(room.getShortname()).to.equal("ALRD");
+		expect(room.getName()).to.equal("ALRD_347");
 	});
 
 	it("should set and get number and update name", function() {
@@ -1018,3 +1020,358 @@ describe("Room Class", function() {
 	});
 });
 
+// describe("RoomProcessor", function() {
+// 	let insightFacade: InsightFacade;
+// 	let roomProcessor: RoomProcessor;
+
+// 	beforeEach(async function () {
+// 		await clearDisk();
+// 		insightFacade = new InsightFacade();
+// 		roomProcessor = new RoomProcessor(insightFacade);
+// 	});
+
+// 	it("should process valid zip contents", async function() {
+// 		const content = await getContentFromArchives("campus.zip");
+// 		const zipContents = await JSZip.loadAsync(content, {base64: true});
+// 		const idString = "rooms";
+// 		const kind = InsightDatasetKind.Rooms;
+
+// 		await roomProcessor.processZipContents(idString, kind, zipContents)
+// 			.then((result: string[]) => {
+// 				expect(result).to.include(idString);
+// 			})
+// 			.catch((error: any) => {
+// 				expect.fail(error, "Should not have rejected");
+// 			});
+// 	});
+
+// 	it("should not process invalid zip contents", async function() {
+// 		const content = await getContentFromArchives("invalid.zip");
+// 		const zipContents = await JSZip.loadAsync(content, {base64: true});
+// 		const idString = "rooms";
+// 		const kind = InsightDatasetKind.Rooms;
+
+// 		await roomProcessor.processZipContents(idString, kind, zipContents)
+// 			.then((result: string[]) => {
+// 				expect.fail(result, "Should have rejected");
+// 			})
+// 			.catch((error: any) => {
+// 				expect(error).to.be.instanceOf(InsightError);
+// 			});
+// 	});
+
+// 	it("should not process zip contents of wrong kind", async function() {
+// 		const content = await getContentFromArchives("campus.zip");
+// 		const zipContents = await JSZip.loadAsync(content, {base64: true});
+// 		const idString = "rooms";
+// 		const kind = InsightDatasetKind.Sections; // Wrong kind
+
+// 		await roomProcessor.processZipContents(idString, kind, zipContents)
+// 			.then((result: string[]) => {
+// 				expect.fail(result, "Should have rejected");
+// 			})
+// 			.catch((error: any) => {
+// 				expect(error).to.be.instanceOf(InsightError);
+// 			});
+// 	});
+
+// 	it("should handle invalid HTML in zip contents", async function() {
+// 		const content = await getContentFromArchives("invalid_html.zip"); // Zip file with invalid HTML
+// 		const zipContents = await JSZip.loadAsync(content, {base64: true});
+// 		const idString = "rooms";
+// 		const kind = InsightDatasetKind.Rooms;
+
+// 		await roomProcessor.processZipContents(idString, kind, zipContents)
+// 			.then((result: string[]) => {
+// 				expect.fail(result, "Should have rejected");
+// 			})
+// 			.catch((error: any) => {
+// 				expect(error).to.be.instanceOf(InsightError);
+// 			});
+// 	});
+
+// 	it("should handle geolocation service errors", async function() {
+// 		const content = await getContentFromArchives("campus.zip");
+// 		const zipContents = await JSZip.loadAsync(content, {base64: true});
+// 		const idString = "rooms";
+// 		const kind = InsightDatasetKind.Rooms;
+
+//         // Mock the fetchGeolocation method to simulate a geolocation service error
+// 		sinon.stub(roomProcessor, "fetchGeolocation").rejects(new Error("Geolocation service error"));
+
+// 		await roomProcessor.processZipContents(idString, kind, zipContents)
+// 			.then((result: string[]) => {
+// 				expect.fail(result, "Should have rejected");
+// 			})
+// 			.catch((error: any) => {
+// 				expect(error).to.be.instanceOf(InsightError);
+// 			});
+// 	});
+
+// 	it("should parse valid index file", async function() {
+// 		const content = await getContentFromArchives("index.htm");
+// 		const file = await JSZip.file(content);
+
+// 		const buildings = await roomProcessor.parseIndexFile(file);
+// 		expect(buildings).to.be.an("array").that.is.not.empty;
+// 	});
+
+// 	it("should not parse invalid index file", async function() {
+// 		const content = await getContentFromArchives("invalid.htm");
+// 		const file = await JSZip.file(content);
+
+// 		await roomProcessor.parseIndexFile(file)
+// 			.then((result: any) => {
+// 				expect.fail(result, "Should have rejected");
+// 			})
+// 			.catch((error: any) => {
+// 				expect(error).to.be.instanceOf(InsightError);
+// 			});
+// 	});
+
+// 	it("should fetch valid geolocation", async function() {
+// 		const address = "2329 West Mall, Vancouver, BC, Canada";
+// 		const geolocation = await roomProcessor.fetchGeolocation(address);
+
+// 		expect(geolocation).to.have.property("lat");
+// 		expect(geolocation).to.have.property("lon");
+// 	});
+
+// 	it("should not fetch invalid geolocation", async function() {
+// 		const address = "Invalid Address";
+
+// 		await roomProcessor.fetchGeolocation(address)
+// 			.then((result: any) => {
+// 				expect.fail(result, "Should have rejected");
+// 			})
+// 			.catch((error: any) => {
+// 				expect(error).to.be.instanceOf(InsightError);
+// 			});
+// 	});
+
+// 		it("should find a node that satisfies a condition", function() {
+// 			const node = {
+// 				nodeName: "div",
+// 				attrs: [{name: "class", value: "view-content"}],
+// 				childNodes: []
+// 			};
+// 			const condition = (node: any) => node.nodeName === "div";
+// 			const result = roomProcessor.findNode(node, condition);
+
+// 			expect(result).to.equal(node);
+// 		});
+
+// 		it("should not find a node if no node satisfies the condition", function() {
+// 			const node = {
+// 				nodeName: "div",
+// 				attrs: [{name: "class", value: "view-content"}],
+// 				childNodes: []
+// 			};
+// 			const condition = (node: any) => node.nodeName === "span";
+// 			const result = roomProcessor.findNode(node, condition);
+
+// 			expect(result).to.be.null;
+// 		});
+
+// 		it("should find nodes that satisfy a condition", function() {
+// 			const node = {
+// 				nodeName: "div",
+// 				attrs: [{name: "class", value: "view-content"}],
+// 				childNodes: [
+// 					{nodeName: "span", attrs: [], childNodes: []},
+// 					{nodeName: "div", attrs: [], childNodes: []}
+// 				]
+// 			};
+// 			const condition = (node: any) => node.nodeName === "div";
+// 			const result = roomProcessor.findNodes(node, condition);
+
+// 			expect(result).to.have.lengthOf(2);
+// 		});
+
+// 		it("should not find nodes if no nodes satisfy the condition", function() {
+// 			const node = {
+// 				nodeName: "div",
+// 				attrs: [{name: "class", value: "view-content"}],
+// 				childNodes: [
+// 					{nodeName: "span", attrs: [], childNodes: []},
+// 					{nodeName: "div", attrs: [], childNodes: []}
+// 				]
+// 			};
+// 			const condition = (node: any) => node.nodeName === "p";
+// 			const result = roomProcessor.findNodes(node, condition);
+
+// 			expect(result).to.be.empty;
+// 		});
+// 		describe("RoomProcessor", function() {
+// 			let insightFacade: InsightFacade;
+// 			let roomProcessor: RoomProcessor;
+
+// 			beforeEach(async function () {
+// 				await clearDisk();
+// 				insightFacade = new InsightFacade();
+// 				roomProcessor = new RoomProcessor(insightFacade);
+// 			});
+
+// 			// ...
+
+// 			it("should check if a node has a class", function() {
+// 				const node = {
+// 					nodeName: "div",
+// 					attrs: [{name: "class", value: "view-content"}],
+// 					childNodes: []
+// 				};
+// 				const result = roomProcessor.hasClass(node, "view-content");
+
+// 				expect(result).to.be.true;
+// 			});
+
+// 			it("should get href attribute of a node", function() {
+// 				const node = {
+// 					nodeName: "a",
+// 					attrs: [{name: "href", value: "/index.htm"}],
+// 					childNodes: []
+// 				};
+// 				const result = roomProcessor.getHref(node);
+
+// 				expect(result).to.equal("/index.htm");
+// 			});
+
+// 			it("should get text content of a node", function() {
+// 				const node = {
+// 					nodeName: "#text",
+// 					value: "Hello, world!",
+// 					childNodes: []
+// 				};
+// 				const result = roomProcessor.getTextContent(node);
+
+// 				expect(result).to.equal("Hello, world!");
+// 			});
+
+// 			it("should find a table in a node", function() {
+// 				const node = {
+// 					nodeName: "div",
+// 					attrs: [{name: "class", value: "view-content"}],
+// 					childNodes: [
+// 						{nodeName: "table", attrs: [{name: "class", value: "views-table cols-5 table"}], childNodes: []}
+// 					]
+// 				};
+// 				const result = roomProcessor.findTable(node);
+
+// 				expect(result).to.equal(node.childNodes[0]);
+// 			});
+
+// 			it("should find rows in a table", function() {
+// 				const node = {
+// 					nodeName: "table",
+// 					attrs: [{name: "class", value: "views-table cols-5 table"}],
+// 					childNodes: [
+// 						{nodeName: "tbody", attrs: [], childNodes: [
+// 							{nodeName: "tr", attrs: [], childNodes: []},
+// 							{nodeName: "tr", attrs: [], childNodes: []}
+// 						]}
+// 					]
+// 				};
+// 				const result = roomProcessor.findRows(node);
+
+// 				expect(result).to.have.lengthOf(2);
+// 			});
+
+// 			it("should check if a node is a building table", function() {
+// 				const node = {
+// 					nodeName: "table",
+// 					attrs: [{name: "class", value: "views-table cols-5 table"}],
+// 					childNodes: []
+// 				};
+// 				const result = roomProcessor.isBuildingTable(node);
+
+// 				expect(result).to.be.true;
+// 			});
+
+// 			it("should create a room from a row", async function() {
+// 				const row = {
+// 					nodeName: "tr",
+// 					attrs: [],
+// 					childNodes: [
+// 						{nodeName: "td", attrs: [{name: "class", value: "views-field views-field-field-building-code"}], childNodes: [
+// 							{nodeName: "#text", value: "DMP", childNodes: []}
+// 						]},
+// 						// Add more td nodes here for other room properties
+// 					]
+// 				};
+// 				const longname = "Hugh Dempster Pavilion";
+// 				const shortname = "DMP";
+
+// 				const room = await roomProcessor.createRoom(row, longname, shortname);
+
+// 				expect(room).to.be.an.instanceOf(Room);
+// 				expect(room.shortname).to.equal("DMP");
+// 				// Add more assertions here for other room properties
+// 			});
+
+// 		});
+
+describe("RoomProcessor", function() {
+	let insightFacade: InsightFacade;
+	let roomProcessor: RoomProcessor;
+
+	beforeEach(async function () {
+		await clearDisk();
+		insightFacade = new InsightFacade();
+		roomProcessor = new RoomProcessor(insightFacade);
+	});
+
+	it("should add room dataset with valid idString", async function() {
+
+		const content = await getContentFromArchives("campus.zip");
+		const idString = "ubc";
+		const expected: string[] = [idString];
+
+		await insightFacade.addDataset(idString, content, InsightDatasetKind.Rooms).then((result: string[]) => {
+			expect(result).to.deep.equal(expected);
+		}).catch((error: any) => {
+			expect.fail(error, expected, "Should not have rejected");
+		});
+
+		await insightFacade.listDatasets().then((result: InsightDataset[]) => {
+			expect(result).to.have.lengthOf(1);
+		});
+	});
+	// it("should process valid zip contents", async function() {
+	// 	const content = await getContentFromArchives("campus.zip");
+	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
+	// 	const idString = "rooms";
+	// 	const kind = InsightDatasetKind.Rooms;
+
+	// 	await roomProcessor.processZipContents(idString, kind, zipContents)
+	// 		.then((result: string[]) => {
+	// 			expect(result).to.include(idString);
+	// 		})
+	// 		.catch((error: any) => {
+	// 			expect.fail(error, "Should not have rejected");
+	// 		});
+	// });
+
+	// it("should parse valid index file", async function() {
+	// 	const content = await getContentFromArchives("campus.zip");
+	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
+	// 	const file = zipContents.file("index.htm");
+
+	// 	if (file) {
+	// 		const buildings = await roomProcessor.parseIndexFile(file);
+	// 		expect(buildings).to.be.an("array").that.is.not.empty;
+	// 	} else {
+	// 		expect.fail("index.htm file not found in zip");
+	// 	}
+	// });
+
+
+	// it("should parse and save rooms from valid building files", async function() {
+	// 	const content = await getContentFromArchives("campus.zip");
+	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
+	// 	const idString = "rooms";
+	// 	const buildingFiles = zipContents.folder("buildings").file(/\.htm$/);
+
+	// 	const roomData = await roomProcessor.parseAndSaveRooms(idString, buildingFiles);
+	// 	expect(roomData).to.be.an("array").that.is.not.empty;
+	// });
+});
