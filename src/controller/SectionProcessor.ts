@@ -19,7 +19,6 @@ export default class SectionProcessor implements KindProcessor {
 		}
 
 		let folderName = "courses/";
-		// files is of type JSZip.JSZipObject[] - ChatGPT:
 		let files = zipContents.folder(folderName)?.file(/.*/);
 
 		if (!files || files.length === 0) {
@@ -59,7 +58,6 @@ export default class SectionProcessor implements KindProcessor {
 			}
 
 			dataset.numRows = rows;
-			// y
 
 			await this.insightFacade.saveDataset(id, dataset, sectionData); // Await saveDataset() call
 			return Array.from(this.insightFacade.datasets.keys());

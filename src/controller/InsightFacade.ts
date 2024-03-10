@@ -113,6 +113,7 @@ export default class InsightFacade implements IInsightFacade {
 				let processor: KindProcessor;
 				if (kind === InsightDatasetKind.Rooms) {
 					processor = new RoomProcessor(this); // ChatGPT - Passing a reference to the InsightFacade instance to the class so I can modify the data/datasets variables
+					// console.log("!!! Processor:", processor);
 				} else if (kind === InsightDatasetKind.Sections) {
 					processor = new SectionProcessor(this);
 				} else {
