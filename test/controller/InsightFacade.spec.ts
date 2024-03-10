@@ -14,6 +14,8 @@ import chaiAsPromised from "chai-as-promised";
 import {clearDisk, getContentFromArchives, readFileQueries} from "../TestUtil";
 import Dataset from "../../src/controller/Dataset";
 import Section from "../../src/controller/Section";
+import Room from "../../src/controller/Room";
+
 
 use(chaiAsPromised);
 
@@ -22,6 +24,13 @@ export interface ITestQuery {
 	input: unknown;
 	errorExpected: boolean;
 	expected: any;
+}
+
+interface GeoResponse {
+    lat?: number;
+    lon?: number;
+    error?: string;
+
 }
 
 const notFoundError = new NotFoundError();
@@ -159,6 +168,7 @@ describe("Add Datasets", function() {
 		});
 	});
 
+	// !!! This should fail once done
 	it("should not add dataset with rooms kind", async function() {
 
 		const content = await getContentFromArchives("courses_valid.zip");
@@ -925,6 +935,86 @@ describe("Section Class", function() {
 
 	it("should check audit count", function() {
 		expect(section.getAudit()).to.equal(5);
+	});
+});
+
+describe("Room Class", function() {
+	let room: Room;
+
+	beforeEach(function () {
+		room = new Room(
+			"Henry Angus Building",
+			"ANGU",
+			"347",
+			"ANGU_347",
+			70,
+			"Classroom",
+			"Fixed Tables",
+			"2053 Main Mall, Vancouver, BC V6T 1Z2",
+			49.26486,
+			-123.25364,
+			"https://learningspaces.ubc.ca/classrooms/angu-347"
+		);
+	});
+
+	it("should set and get fullname", function() {
+		room.setFullname("Henry Angus Building");
+		expect(room.getFullname()).to.equal("Henry Angus Building");
+	});
+
+	it("should set and get shortname and update name", function() {
+		room.setShortname("ANGU");
+		expect(room.getShortname()).to.equal("ANGU");
+		expect(room.getName()).to.equal("ANGU_098");
+	});
+
+	it("should set and get number and update name", function() {
+		room.setNumber("098");
+		expect(room.getNumber()).to.equal("098");
+		expect(room.getName()).to.equal("ANGU_098");
+	});
+
+	it("should set and get name", function() {
+		const shortname = "ANGU";
+		const number = "098";
+
+		room.setName(shortname, number);
+		expect(room.getName()).to.equal("ANGU_098");
+	});
+
+	it("should set and get seats", function() {
+		room.setSeats(260);
+		expect(room.getSeats()).to.equal(260);
+	});
+
+	it("should set and get type", function() {
+		room.setType("Classroom");
+		expect(room.getType()).to.equal("Classroom");
+	});
+
+	it("should set and get furniture", function() {
+		room.setFurniture("Fixed Tables");
+		expect(room.getFurniture()).to.equal("Fixed Tables");
+	});
+
+	it("should set and get address", function() {
+		room.setAddress("2053 Main Mall, Vancouver, BC V6T 1Z2");
+		expect(room.getAddress()).to.equal("2053 Main Mall, Vancouver, BC V6T 1Z2");
+	});
+
+	it("should set and get latitude", function() {
+		room.setLat(49.26486);
+		expect(room.getLat()).to.equal(49.26486);
+	});
+
+	it("should set and get longitude", function() {
+		room.setLon(-123.25364);
+		expect(room.getLon()).to.equal(-123.25364);
+	});
+
+	it("should set and get href", function() {
+		room.setHref("https://learningspaces.ubc.ca/classrooms/angu-098");
+		expect(room.getHref()).to.equal("https://learningspaces.ubc.ca/classrooms/angu-098");
 	});
 });
 

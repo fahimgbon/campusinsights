@@ -12,6 +12,10 @@ import {
 import Section from "./Section";
 import Dataset from "./Dataset";
 import path from "path";
+import {KindProcessor} from "./KindProcessor";
+import SectionProcessor from "./SectionProcessor";
+import RoomProcessor from "./RoomProcessor";
+import Room from "./Room";
 import {QueryValidator} from "../performQuery/QueryValidator";
 import {ApplyQuery} from "../performQuery/ApplyQuery";
 
@@ -19,8 +23,9 @@ const persistDir = "./data";
 
 export default class InsightFacade implements IInsightFacade {
 	// private static datasets: Map<string, Dataset> = new Map<string, Dataset>();
-	private datasets: Map<string, Dataset>;
-	private data: Map<string, Section[]>; // data in content param is the most complicated; helpful to have access to
+	public datasets: Map<string, Dataset>;
+	// public data: Map<string, Section[]>; // data in content param is the most complicated; helpful to have access to
+	public data: Map<string, (Section[] | Room[])>;
 
 	constructor() {
 		this.datasets = new Map<string, Dataset>();
@@ -104,125 +109,29 @@ export default class InsightFacade implements IInsightFacade {
 
 		let zip = new JSZip();
 		return zip.loadAsync(content, {base64: true})
-			.then((unzippedContents: JSZip) => this.processZipContents(id, kind, unzippedContents))
+			.then((unzippedContents: JSZip) => {
+				let processor: KindProcessor;
+				if (kind === InsightDatasetKind.Rooms) {
+					processor = new RoomProcessor(this); // ChatGPT - Passing a reference to the InsightFacade instance to the class so I can modify the data/datasets variables
+				} else if (kind === InsightDatasetKind.Sections) {
+					processor = new SectionProcessor(this);
+				} else {
+					return Promise.reject(new InsightError("Invalid kind"));
+				}
+				return processor.processZipContents(id, kind, unzippedContents);
+			})
 			.catch((error) => {
 				return Promise.reject(new InsightError(error));
 			});
 	}
 
-	private processZipContents(id: string, kind: InsightDatasetKind, zipContents: JSZip): Promise<string[]> {
-		if (kind !== InsightDatasetKind.Sections) {
-			return Promise.reject(new InsightError("Invalid kind"));
-		}
-
-		let folderName = "courses/";
-		// files is of type JSZip.JSZipObject[] - ChatGPT:
-		let files = zipContents.folder(folderName)?.file(/.*/);
-
-		if (!files || files.length === 0) {
-			return Promise.reject(new InsightError("Empty or invalid folder"));
-		}
-
-		return this.parseAndSaveSections(id, files);
-	}
-
-	private async parseAndSaveSections(id: string, files: JSZip.JSZipObject[]): Promise<string[]> {
-		let sectionData: Section[] = [];
-		let parseFilePromises: Array<Promise<void>> = [];
-
-		for (let file of files) {
-			parseFilePromises.push(this.parseFileContent(file, sectionData));
-			// console.log("id:", id);
-			// console.log("file:", file);
-			// console.log("Section Data", sectionData);
-		}
-
-		try {
-			await Promise.all(parseFilePromises);
-
-			if (sectionData.length === 0) {
-				throw new InsightError("No valid section found");
-			}
-
-			let dataset = new Dataset(id, JSON.stringify(sectionData), InsightDatasetKind.Sections);
-			this.datasets.set(id, dataset);
-			this.data.set(id, sectionData);
-
-			let rows = 0;
-			// console.log("Rows init", rows);
-			// console.log("Rows dataset init", dataset.numRows);
-			for (let section of sectionData) {
-				rows++;
-			}
-
-			dataset.numRows = rows;
-			// y
-
-			await this.saveDataset(id, dataset, sectionData); // Await saveDataset() call
-			return Array.from(this.datasets.keys());
-		} catch (error) {
-			throw new InsightError(`Failed to parse and save sections: ${error}`);
-		}
-	}
-
-	private parseFileContent(file: JSZip.JSZipObject, sectionData: Section[]): Promise<void> {
-		return file.async("text")
-			.then((text: string) => {
-				// console.log("Text:", text);
-				let json = JSON.parse(text);
-				if (!("result" in json) || !Array.isArray(json.result)) {
-					throw new InsightError("Invalid file format: 'result' field missing or not an array");
-				}
-				let result = json.result;
-				// console.log("Result:", result);
-
-				// checks every element of result array, ie every section
-				// if (result.length > 0) {
-				for (let section of result) {
-					// console.log("Section:", section);
-					// console.log("Professor1:", section.Professor);
-					if (this.isValidSection(section)) {
-						// console.log("Professor2:", section.Professor);
-						let newSection = new Section(
-							section.id,
-							section.Course,
-							section.Title,
-							section.Professor,
-							section.Subject,
-							section.Year,
-							section.Avg,
-							section.Pass,
-							section.Fail,
-							section.Audit
-						);
-						// console.log("NewSection:", newSection);
-						// Add the section to sectionData
-						sectionData.push(newSection);
-					}
-				}
-				// } else {
-				// 	throw new InsightError("Nothing in the result key"); // !!! Necessary check?
-				// }
-			});
-	}
 
 	// ChatGPT
-	private isValidId(id: string): boolean {
+	public isValidId(id: string): boolean {
 		return /^[^\s_][^_]*[^\s_]$/.test(id.trim());
 	}
 
-	private isValidSection(section: any): boolean {
-        // A section is valid if it contains every field which can be used by a query and !!! if they are the correct types (should i check?)
-		let fields = ["id", "Course", "Title", "Professor", "Subject", "Year", "Avg", "Pass", "Fail", "Audit"];
-		for (let field of fields) {
-			if (!(field in section)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	private async loadDatasets(): Promise<void> {
+	public async loadDatasets(): Promise<void> {
 		try {
 			// Check if the data directory exists
 			const exists = await fs.promises.access(persistDir, fs.constants.F_OK)
@@ -265,7 +174,7 @@ export default class InsightFacade implements IInsightFacade {
 		}
 	}
 
-	private async saveDataset(id: string, dataset: Dataset, data: Section[]): Promise<void> {
+	public async saveDataset(id: string, dataset: Dataset, data: (Section[] | Room[])): Promise<void> {
 		try {
 			// Ensure the data directory exists
 			await fs.promises.mkdir(persistDir, {recursive: true});
@@ -290,4 +199,5 @@ export default class InsightFacade implements IInsightFacade {
 	}
 
 }
+
 
