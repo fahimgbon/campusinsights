@@ -73,16 +73,18 @@ export default class InsightFacade implements IInsightFacade {
 		if(!isQueryValid) {
 			return Promise.reject(new InsightError("Insight Error: the query is not valid."));
 		}
-		const sections = this.data.get(queryValidator.idsArray[0]);
-		if(!sections) {
+		const sectionsOrRooms = this.data.get(queryValidator.idsArray[0]);
+		if(!sectionsOrRooms) {
 			return Promise.reject(new InsightError("Insight Error: dataset not found."));
 		}
-		const applyQuery = new ApplyQuery();
-		const results = applyQuery.getSections(sections, query);
-		if (!results) {
-			return Promise.reject(new ResultTooLargeError());
-		}
-		return Promise.resolve(results as InsightResult[]);
+
+		return Promise.resolve([]);
+		// const applyQuery = new ApplyQuery();
+		// const results = applyQuery.getSections(sections, query);
+		// if (!results) {
+		// 	return Promise.reject(new ResultTooLargeError());
+		// }
+		// return Promise.resolve(results as InsightResult[]);
 	}
 
 	// worried may not work for multiple instances of insightafacade because i'm using datasets variable instead of json content

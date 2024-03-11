@@ -2,12 +2,16 @@ export class QueryValidator {
 
 	public idsArray: string[] = [];
 	public fieldsArray: string[] = ["avg", "pass", "fail", "audit",
-		"year", "dept", "id", "instructor", "title", "uuid"];
+		"year", "dept", "id", "instructor", "title", "uuid", "lat", "lon", "seats",
+		"fullname", "shortname", "number", "name", "address", "type", "furniture", "href"];
+
+	public newCols: any[] = [];
 
 	public isQueryValid(query: any): boolean {
+
 		const mainKeys = Object.keys(query as object);
 		if (mainKeys.length < 2 ||
-			mainKeys.length > 2 ||
+			mainKeys.length > 3 ||
 			!mainKeys.includes("WHERE") ||
 			!mainKeys.includes("OPTIONS") ||
 			typeof query.OPTIONS !== "object" ||
@@ -16,15 +20,26 @@ export class QueryValidator {
 			return false;
 		}
 
-		const areOptionsValid = this.areOptionsValid(query);
-
-		if (!areOptionsValid) {
-			return false;
-		}
-
 		const isWhereValid = this.isWhereValid(query);
 
 		if (!isWhereValid) {
+			return false;
+		}
+
+		if (mainKeys.length === 3 && !mainKeys.includes("TRANSFORMATIONS")) {
+			return false;
+		}
+
+		if (mainKeys.includes("TRANSFORMATIONS")) {
+			const areTransfomrationsValid = this.areTransformationsValid(query);
+			if(!areTransfomrationsValid) {
+				return false;
+			}
+		}
+
+		const areOptionsValid = this.areOptionsValid(query);
+
+		if (!areOptionsValid) {
 			return false;
 		}
 
@@ -50,17 +65,20 @@ export class QueryValidator {
 		const cols = [];
 		for(const column of columns) {
 			let currKey = column.split("_");
-			if (!column.includes("_") || currKey.length > 2) {
-				return false;
-			}
-			if (!this.idsArray.includes(currKey[0])) {
-				this.idsArray.push(currKey[0]);
-			}
-			if (this.idsArray.length > 1) {
-				return false;
-			}
-			if (!this.fieldsArray.includes(currKey[1])) {
-				return false;
+
+			if(!this.newCols.includes(column)) {
+				if (!column.includes("_") || currKey.length > 2) {
+					return false;
+				}
+				if (!this.idsArray.includes(currKey[0])) {
+					this.idsArray.push(currKey[0]);
+				}
+				if (this.idsArray.length > 1) {
+					return false;
+				}
+				if (!this.fieldsArray.includes(currKey[1])) {
+					return false;
+				}
 			}
 			cols.push(currKey[1]);
 		}
@@ -70,15 +88,52 @@ export class QueryValidator {
 		}
 
 		const order = optionsObject["ORDER"];
-		if (order && typeof order !== "string") {
+
+		return this.isOrderValid(order, cols);
+	}
+
+	public isOrderValid(order: any, cols: any) {
+		if (order && (typeof order !== "string" && typeof order !== "object")) {
 			return false;
 		}
 
-		if (order && (!order.includes("_") ||
+		if (typeof order === "string") {
+			if (order && (!order.includes("_") ||
 			order.split("_").length !== 2 ||
 			this.idsArray[0] !== order.split("_")[0] ||
 			!cols.includes(order.split("_")[1]))) {
-			return false;
+				return false;
+			}
+		} else {
+			if (!Object.keys(order).includes("keys") || !Object.keys(order).includes("dir")) {
+				return false;
+			}
+
+
+			if(typeof order.dir !== "string" ||
+				(order.dir !== "DOWN" && order.dir !== "UP")) {
+				return false;
+			}
+
+
+			for(const column of order.keys) {
+				let currKey = column.split("_");
+
+				if(!this.newCols.includes(column)) {
+					if (!column.includes("_") || currKey.length > 2) {
+						return false;
+					}
+					if (!this.idsArray.includes(currKey[0])) {
+						this.idsArray.push(currKey[0]);
+					}
+					if (this.idsArray.length > 1) {
+						return false;
+					}
+					if (!this.fieldsArray.includes(currKey[1])) {
+						return false;
+					}
+				}
+			}
 		}
 
 		return true;
@@ -166,6 +221,106 @@ export class QueryValidator {
 			}
 		} else if (key === "IS") {
 			if (typeof value !== "string") {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	public areTransformationsValid(query: any) {
+
+
+		if (typeof query.TRANSFORMATIONS !== "object") {
+			return false;
+		}
+
+		const transObject: any = query.TRANSFORMATIONS;
+
+		return this.validateApply(transObject) && this.validateGroup(transObject);
+
+	}
+
+	public validateGroup (transObject: any) {
+		const groupObject = transObject.GROUP;
+
+		if(!Array.isArray(groupObject) || groupObject.length === 0) {
+			return false;
+		}
+
+		for (const element of groupObject) {
+			if (typeof element !== "string") {
+				return false;
+			}
+
+			let currKey = element.split("_");
+			if (!element.includes("_") || currKey.length > 2) {
+				return false;
+			}
+			if (!this.idsArray.includes(currKey[0])) {
+				this.idsArray.push(currKey[0]);
+			}
+			if (this.idsArray.length > 1) {
+				return false;
+			}
+			if (!this.fieldsArray.includes(currKey[1])) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	public validateApply(transObject: any) {
+		const transObjectKeys = Object.keys(transObject);
+
+		if (!transObjectKeys.includes("APPLY") ||
+		!transObjectKeys.includes("APPLY") ||
+		transObjectKeys.length !== 2 ) {
+			return false;
+		}
+
+		const applyObject = transObject.APPLY;
+
+		if (!Array.isArray(applyObject)) {
+			return false;
+		}
+
+		const applyObjectKeys = Object.keys(applyObject);
+		const applyTokens = ["COUNT", "SUM", "AVG", "MIN", "MAX"];
+
+		for (const key in applyObjectKeys) {
+			const currObject = applyObject[key];
+
+			if(typeof currObject !== "object" ||
+			Object.keys(currObject).length !== 1 ||
+			Object.keys(currObject)[0].includes("_") ||
+			Object.keys(currObject)[0].length < 1 ||
+			typeof Object.values(currObject)[0] !== "object") {
+				return false;
+			}
+
+			this.newCols.push(Object.keys(currObject)[0]);
+			const innerObject = Object.values(currObject)[0];
+
+			const innerObjectKey = Object.keys(innerObject as  any)[0];
+
+			if (!applyTokens.includes(innerObjectKey) || typeof innerObjectKey !== "string") {
+				return false;
+			}
+
+			const innerObjectValue = Object.values(innerObject as  any)[0] as any;
+			let currKey = innerObjectValue.split("_");
+			if (!innerObjectValue.includes("_") || currKey.length > 2) {
+				return false;
+			}
+			if (!this.idsArray.includes(currKey[0])) {
+				this.idsArray.push(currKey[0]);
+			}
+			if (this.idsArray.length > 1) {
+				return false;
+			}
+			if (!this.fieldsArray.includes(currKey[1])) {
 				return false;
 			}
 		}

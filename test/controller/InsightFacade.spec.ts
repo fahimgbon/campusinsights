@@ -1375,3 +1375,45 @@ describe("RoomProcessor", function() {
 	// 	expect(roomData).to.be.an("array").that.is.not.empty;
 	// });
 });
+
+describe("C2 queries", function() {
+
+	beforeEach(async function () {
+		await clearDisk();
+	});
+
+	const insightFacade: InsightFacade = new InsightFacade();
+
+	let validQueries: ITestQuery[];
+
+	try {
+
+		validQueries = readFileQueries("c2");
+
+	} catch (e: unknown) {
+
+		expect.fail(`Failed to read one or more test queries. ${e}`);
+
+	}
+
+	validQueries.forEach(function(test: any) {
+
+		it(`${test.title}`, async function () {
+			const content = await getContentFromArchives("campus.zip");
+			const idString = "rooms";
+			await insightFacade.addDataset(idString, content, InsightDatasetKind.Rooms);
+			return insightFacade.performQuery(test.input).then((result) => {
+
+				expect(result).to.deep.equal(test.expected);
+
+			}).catch((error: string) => {
+
+				expect.fail(`Failed inside test. ${error}`);
+
+			});
+
+		});
+
+	});
+
+});
