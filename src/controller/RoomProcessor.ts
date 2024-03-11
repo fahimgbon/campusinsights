@@ -7,9 +7,6 @@ import Room from "./Room";
 import * as http from "http";
 import * as parse5 from "parse5";
 
-const getAsync = promisify(http.get);
-import {promisify} from "util";
-
 export default class RoomProcessor implements KindProcessor {
 	// private node: DefaultTreeNode.Element;
 	private insightFacade: InsightFacade;
