@@ -1,0 +1,3837 @@
+{
+    "title": "sum",
+    "input": {
+        "WHERE": {
+            "OR": [
+                {
+                    "LT": {
+                        "sections_avg": 1
+                    }
+                },
+                {
+                    "GT": {
+                        "sections_avg": 88
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "sections_title",
+                "overallAvg"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "sections_title"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "SUM": "sections_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "errorExpected": false,
+    "expected": [
+            {
+                "sections_title": "rsrch methdlgy",
+                "overallAvg": 188.88
+            },
+            {
+                "sections_title": "teach adult",
+                "overallAvg": 444.08
+            },
+            {
+                "sections_title": "dev wkshp/sem",
+                "overallAvg": 908.88
+            },
+            {
+                "sections_title": "com adult educ",
+                "overallAvg": 1259.85
+            },
+            {
+                "sections_title": "adul educ",
+                "overallAvg": 624.38
+            },
+            {
+                "sections_title": "fnd bdy dsgn:bsc",
+                "overallAvg": 184
+            },
+            {
+                "sections_title": "fnc hmn ant h&n",
+                "overallAvg": 183.34
+            },
+            {
+                "sections_title": "fnc hmn ant musc",
+                "overallAvg": 179.2
+            },
+            {
+                "sections_title": "hist anth thght",
+                "overallAvg": 181.84
+            },
+            {
+                "sections_title": "qualitative meth",
+                "overallAvg": 354.54
+            },
+            {
+                "sections_title": "archeolgcal meth",
+                "overallAvg": 176.5
+            },
+            {
+                "sections_title": "sem medical anth",
+                "overallAvg": 544.43
+            },
+            {
+                "sections_title": "adv quantve meth",
+                "overallAvg": 176.76
+            },
+            {
+                "sections_title": "sustain agr&food",
+                "overallAvg": 178.58
+            },
+            {
+                "sections_title": "tpcs appl biolgy",
+                "overallAvg": 91.86
+            },
+            {
+                "sections_title": "undergrad thesis",
+                "overallAvg": 355.2
+            },
+            {
+                "sections_title": "eng mtls lab",
+                "overallAvg": 3727.1
+            },
+            {
+                "sections_title": "new ven design",
+                "overallAvg": 177.88
+            },
+            {
+                "sections_title": "mtrl&mthd constr",
+                "overallAvg": 178.7
+            },
+            {
+                "sections_title": "arch design 3a",
+                "overallAvg": 88.5
+            },
+            {
+                "sections_title": "arch design v",
+                "overallAvg": 89.25
+            },
+            {
+                "sections_title": "masa thesis",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "info tech&archvs",
+                "overallAvg": 734.56
+            },
+            {
+                "sections_title": "arch public serv",
+                "overallAvg": 177.64
+            },
+            {
+                "sections_title": "aud&non-txt arch",
+                "overallAvg": 370.04
+            },
+            {
+                "sections_title": "database design",
+                "overallAvg": 892.16
+            },
+            {
+                "sections_title": "presrv dig recds",
+                "overallAvg": 355.5
+            },
+            {
+                "sections_title": "mangmt info orgs",
+                "overallAvg": 270.74
+            },
+            {
+                "sections_title": "arch rsrch&schlr",
+                "overallAvg": 359.28
+            },
+            {
+                "sections_title": "adv std min area",
+                "overallAvg": 186
+            },
+            {
+                "sections_title": "meth art hist",
+                "overallAvg": 530.7
+            },
+            {
+                "sections_title": "master's thesis",
+                "overallAvg": 2521.38
+            },
+            {
+                "sections_title": "astronomical lab",
+                "overallAvg": 359.24
+            },
+            {
+                "sections_title": "honours thesis",
+                "overallAvg": 1993.98
+            },
+            {
+                "sections_title": "oprtl meteorolgy",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "bndry-lyr metrly",
+                "overallAvg": 184
+            },
+            {
+                "sections_title": "acous & art phon",
+                "overallAvg": 182.8
+            },
+            {
+                "sections_title": "hearing sci ii",
+                "overallAvg": 1102.44
+            },
+            {
+                "sections_title": "discourse anyl",
+                "overallAvg": 265.52
+            },
+            {
+                "sections_title": "fundamental audi",
+                "overallAvg": 355.72
+            },
+            {
+                "sections_title": "comm disorders",
+                "overallAvg": 373.62
+            },
+            {
+                "sections_title": "comm dvel&disord",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "disord sp prod",
+                "overallAvg": 356.82
+            },
+            {
+                "sections_title": "acquired lng dis",
+                "overallAvg": 546.26
+            },
+            {
+                "sections_title": "intro dysphagia",
+                "overallAvg": 176.82
+            },
+            {
+                "sections_title": "aural rehb i",
+                "overallAvg": 1075.54
+            },
+            {
+                "sections_title": "hearng and noise",
+                "overallAvg": 544.08
+            },
+            {
+                "sections_title": "diag audio i",
+                "overallAvg": 357.24
+            },
+            {
+                "sections_title": "diag audio ii",
+                "overallAvg": 719.6
+            },
+            {
+                "sections_title": "amplification ii",
+                "overallAvg": 184.9
+            },
+            {
+                "sections_title": "phyl ms aud func",
+                "overallAvg": 744.48
+            },
+            {
+                "sections_title": "pediatric audio",
+                "overallAvg": 729.92
+            },
+            {
+                "sections_title": "cochl implants",
+                "overallAvg": 537.34
+            },
+            {
+                "sections_title": "audi adv prc i",
+                "overallAvg": 365.66
+            },
+            {
+                "sections_title": "audi prctcm iii",
+                "overallAvg": 1092.52
+            },
+            {
+                "sections_title": "audi adv prc ii",
+                "overallAvg": 372.88
+            },
+            {
+                "sections_title": "audi prctcm iv",
+                "overallAvg": 1126.25
+            },
+            {
+                "sections_title": "phono intervent",
+                "overallAvg": 542.7
+            },
+            {
+                "sections_title": "cog proc & ald",
+                "overallAvg": 709.54
+            },
+            {
+                "sections_title": "lang dev&dis sch",
+                "overallAvg": 714.06
+            },
+            {
+                "sections_title": "tpcs flu disord",
+                "overallAvg": 901.66
+            },
+            {
+                "sections_title": "as in s&s disord",
+                "overallAvg": 722.92
+            },
+            {
+                "sections_title": "pc & s-a issues",
+                "overallAvg": 356.7
+            },
+            {
+                "sections_title": "adv speech scie",
+                "overallAvg": 894.2
+            },
+            {
+                "sections_title": "lang dev life",
+                "overallAvg": 364.92
+            },
+            {
+                "sections_title": "sp-lg pth prc i",
+                "overallAvg": 359.92
+            },
+            {
+                "sections_title": "sp-lg pth pr iii",
+                "overallAvg": 1077.04
+            },
+            {
+                "sections_title": "forecasting mgmt",
+                "overallAvg": 182.76
+            },
+            {
+                "sections_title": "data anly&utiliz",
+                "overallAvg": 88.88
+            },
+            {
+                "sections_title": "intro finance",
+                "overallAvg": 88.39
+            },
+            {
+                "sections_title": "adv corp finance",
+                "overallAvg": 88.64
+            },
+            {
+                "sections_title": "fin engineering",
+                "overallAvg": 178.86
+            },
+            {
+                "sections_title": "empirical finc",
+                "overallAvg": 177.16
+            },
+            {
+                "sections_title": "intl finl mngmnt",
+                "overallAvg": 178.54
+            },
+            {
+                "sections_title": "app mng scie i",
+                "overallAvg": 358.46
+            },
+            {
+                "sections_title": "app mng scie ii",
+                "overallAvg": 177.16
+            },
+            {
+                "sections_title": "prob mgmt models",
+                "overallAvg": 182.94
+            },
+            {
+                "sections_title": "adv bioc technqs",
+                "overallAvg": 178.28
+            },
+            {
+                "sections_title": "adv techniq bioc",
+                "overallAvg": 176.38
+            },
+            {
+                "sections_title": "membrane str&fnc",
+                "overallAvg": 716.12
+            },
+            {
+                "sections_title": "adv tpcs prot ch",
+                "overallAvg": 176.4
+            },
+            {
+                "sections_title": "adv tpcs mole bi",
+                "overallAvg": 893.12
+            },
+            {
+                "sections_title": "prob-bsd lrn bio",
+                "overallAvg": 1270.52
+            },
+            {
+                "sections_title": "stat hi dim biol",
+                "overallAvg": 355.9
+            },
+            {
+                "sections_title": "human ecology",
+                "overallAvg": 177.82
+            },
+            {
+                "sections_title": "prin&meth rsch i",
+                "overallAvg": 543.54
+            },
+            {
+                "sections_title": "evl mor mar invr",
+                "overallAvg": 534.7
+            },
+            {
+                "sections_title": "anim cell molec",
+                "overallAvg": 356.14
+            },
+            {
+                "sections_title": "plant genomics",
+                "overallAvg": 182.42
+            },
+            {
+                "sections_title": "biology research",
+                "overallAvg": 1628.2
+            },
+            {
+                "sections_title": "devlpmt neurbiol",
+                "overallAvg": 176.66
+            },
+            {
+                "sections_title": "ecolg plant bioc",
+                "overallAvg": 727.58
+            },
+            {
+                "sections_title": "animal dvl gntcs",
+                "overallAvg": 184.72
+            },
+            {
+                "sections_title": "q mth ecol&evol",
+                "overallAvg": 177.2
+            },
+            {
+                "sections_title": "pop & quant gene",
+                "overallAvg": 179.2
+            },
+            {
+                "sections_title": "biol of the cell",
+                "overallAvg": 532.38
+            },
+            {
+                "sections_title": "teach life sci",
+                "overallAvg": 177.66
+            },
+            {
+                "sections_title": "clinical orienta",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "med tech project",
+                "overallAvg": 550.22
+            },
+            {
+                "sections_title": "cl&ind biomd eng",
+                "overallAvg": 176.08
+            },
+            {
+                "sections_title": "master eng proj",
+                "overallAvg": 190
+            },
+            {
+                "sections_title": "m.a. sc. thesis",
+                "overallAvg": 452.17
+            },
+            {
+                "sections_title": "sem in botany",
+                "overallAvg": 537.52
+            },
+            {
+                "sections_title": "topics plnt bioc",
+                "overallAvg": 184
+            },
+            {
+                "sections_title": "plant molec lab",
+                "overallAvg": 182
+            },
+            {
+                "sections_title": "rl es manage ii",
+                "overallAvg": 88.88
+            },
+            {
+                "sections_title": "hnrs human phyl",
+                "overallAvg": 354
+            },
+            {
+                "sections_title": "cardio&resp phyl",
+                "overallAvg": 176.62
+            },
+            {
+                "sections_title": "renl&gastro phyl",
+                "overallAvg": 357.48
+            },
+            {
+                "sections_title": "adv lab physiol",
+                "overallAvg": 179.6
+            },
+            {
+                "sections_title": "grad essay",
+                "overallAvg": 534.84
+            },
+            {
+                "sections_title": "sem idys museum",
+                "overallAvg": 355.22
+            },
+            {
+                "sections_title": "grad prac",
+                "overallAvg": 454.59
+            },
+            {
+                "sections_title": "project & report",
+                "overallAvg": 1090.17
+            },
+            {
+                "sections_title": "cll&dev bio lit",
+                "overallAvg": 1068.14
+            },
+            {
+                "sections_title": "tpcs dev biol",
+                "overallAvg": 536.94
+            },
+            {
+                "sections_title": "tpcs cell comm",
+                "overallAvg": 894.92
+            },
+            {
+                "sections_title": "tpc cytosk&cl mo",
+                "overallAvg": 1083.58
+            },
+            {
+                "sections_title": "tpc int-cel traf",
+                "overallAvg": 1453.26
+            },
+            {
+                "sections_title": "fluor microscpy",
+                "overallAvg": 1470.62
+            },
+            {
+                "sections_title": "tech cel&dev bio",
+                "overallAvg": 1430.68
+            },
+            {
+                "sections_title": "molec embryology",
+                "overallAvg": 179.2
+            },
+            {
+                "sections_title": "mech hmn disease",
+                "overallAvg": 353.66
+            },
+            {
+                "sections_title": "gen&cell therapy",
+                "overallAvg": 361.46
+            },
+            {
+                "sections_title": "enviro chml lab",
+                "overallAvg": 533.58
+            },
+            {
+                "sections_title": "thesis",
+                "overallAvg": 4593.63
+            },
+            {
+                "sections_title": "ths prop: biotec",
+                "overallAvg": 189.5
+            },
+            {
+                "sections_title": "ths: biotech tpc",
+                "overallAvg": 359.5
+            },
+            {
+                "sections_title": "thermodynamics",
+                "overallAvg": 548.4
+            },
+            {
+                "sections_title": "math operations",
+                "overallAvg": 1457.36
+            },
+            {
+                "sections_title": "moment heat mass",
+                "overallAvg": 355.16
+            },
+            {
+                "sections_title": "particle tech",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "appl heterog cat",
+                "overallAvg": 361.02
+            },
+            {
+                "sections_title": "air polutn cntrl",
+                "overallAvg": 360.5
+            },
+            {
+                "sections_title": "energy enginring",
+                "overallAvg": 357.82
+            },
+            {
+                "sections_title": "masc thesis dev",
+                "overallAvg": 539.32
+            },
+            {
+                "sections_title": "masc thesis",
+                "overallAvg": 1968.72
+            },
+            {
+                "sections_title": "prn spectroscopy",
+                "overallAvg": 177.6
+            },
+            {
+                "sections_title": "stat'l mech chem",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "quant mech chem",
+                "overallAvg": 538.8
+            },
+            {
+                "sections_title": "stat mech chem",
+                "overallAvg": 179.34
+            },
+            {
+                "sections_title": "crystal structre",
+                "overallAvg": 545.52
+            },
+            {
+                "sections_title": "orgnometlc cmpds",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "materials chem",
+                "overallAvg": 177.28
+            },
+            {
+                "sections_title": "bioanalyt chem",
+                "overallAvg": 723.32
+            },
+            {
+                "sections_title": "prin chem separ",
+                "overallAvg": 544.12
+            },
+            {
+                "sections_title": "physical organic",
+                "overallAvg": 176.34
+            },
+            {
+                "sections_title": "organc stru prob",
+                "overallAvg": 178.28
+            },
+            {
+                "sections_title": "child's lit",
+                "overallAvg": 1537.17
+            },
+            {
+                "sections_title": "ad software proj",
+                "overallAvg": 533.76
+            },
+            {
+                "sections_title": "opt&dcs anl civl",
+                "overallAvg": 180.22
+            },
+            {
+                "sections_title": "envr'tl lab anly",
+                "overallAvg": 180.88
+            },
+            {
+                "sections_title": "adv steel design",
+                "overallAvg": 182.12
+            },
+            {
+                "sections_title": "matrx struc anly",
+                "overallAvg": 180.44
+            },
+            {
+                "sections_title": "transprt'n eng 2",
+                "overallAvg": 357.9
+            },
+            {
+                "sections_title": "trns sys pl&anly",
+                "overallAvg": 534.8
+            },
+            {
+                "sections_title": "eng desig&anly 1",
+                "overallAvg": 177.52
+            },
+            {
+                "sections_title": "desig & analys 2",
+                "overallAvg": 182.92
+            },
+            {
+                "sections_title": "env eng design",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "construction met",
+                "overallAvg": 176.3
+            },
+            {
+                "sections_title": "sesm&ses des par",
+                "overallAvg": 535.14
+            },
+            {
+                "sections_title": "seismic rsp strc",
+                "overallAvg": 367.1
+            },
+            {
+                "sections_title": "dynam struct 2",
+                "overallAvg": 908.8
+            },
+            {
+                "sections_title": "nonlin strct anl",
+                "overallAvg": 356.92
+            },
+            {
+                "sections_title": "adv tpcs stl str",
+                "overallAvg": 360.78
+            },
+            {
+                "sections_title": "adv tpcs tmbr st",
+                "overallAvg": 536.5
+            },
+            {
+                "sections_title": "prjct cnstr econ",
+                "overallAvg": 177.46
+            },
+            {
+                "sections_title": "proj mngmt eng",
+                "overallAvg": 176.88
+            },
+            {
+                "sections_title": "3d mdl cost est",
+                "overallAvg": 90.2
+            },
+            {
+                "sections_title": "comput'l mech i",
+                "overallAvg": 176.96
+            },
+            {
+                "sections_title": "adv coastal eng",
+                "overallAvg": 358
+            },
+            {
+                "sections_title": "optimiz eng syst",
+                "overallAvg": 180.5
+            },
+            {
+                "sections_title": "anly civl sys",
+                "overallAvg": 182
+            },
+            {
+                "sections_title": "env contamnt anl",
+                "overallAvg": 177.66
+            },
+            {
+                "sections_title": "soil mechanics",
+                "overallAvg": 177
+            },
+            {
+                "sections_title": "soil dynamics",
+                "overallAvg": 713.4
+            },
+            {
+                "sections_title": "soil dynmc desgn",
+                "overallAvg": 176.76
+            },
+            {
+                "sections_title": "urbn engr m&m",
+                "overallAvg": 719.62
+            },
+            {
+                "sections_title": "urbn trans systm",
+                "overallAvg": 184.6
+            },
+            {
+                "sections_title": "top&mon of rome",
+                "overallAvg": 176.8
+            },
+            {
+                "sections_title": "basic intvw skls",
+                "overallAvg": 2234.8
+            },
+            {
+                "sections_title": "career counselng",
+                "overallAvg": 1627.54
+            },
+            {
+                "sections_title": "fmly ed & consul",
+                "overallAvg": 532.72
+            },
+            {
+                "sections_title": "int thry counsel",
+                "overallAvg": 362.45
+            },
+            {
+                "sections_title": "role tcher guid",
+                "overallAvg": 1259.85
+            },
+            {
+                "sections_title": "guid pln dcsn mk",
+                "overallAvg": 89.7
+            },
+            {
+                "sections_title": "psnl soc dv adlt",
+                "overallAvg": 989.29
+            },
+            {
+                "sections_title": "schl counselling",
+                "overallAvg": 1543.35
+            },
+            {
+                "sections_title": "counsl adolescnt",
+                "overallAvg": 1801.99
+            },
+            {
+                "sections_title": "counslng adults",
+                "overallAvg": 1442.26
+            },
+            {
+                "sections_title": "adlt psychpathlg",
+                "overallAvg": 913.48
+            },
+            {
+                "sections_title": "family counsl ii",
+                "overallAvg": 2532.91
+            },
+            {
+                "sections_title": "group counsling",
+                "overallAvg": 3305.07
+            },
+            {
+                "sections_title": "career planning",
+                "overallAvg": 2828.54
+            },
+            {
+                "sections_title": "research in cnps",
+                "overallAvg": 893.58
+            },
+            {
+                "sections_title": "prgm devl cnsl",
+                "overallAvg": 2301.07
+            },
+            {
+                "sections_title": "",
+                "overallAvg": 7152.31
+            },
+            {
+                "sections_title": "cross-cltr cnsl",
+                "overallAvg": 1289.2
+            },
+            {
+                "sections_title": "sem mediter stdy",
+                "overallAvg": 178.26
+            },
+            {
+                "sections_title": "basic cnto 2",
+                "overallAvg": 178.8
+            },
+            {
+                "sections_title": "rsrch cog system",
+                "overallAvg": 177.54
+            },
+            {
+                "sections_title": "compensation",
+                "overallAvg": 180.92
+            },
+            {
+                "sections_title": "new venture des",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "int org res mthd",
+                "overallAvg": 177.2
+            },
+            {
+                "sections_title": "stats methlgy i",
+                "overallAvg": 931.52
+            },
+            {
+                "sections_title": "rsrch meth 1",
+                "overallAvg": 176.36
+            },
+            {
+                "sections_title": "intro to conserv",
+                "overallAvg": 360.98
+            },
+            {
+                "sections_title": "aborignl forestr",
+                "overallAvg": 180.42
+            },
+            {
+                "sections_title": "ths or spec proj",
+                "overallAvg": 177
+            },
+            {
+                "sections_title": "softwr eng proj",
+                "overallAvg": 176.78
+            },
+            {
+                "sections_title": "alg in bioin",
+                "overallAvg": 182.5
+            },
+            {
+                "sections_title": "student seminar",
+                "overallAvg": 1177.55
+            },
+            {
+                "sections_title": "thry of automata",
+                "overallAvg": 740.36
+            },
+            {
+                "sections_title": "computl ling 1",
+                "overallAvg": 723.78
+            },
+            {
+                "sections_title": "software eng",
+                "overallAvg": 539.92
+            },
+            {
+                "sections_title": "intgrt sys desgn",
+                "overallAvg": 354.62
+            },
+            {
+                "sections_title": "artif intell 2",
+                "overallAvg": 181.42
+            },
+            {
+                "sections_title": "comp comm protcl",
+                "overallAvg": 362.66
+            },
+            {
+                "sections_title": "machine learn i",
+                "overallAvg": 363.5
+            },
+            {
+                "sections_title": "phy user intfc",
+                "overallAvg": 179.5
+            },
+            {
+                "sections_title": "info visualizatn",
+                "overallAvg": 354.3
+            },
+            {
+                "sections_title": "m.sc major essay",
+                "overallAvg": 279
+            },
+            {
+                "sections_title": "prep writ career",
+                "overallAvg": 1484.34
+            },
+            {
+                "sections_title": "elem danish 1",
+                "overallAvg": 178.54
+            },
+            {
+                "sections_title": "int danish 1",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "endo micro-surg",
+                "overallAvg": 539.34
+            },
+            {
+                "sections_title": "cr-fc grwth&dev",
+                "overallAvg": 367
+            },
+            {
+                "sections_title": "prosth lit rv i",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "prs pln&outc i",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "prs pln&outc ii",
+                "overallAvg": 177.5
+            },
+            {
+                "sections_title": "biomaterials",
+                "overallAvg": 178.5
+            },
+            {
+                "sections_title": "stats methods",
+                "overallAvg": 183.64
+            },
+            {
+                "sections_title": "rs mth&sem orbi",
+                "overallAvg": 546.72
+            },
+            {
+                "sections_title": "oral cell bio",
+                "overallAvg": 179.38
+            },
+            {
+                "sections_title": "or microbi&immun",
+                "overallAvg": 357.82
+            },
+            {
+                "sections_title": "oral pathology",
+                "overallAvg": 538.84
+            },
+            {
+                "sections_title": "biomec cr-fac i",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "orth&cr-fac i",
+                "overallAvg": 177
+            },
+            {
+                "sections_title": "prdt trtmt pln s",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "implant therapy",
+                "overallAvg": 452.9
+            },
+            {
+                "sections_title": "endo lit rev i",
+                "overallAvg": 180.5
+            },
+            {
+                "sections_title": "endo lit rev ii",
+                "overallAvg": 541.5
+            },
+            {
+                "sections_title": "endo trt pln iii",
+                "overallAvg": 355.5
+            },
+            {
+                "sections_title": "m.sc. thesis",
+                "overallAvg": 1702.86
+            },
+            {
+                "sections_title": "masters thesis",
+                "overallAvg": 3977.22
+            },
+            {
+                "sections_title": "clin endo yr 2",
+                "overallAvg": 181
+            },
+            {
+                "sections_title": "clin endo yr 3",
+                "overallAvg": 358.5
+            },
+            {
+                "sections_title": "curr iss oral hl",
+                "overallAvg": 718.06
+            },
+            {
+                "sections_title": "dentalhyg prac i",
+                "overallAvg": 357.02
+            },
+            {
+                "sections_title": "trends & topics",
+                "overallAvg": 724.81
+            },
+            {
+                "sections_title": "lit review i",
+                "overallAvg": 629.42
+            },
+            {
+                "sections_title": "lit review ii",
+                "overallAvg": 1256.97
+            },
+            {
+                "sections_title": "kinder curriclm",
+                "overallAvg": 187.44
+            },
+            {
+                "sections_title": "home/schl/cmnty",
+                "overallAvg": 268.67
+            },
+            {
+                "sections_title": "obsv&doc erly ch",
+                "overallAvg": 543.18
+            },
+            {
+                "sections_title": "asmnt spec needs",
+                "overallAvg": 820.04
+            },
+            {
+                "sections_title": "sup indg inftnts",
+                "overallAvg": 181.62
+            },
+            {
+                "sections_title": "macroecon anl ii",
+                "overallAvg": 179.28
+            },
+            {
+                "sections_title": "intr empir mthds",
+                "overallAvg": 176.66
+            },
+            {
+                "sections_title": "topcs macroecon",
+                "overallAvg": 358.94
+            },
+            {
+                "sections_title": "econometrics",
+                "overallAvg": 360.72
+            },
+            {
+                "sections_title": "honours seminar",
+                "overallAvg": 2156.46
+            },
+            {
+                "sections_title": "honours essay",
+                "overallAvg": 2139.06
+            },
+            {
+                "sections_title": "info & incentves",
+                "overallAvg": 176.54
+            },
+            {
+                "sections_title": "spc tpcs macroec",
+                "overallAvg": 1279.02
+            },
+            {
+                "sections_title": "behav economics",
+                "overallAvg": 364.58
+            },
+            {
+                "sections_title": "problty & stat",
+                "overallAvg": 546.22
+            },
+            {
+                "sections_title": "hist mod europe",
+                "overallAvg": 356.34
+            },
+            {
+                "sections_title": "montry thry pol",
+                "overallAvg": 539.96
+            },
+            {
+                "sections_title": "labour economics",
+                "overallAvg": 897.94
+            },
+            {
+                "sections_title": "market structure",
+                "overallAvg": 366
+            },
+            {
+                "sections_title": "busines perform",
+                "overallAvg": 178.5
+            },
+            {
+                "sections_title": "org thry&non all",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "soc & econ measu",
+                "overallAvg": 1450.04
+            },
+            {
+                "sections_title": "microecon i",
+                "overallAvg": 176.8
+            },
+            {
+                "sections_title": "macroecon i",
+                "overallAvg": 177.56
+            },
+            {
+                "sections_title": "macroecon ii",
+                "overallAvg": 537.32
+            },
+            {
+                "sections_title": "econ thry i",
+                "overallAvg": 179.48
+            },
+            {
+                "sections_title": "econ thry ii",
+                "overallAvg": 543.82
+            },
+            {
+                "sections_title": "tpcs app econ i",
+                "overallAvg": 540.18
+            },
+            {
+                "sections_title": "ph d resrch sem",
+                "overallAvg": 1711.05
+            },
+            {
+                "sections_title": "music education",
+                "overallAvg": 178.22
+            },
+            {
+                "sections_title": "ceramics: art ed",
+                "overallAvg": 713.92
+            },
+            {
+                "sections_title": "textiles: art ed",
+                "overallAvg": 176.86
+            },
+            {
+                "sections_title": "digtl med: intro",
+                "overallAvg": 357.1
+            },
+            {
+                "sections_title": "math prblm slvng",
+                "overallAvg": 456.93
+            },
+            {
+                "sections_title": "ds tec ii sc c&p",
+                "overallAvg": 728.66
+            },
+            {
+                "sections_title": "curric dev tech",
+                "overallAvg": 177.42
+            },
+            {
+                "sections_title": "mus&mov elem c&p",
+                "overallAvg": 182.96
+            },
+            {
+                "sections_title": "ict educ ethics",
+                "overallAvg": 554.02
+            },
+            {
+                "sections_title": "hmec ii sec c&p",
+                "overallAvg": 545.06
+            },
+            {
+                "sections_title": "home ec: 2nd ii",
+                "overallAvg": 186.6
+            },
+            {
+                "sections_title": "rev res curr&ped",
+                "overallAvg": 2166.93
+            },
+            {
+                "sections_title": "vid eth ed res",
+                "overallAvg": 717.54
+            },
+            {
+                "sections_title": "case res&analys",
+                "overallAvg": 92.45
+            },
+            {
+                "sections_title": "foundations hmed",
+                "overallAvg": 177.76
+            },
+            {
+                "sections_title": "mth ed: crnt iss",
+                "overallAvg": 538.66
+            },
+            {
+                "sections_title": "mth e: bynd erly",
+                "overallAvg": 359.72
+            },
+            {
+                "sections_title": "crit anly sci ed",
+                "overallAvg": 546.34
+            },
+            {
+                "sections_title": "thry&rs soc cont",
+                "overallAvg": 186
+            },
+            {
+                "sections_title": "res tch & lrn sc",
+                "overallAvg": 360.2
+            },
+            {
+                "sections_title": "curric iss&thry",
+                "overallAvg": 3260.04
+            },
+            {
+                "sections_title": "txt pol& id cdev",
+                "overallAvg": 736.3
+            },
+            {
+                "sections_title": "curr chng&imple",
+                "overallAvg": 893.4
+            },
+            {
+                "sections_title": "curr hist contxt",
+                "overallAvg": 368.84
+            },
+            {
+                "sections_title": "rsc trd edu admn",
+                "overallAvg": 1082.45
+            },
+            {
+                "sections_title": "trad adult edu",
+                "overallAvg": 358.02
+            },
+            {
+                "sections_title": "fnds ad lrng ed",
+                "overallAvg": 706.84
+            },
+            {
+                "sections_title": "fn & educ change",
+                "overallAvg": 1125.06
+            },
+            {
+                "sections_title": "cnd educ past",
+                "overallAvg": 353.18
+            },
+            {
+                "sections_title": "org&admin hi edu",
+                "overallAvg": 370.46
+            },
+            {
+                "sections_title": "adu edu pro",
+                "overallAvg": 721.72
+            },
+            {
+                "sections_title": "thy rea adu lea",
+                "overallAvg": 538.3
+            },
+            {
+                "sections_title": "adlt edu pract",
+                "overallAvg": 375.64
+            },
+            {
+                "sections_title": "fdns highr educ",
+                "overallAvg": 185.46
+            },
+            {
+                "sections_title": "high ed pol",
+                "overallAvg": 181.74
+            },
+            {
+                "sections_title": "ldrshp educ org",
+                "overallAvg": 1974.62
+            },
+            {
+                "sections_title": "int adult educ",
+                "overallAvg": 354.18
+            },
+            {
+                "sections_title": "comp&intl ad ed",
+                "overallAvg": 355.88
+            },
+            {
+                "sections_title": "glo/loc learn",
+                "overallAvg": 177.24
+            },
+            {
+                "sections_title": "tcher union educ",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "tpcs sociol educ",
+                "overallAvg": 912.8
+            },
+            {
+                "sections_title": "sem sociol educ",
+                "overallAvg": 370
+            },
+            {
+                "sections_title": "qst, theor, mthd",
+                "overallAvg": 357.36
+            },
+            {
+                "sections_title": "sem work & educ",
+                "overallAvg": 179.56
+            },
+            {
+                "sections_title": "work & learning",
+                "overallAvg": 90.11
+            },
+            {
+                "sections_title": "contxt ed policy",
+                "overallAvg": 539.22
+            },
+            {
+                "sections_title": "ldr adm aim educ",
+                "overallAvg": 444.39
+            },
+            {
+                "sections_title": "stdy educ organ",
+                "overallAvg": 1168.44
+            },
+            {
+                "sections_title": "env phil & educ",
+                "overallAvg": 363.06
+            },
+            {
+                "sections_title": "educ theories",
+                "overallAvg": 725.52
+            },
+            {
+                "sections_title": "theories of educ",
+                "overallAvg": 177.4
+            },
+            {
+                "sections_title": "intr first natns",
+                "overallAvg": 89.33
+            },
+            {
+                "sections_title": "com srv learning",
+                "overallAvg": 355.5
+            },
+            {
+                "sections_title": "iss first ntns",
+                "overallAvg": 88.83
+            },
+            {
+                "sections_title": "res mthd in educ",
+                "overallAvg": 5795.89
+            },
+            {
+                "sections_title": "adv microsys des",
+                "overallAvg": 181.76
+            },
+            {
+                "sections_title": "adv comp archtct",
+                "overallAvg": 185.2
+            },
+            {
+                "sections_title": "nanosc model&sim",
+                "overallAvg": 902.22
+            },
+            {
+                "sections_title": "grn nanoelec dev",
+                "overallAvg": 540.4
+            },
+            {
+                "sections_title": "multimedia sys",
+                "overallAvg": 379.5
+            },
+            {
+                "sections_title": "dyn mdl elec",
+                "overallAvg": 716.7
+            },
+            {
+                "sections_title": "power elec dsgn",
+                "overallAvg": 267.78
+            },
+            {
+                "sections_title": "power syst anlys",
+                "overallAvg": 178.5
+            },
+            {
+                "sections_title": "power syst dynam",
+                "overallAvg": 551.4
+            },
+            {
+                "sections_title": "network analysis",
+                "overallAvg": 362.76
+            },
+            {
+                "sections_title": "stat sig proc",
+                "overallAvg": 540.54
+            },
+            {
+                "sections_title": "dtc&est sgnl nse",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "comm networks",
+                "overallAvg": 180.66
+            },
+            {
+                "sections_title": "self-tuning ctrl",
+                "overallAvg": 725.58
+            },
+            {
+                "sections_title": "semicon thy appl",
+                "overallAvg": 544.8
+            },
+            {
+                "sections_title": "ad top vlsi desg",
+                "overallAvg": 364.54
+            },
+            {
+                "sections_title": "cad algrthm i cr",
+                "overallAvg": 1281.32
+            },
+            {
+                "sections_title": "nanophoton fab",
+                "overallAvg": 712.92
+            },
+            {
+                "sections_title": "arch learn systs",
+                "overallAvg": 904.2
+            },
+            {
+                "sections_title": "circuits & systs",
+                "overallAvg": 178.94
+            },
+            {
+                "sections_title": "eng report",
+                "overallAvg": 453.47
+            },
+            {
+                "sections_title": "electronics lab",
+                "overallAvg": 281.72
+            },
+            {
+                "sections_title": "tpcs biomed eng",
+                "overallAvg": 183.66
+            },
+            {
+                "sections_title": "biom dsgn studio",
+                "overallAvg": 179.36
+            },
+            {
+                "sections_title": "biomed cpstn dsn",
+                "overallAvg": 179.08
+            },
+            {
+                "sections_title": "poetry",
+                "overallAvg": 88.65
+            },
+            {
+                "sections_title": "traditnl grammar",
+                "overallAvg": 89.68
+            },
+            {
+                "sections_title": "lab expl earth",
+                "overallAvg": 1338.21
+            },
+            {
+                "sections_title": "appl geophysics",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "dta anl at,er&oc",
+                "overallAvg": 538.14
+            },
+            {
+                "sections_title": "num tec oc,at&er",
+                "overallAvg": 180.66
+            },
+            {
+                "sections_title": "adv geo fld dyn",
+                "overallAvg": 534.9
+            },
+            {
+                "sections_title": "wavelets",
+                "overallAvg": 539.04
+            },
+            {
+                "sections_title": "geol fluid mech",
+                "overallAvg": 177.5
+            },
+            {
+                "sections_title": "adv mineralogy",
+                "overallAvg": 181.34
+            },
+            {
+                "sections_title": "mth&mdl ptrl&gch",
+                "overallAvg": 185.5
+            },
+            {
+                "sections_title": "mech nat defrmtn",
+                "overallAvg": 360.4
+            },
+            {
+                "sections_title": "adv geotechnics",
+                "overallAvg": 186.94
+            },
+            {
+                "sections_title": "expl methodology",
+                "overallAvg": 906.86
+            },
+            {
+                "sections_title": "fld lab grdwtr h",
+                "overallAvg": 179.5
+            },
+            {
+                "sections_title": "adv rock engnrng",
+                "overallAvg": 180.66
+            },
+            {
+                "sections_title": "adv grnd geochem",
+                "overallAvg": 177.5
+            },
+            {
+                "sections_title": "adv volcanology",
+                "overallAvg": 536
+            },
+            {
+                "sections_title": "solid earth sci",
+                "overallAvg": 185
+            },
+            {
+                "sections_title": "adv field earth",
+                "overallAvg": 360
+            },
+            {
+                "sections_title": "linear inv thry",
+                "overallAvg": 178.34
+            },
+            {
+                "sections_title": "mech erth quake",
+                "overallAvg": 364.5
+            },
+            {
+                "sections_title": "biol ocean sem",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "m.eng. grad papr",
+                "overallAvg": 446.75
+            },
+            {
+                "sections_title": "tch'g hghly able",
+                "overallAvg": 2381.86
+            },
+            {
+                "sections_title": "intro excp child",
+                "overallAvg": 2572.51
+            },
+            {
+                "sections_title": "lrn'g disablties",
+                "overallAvg": 2801.57
+            },
+            {
+                "sections_title": "incl bl vis-imp",
+                "overallAvg": 734.85
+            },
+            {
+                "sections_title": "tchg st visl imp",
+                "overallAvg": 190.54
+            },
+            {
+                "sections_title": "fam prac ch spec",
+                "overallAvg": 88.32
+            },
+            {
+                "sections_title": "ed st dvl ds inc",
+                "overallAvg": 2335.65
+            },
+            {
+                "sections_title": "typ atyp inf/ch",
+                "overallAvg": 2654.41
+            },
+            {
+                "sections_title": "ed prg hghly abl",
+                "overallAvg": 2010.68
+            },
+            {
+                "sections_title": "augmt&alt comm",
+                "overallAvg": 730.55
+            },
+            {
+                "sections_title": "tech for vis imp",
+                "overallAvg": 728.84
+            },
+            {
+                "sections_title": "assess lrn diffi",
+                "overallAvg": 2766.16
+            },
+            {
+                "sections_title": "prg child sp lrn",
+                "overallAvg": 1007.63
+            },
+            {
+                "sections_title": "classroom mgmt",
+                "overallAvg": 2938.11
+            },
+            {
+                "sections_title": "surv bhvr dis ch",
+                "overallAvg": 2965.82
+            },
+            {
+                "sections_title": "intrv ch&ad bh d",
+                "overallAvg": 1636.82
+            },
+            {
+                "sections_title": "educ stds autism",
+                "overallAvg": 2880.92
+            },
+            {
+                "sections_title": "intro rsrch educ",
+                "overallAvg": 894.44
+            },
+            {
+                "sections_title": "intr stat rs edu",
+                "overallAvg": 2083.13
+            },
+            {
+                "sections_title": "hn dev, lrn, cul",
+                "overallAvg": 1636.66
+            },
+            {
+                "sections_title": "cog lang proc ed",
+                "overallAvg": 728.82
+            },
+            {
+                "sections_title": "cltl learn dev",
+                "overallAvg": 709.2
+            },
+            {
+                "sections_title": "hn dev: inf-adlt",
+                "overallAvg": 1359.14
+            },
+            {
+                "sections_title": "ch&ad psyco-path",
+                "overallAvg": 1262.44
+            },
+            {
+                "sections_title": "crit spec ed",
+                "overallAvg": 3497.34
+            },
+            {
+                "sections_title": "able&creatv lrnr",
+                "overallAvg": 838.43
+            },
+            {
+                "sections_title": "dev el sk df&hrd",
+                "overallAvg": 196.9
+            },
+            {
+                "sections_title": "cur dev e df&hrd",
+                "overallAvg": 749.38
+            },
+            {
+                "sections_title": "std in sign lang",
+                "overallAvg": 551.6
+            },
+            {
+                "sections_title": "specific lrn dis",
+                "overallAvg": 1940.57
+            },
+            {
+                "sections_title": "basic princ meas",
+                "overallAvg": 2117.27
+            },
+            {
+                "sections_title": "dev scale&measur",
+                "overallAvg": 371.36
+            },
+            {
+                "sections_title": "test constructio",
+                "overallAvg": 180.66
+            },
+            {
+                "sections_title": "curric as&interv",
+                "overallAvg": 1740.23
+            },
+            {
+                "sections_title": "acad assess schl",
+                "overallAvg": 1314.94
+            },
+            {
+                "sections_title": "socl&emtl assess",
+                "overallAvg": 1475.07
+            },
+            {
+                "sections_title": "educ std vis imp",
+                "overallAvg": 178.36
+            },
+            {
+                "sections_title": "ind skl vis imp",
+                "overallAvg": 732.9
+            },
+            {
+                "sections_title": "sem in autism",
+                "overallAvg": 551.05
+            },
+            {
+                "sections_title": "prof,eth&lgl iss",
+                "overallAvg": 1096.86
+            },
+            {
+                "sections_title": "thy cognt assess",
+                "overallAvg": 1764.76
+            },
+            {
+                "sections_title": "dev neuropsych",
+                "overallAvg": 566.02
+            },
+            {
+                "sections_title": "soc-psych fndtns",
+                "overallAvg": 1085.14
+            },
+            {
+                "sections_title": "prin behav anlys",
+                "overallAvg": 468.78
+            },
+            {
+                "sections_title": "inst mthd chalng",
+                "overallAvg": 183
+            },
+            {
+                "sections_title": "motivation educ",
+                "overallAvg": 907.36
+            },
+            {
+                "sections_title": "discourse & talk",
+                "overallAvg": 908.9
+            },
+            {
+                "sections_title": "thry&prc prg evl",
+                "overallAvg": 719.2
+            },
+            {
+                "sections_title": "exp des anl ed",
+                "overallAvg": 2791.14
+            },
+            {
+                "sections_title": "dsgn&anl smp&sub",
+                "overallAvg": 187.18
+            },
+            {
+                "sections_title": "mt-anl qnt rs sy",
+                "overallAvg": 377.2
+            },
+            {
+                "sections_title": "qlt rsrch mthd",
+                "overallAvg": 720.06
+            },
+            {
+                "sections_title": "qlt mthd ed psy",
+                "overallAvg": 542.06
+            },
+            {
+                "sections_title": "cor des ed res",
+                "overallAvg": 1958.72
+            },
+            {
+                "sections_title": "coll&uni teachng",
+                "overallAvg": 1764.39
+            },
+            {
+                "sections_title": "mult des anal rs",
+                "overallAvg": 745.52
+            },
+            {
+                "sections_title": "hier lin modelng",
+                "overallAvg": 748.14
+            },
+            {
+                "sections_title": "item respns thry",
+                "overallAvg": 544.08
+            },
+            {
+                "sections_title": "res meth educ",
+                "overallAvg": 2898.06
+            },
+            {
+                "sections_title": "des tech",
+                "overallAvg": 3815.49
+            },
+            {
+                "sections_title": "found ed tech",
+                "overallAvg": 3435.73
+            },
+            {
+                "sections_title": "appl lear theor",
+                "overallAvg": 2332.83
+            },
+            {
+                "sections_title": "plan man learn",
+                "overallAvg": 356.15
+            },
+            {
+                "sections_title": "indig, tech&ed",
+                "overallAvg": 1578.8
+            },
+            {
+                "sections_title": "ventr learn tech",
+                "overallAvg": 354.93
+            },
+            {
+                "sections_title": "constr strat",
+                "overallAvg": 2541.65
+            },
+            {
+                "sections_title": "curric issu",
+                "overallAvg": 2667.25
+            },
+            {
+                "sections_title": "tech arts hum",
+                "overallAvg": 2624.52
+            },
+            {
+                "sections_title": "tech math sci",
+                "overallAvg": 753.68
+            },
+            {
+                "sections_title": "text tech",
+                "overallAvg": 2056.11
+            },
+            {
+                "sections_title": "video prod i",
+                "overallAvg": 177.02
+            },
+            {
+                "sections_title": "int directing",
+                "overallAvg": 176.1
+            },
+            {
+                "sections_title": "mo pict prod i",
+                "overallAvg": 192.8
+            },
+            {
+                "sections_title": "snd rec film&vid",
+                "overallAvg": 352.84
+            },
+            {
+                "sections_title": "motn pictr sound",
+                "overallAvg": 357.26
+            },
+            {
+                "sections_title": "post-prod tec i",
+                "overallAvg": 178.66
+            },
+            {
+                "sections_title": "mo pict prod ii",
+                "overallAvg": 179.62
+            },
+            {
+                "sections_title": "fisheries mngmt",
+                "overallAvg": 188
+            },
+            {
+                "sections_title": "quant an fish i",
+                "overallAvg": 720.92
+            },
+            {
+                "sections_title": "fsh econ & mgmnt",
+                "overallAvg": 182.28
+            },
+            {
+                "sections_title": "bayesn dcsn anl",
+                "overallAvg": 182
+            },
+            {
+                "sections_title": "cons, govr, eval",
+                "overallAvg": 177
+            },
+            {
+                "sections_title": "food theor app",
+                "overallAvg": 1632.43
+            },
+            {
+                "sections_title": "int nut fld stdy",
+                "overallAvg": 358.5
+            },
+            {
+                "sections_title": "clin dietetc ii",
+                "overallAvg": 712.86
+            },
+            {
+                "sections_title": "top food nu hea",
+                "overallAvg": 91.36
+            },
+            {
+                "sections_title": "hazard anal food",
+                "overallAvg": 360.12
+            },
+            {
+                "sections_title": "adv food biotech",
+                "overallAvg": 176.58
+            },
+            {
+                "sections_title": "forest oper's i",
+                "overallAvg": 91
+            },
+            {
+                "sections_title": "econ, cont, fina",
+                "overallAvg": 534.58
+            },
+            {
+                "sections_title": "food&resrc econ",
+                "overallAvg": 176.94
+            },
+            {
+                "sections_title": "agribus managemt",
+                "overallAvg": 176.26
+            },
+            {
+                "sections_title": "oral fr practice",
+                "overallAvg": 88.5
+            },
+            {
+                "sections_title": "forest ecology",
+                "overallAvg": 0
+            },
+            {
+                "sections_title": "forest genetics",
+                "overallAvg": 178.24
+            },
+            {
+                "sections_title": "frst pathology",
+                "overallAvg": 177.2
+            },
+            {
+                "sections_title": "int field school",
+                "overallAvg": 363.54
+            },
+            {
+                "sections_title": "complex adapt sy",
+                "overallAvg": 180.26
+            },
+            {
+                "sections_title": "ecol plnt bioch",
+                "overallAvg": 541.8
+            },
+            {
+                "sections_title": "plnt molec biol",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "bgrd frst ecosys",
+                "overallAvg": 176.58
+            },
+            {
+                "sections_title": "tree physiology",
+                "overallAvg": 179.72
+            },
+            {
+                "sections_title": "frsts & society",
+                "overallAvg": 177.5
+            },
+            {
+                "sections_title": "ind peo frst lnd",
+                "overallAvg": 184.44
+            },
+            {
+                "sections_title": "eco economics",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "natural res econ",
+                "overallAvg": 180.36
+            },
+            {
+                "sections_title": "tech comm skills",
+                "overallAvg": 1435.16
+            },
+            {
+                "sections_title": "tec comm skls ii",
+                "overallAvg": 901.56
+            },
+            {
+                "sections_title": "research methods",
+                "overallAvg": 357.94
+            },
+            {
+                "sections_title": "forestry in b.c.",
+                "overallAvg": 178.54
+            },
+            {
+                "sections_title": "frst busn enterp",
+                "overallAvg": 184.54
+            },
+            {
+                "sections_title": "ds intl forstry",
+                "overallAvg": 192.72
+            },
+            {
+                "sections_title": "stat mth hydrlgy",
+                "overallAvg": 182.34
+            },
+            {
+                "sections_title": "geomorphlgy proc",
+                "overallAvg": 176.34
+            },
+            {
+                "sections_title": "begin germ i",
+                "overallAvg": 88.21
+            },
+            {
+                "sections_title": "begin germ 2",
+                "overallAvg": 89
+            },
+            {
+                "sections_title": "inter germ i",
+                "overallAvg": 88.04
+            },
+            {
+                "sections_title": "inter germ ii",
+                "overallAvg": 88.24
+            },
+            {
+                "sections_title": "conv german ii",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "cultural studies",
+                "overallAvg": 184.5
+            },
+            {
+                "sections_title": "measr data anlys",
+                "overallAvg": 177.84
+            },
+            {
+                "sections_title": "tops public plcy",
+                "overallAvg": 186.08
+            },
+            {
+                "sections_title": "fem anti-rc ped",
+                "overallAvg": 176.64
+            },
+            {
+                "sections_title": "intersectnl issu",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "decol & femn mth",
+                "overallAvg": 356.14
+            },
+            {
+                "sections_title": "gndr sex crt rce",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "intsv lab course",
+                "overallAvg": 353.72
+            },
+            {
+                "sections_title": "adv gsat concept",
+                "overallAvg": 896.22
+            },
+            {
+                "sections_title": "h gwaii cse stdy",
+                "overallAvg": 536.54
+            },
+            {
+                "sections_title": "frst ntns rsorcs",
+                "overallAvg": 369
+            },
+            {
+                "sections_title": "coast terr esyst",
+                "overallAvg": 359.34
+            },
+            {
+                "sections_title": "islnd wild mgmt",
+                "overallAvg": 752.24
+            },
+            {
+                "sections_title": "eco-based mgmt",
+                "overallAvg": 366.72
+            },
+            {
+                "sections_title": "intr hindi-urdu",
+                "overallAvg": 366.44
+            },
+            {
+                "sections_title": "phd research sem",
+                "overallAvg": 177
+            },
+            {
+                "sections_title": "res mthds hunu",
+                "overallAvg": 176.26
+            },
+            {
+                "sections_title": "cur iss ntr&dis",
+                "overallAvg": 360.08
+            },
+            {
+                "sections_title": "adv eng design",
+                "overallAvg": 178.12
+            },
+            {
+                "sections_title": "size of things",
+                "overallAvg": 180.88
+            },
+            {
+                "sections_title": "advanced ital i",
+                "overallAvg": 359
+            },
+            {
+                "sections_title": "dante's div com",
+                "overallAvg": 183
+            },
+            {
+                "sections_title": "ital lit cult",
+                "overallAvg": 371.5
+            },
+            {
+                "sections_title": "ethics & the law",
+                "overallAvg": 89.93
+            },
+            {
+                "sections_title": "biol athlet perf",
+                "overallAvg": 176.8
+            },
+            {
+                "sections_title": "mvmt exp yg chld",
+                "overallAvg": 182.14
+            },
+            {
+                "sections_title": "leis & disbl prs",
+                "overallAvg": 360.6
+            },
+            {
+                "sections_title": "leis serv disbl",
+                "overallAvg": 354.22
+            },
+            {
+                "sections_title": "exer physolgy ii",
+                "overallAvg": 90.19
+            },
+            {
+                "sections_title": "pln pe,sp&ex prg",
+                "overallAvg": 367.82
+            },
+            {
+                "sections_title": "prev spts inj i",
+                "overallAvg": 375.78
+            },
+            {
+                "sections_title": "chrn hlth iss",
+                "overallAvg": 181.36
+            },
+            {
+                "sections_title": "prev spts inj ii",
+                "overallAvg": 720.2
+            },
+            {
+                "sections_title": "kin project",
+                "overallAvg": 1471.05
+            },
+            {
+                "sections_title": "spec tpcs kin",
+                "overallAvg": 734.28
+            },
+            {
+                "sections_title": "bioenrgtc ph act",
+                "overallAvg": 725.38
+            },
+            {
+                "sections_title": "py-sc asp ph act",
+                "overallAvg": 361.14
+            },
+            {
+                "sections_title": "phyl asp phy act",
+                "overallAvg": 760.54
+            },
+            {
+                "sections_title": "sem hum mtr perf",
+                "overallAvg": 367.5
+            },
+            {
+                "sections_title": "res mthds kin",
+                "overallAvg": 180.58
+            },
+            {
+                "sections_title": "coaching effctv",
+                "overallAvg": 184.76
+            },
+            {
+                "sections_title": "graduating paper",
+                "overallAvg": 542.72
+            },
+            {
+                "sections_title": "dir fld st sp&ph",
+                "overallAvg": 806.06
+            },
+            {
+                "sections_title": "landsc plan&mgmt",
+                "overallAvg": 184.14
+            },
+            {
+                "sections_title": "prof prct larc",
+                "overallAvg": 364.36
+            },
+            {
+                "sections_title": "in land food com",
+                "overallAvg": 0
+            },
+            {
+                "sections_title": "lnd, food&comnty",
+                "overallAvg": 266.26
+            },
+            {
+                "sections_title": "dig comm&tpcs ag",
+                "overallAvg": 360.86
+            },
+            {
+                "sections_title": "integ knowledge",
+                "overallAvg": 177
+            },
+            {
+                "sections_title": "admin of sch lrc",
+                "overallAvg": 88.52
+            },
+            {
+                "sections_title": "select libr res",
+                "overallAvg": 361.34
+            },
+            {
+                "sections_title": "org lrn res",
+                "overallAvg": 180.58
+            },
+            {
+                "sections_title": "info services i",
+                "overallAvg": 362.89
+            },
+            {
+                "sections_title": "info org mgmt",
+                "overallAvg": 88.03
+            },
+            {
+                "sections_title": "serv for chld",
+                "overallAvg": 183.26
+            },
+            {
+                "sections_title": "health info serv",
+                "overallAvg": 176.9
+            },
+            {
+                "sections_title": "proj management",
+                "overallAvg": 178.9
+            },
+            {
+                "sections_title": "acad libraries",
+                "overallAvg": 192.2
+            },
+            {
+                "sections_title": "collection mgmt",
+                "overallAvg": 88.14
+            },
+            {
+                "sections_title": "dgtl libraries",
+                "overallAvg": 536.34
+            },
+            {
+                "sections_title": "dgtl img & text",
+                "overallAvg": 364.7
+            },
+            {
+                "sections_title": "directed study",
+                "overallAvg": 992.54
+            },
+            {
+                "sections_title": "research collbrt",
+                "overallAvg": 447.46
+            },
+            {
+                "sections_title": "field methods ii",
+                "overallAvg": 177.14
+            },
+            {
+                "sections_title": "acq syntax",
+                "overallAvg": 178.6
+            },
+            {
+                "sections_title": "adv rsch seminar",
+                "overallAvg": 356
+            },
+            {
+                "sections_title": "syn theor analys",
+                "overallAvg": 177.66
+            },
+            {
+                "sections_title": "sem theor",
+                "overallAvg": 539.18
+            },
+            {
+                "sections_title": "fld mthd ling i",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "fld mthd ling ii",
+                "overallAvg": 358
+            },
+            {
+                "sections_title": "intr tch ch lit",
+                "overallAvg": 90.67
+            },
+            {
+                "sections_title": "t & l kind & prm",
+                "overallAvg": 360.16
+            },
+            {
+                "sections_title": "sch lrc prog",
+                "overallAvg": 902.92
+            },
+            {
+                "sections_title": "resource-bsd tch",
+                "overallAvg": 633.91
+            },
+            {
+                "sections_title": "2nd lang assess: c&e app",
+                "overallAvg": 1071.65
+            },
+            {
+                "sections_title": "theory fdtn read",
+                "overallAvg": 176.66
+            },
+            {
+                "sections_title": "fam lit",
+                "overallAvg": 88.44
+            },
+            {
+                "sections_title": "clt&pol sec lang",
+                "overallAvg": 534.54
+            },
+            {
+                "sections_title": "thr lng&lit rsrc",
+                "overallAvg": 902.78
+            },
+            {
+                "sections_title": "doctoral seminar",
+                "overallAvg": 266.77
+            },
+            {
+                "sections_title": "crt anly iss&mth",
+                "overallAvg": 890.38
+            },
+            {
+                "sections_title": "mltvar&vctr calc",
+                "overallAvg": 180.5
+            },
+            {
+                "sections_title": "ord diff equtns",
+                "overallAvg": 91.1
+            },
+            {
+                "sections_title": "probability",
+                "overallAvg": 179.78
+            },
+            {
+                "sections_title": "stochastic proc",
+                "overallAvg": 177.6
+            },
+            {
+                "sections_title": "real analysis i",
+                "overallAvg": 181.14
+            },
+            {
+                "sections_title": "real analysis ii",
+                "overallAvg": 359.96
+            },
+            {
+                "sections_title": "tpcs algebra",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "intr mod diff ge",
+                "overallAvg": 363.24
+            },
+            {
+                "sections_title": "topics topology",
+                "overallAvg": 179.2
+            },
+            {
+                "sections_title": "number theory",
+                "overallAvg": 177.2
+            },
+            {
+                "sections_title": "complex analysis",
+                "overallAvg": 180.86
+            },
+            {
+                "sections_title": "algebra i",
+                "overallAvg": 546.06
+            },
+            {
+                "sections_title": "algebra ii",
+                "overallAvg": 745.96
+            },
+            {
+                "sections_title": "discrete math",
+                "overallAvg": 730.8
+            },
+            {
+                "sections_title": "meas thry&integr",
+                "overallAvg": 185.26
+            },
+            {
+                "sections_title": "complex analy",
+                "overallAvg": 913.88
+            },
+            {
+                "sections_title": "complex analy i",
+                "overallAvg": 184.8
+            },
+            {
+                "sections_title": "functional analy",
+                "overallAvg": 924
+            },
+            {
+                "sections_title": "ptl dif eqn flud",
+                "overallAvg": 365
+            },
+            {
+                "sections_title": "prt diff equa i",
+                "overallAvg": 1296.28
+            },
+            {
+                "sections_title": "num anly prtl df",
+                "overallAvg": 895.44
+            },
+            {
+                "sections_title": "combinatorial op",
+                "overallAvg": 729.16
+            },
+            {
+                "sections_title": "diff geometry i",
+                "overallAvg": 1293.6
+            },
+            {
+                "sections_title": "algb topology i",
+                "overallAvg": 927.24
+            },
+            {
+                "sections_title": "algb geometry i",
+                "overallAvg": 921.52
+            },
+            {
+                "sections_title": "lie theory i",
+                "overallAvg": 912.22
+            },
+            {
+                "sections_title": "elem number thry",
+                "overallAvg": 541.16
+            },
+            {
+                "sections_title": "analyt num thry",
+                "overallAvg": 547.76
+            },
+            {
+                "sections_title": "harmonic anal i",
+                "overallAvg": 567.96
+            },
+            {
+                "sections_title": "probability i",
+                "overallAvg": 1278.4
+            },
+            {
+                "sections_title": "probability ii",
+                "overallAvg": 1287.54
+            },
+            {
+                "sections_title": "cnt tme stchastc",
+                "overallAvg": 367.62
+            },
+            {
+                "sections_title": "mthds asymp anal",
+                "overallAvg": 1257.5
+            },
+            {
+                "sections_title": "pertrb diff equa",
+                "overallAvg": 545.74
+            },
+            {
+                "sections_title": "intr dyn systems",
+                "overallAvg": 720.92
+            },
+            {
+                "sections_title": "complex fluids",
+                "overallAvg": 359.02
+            },
+            {
+                "sections_title": "msc major essay",
+                "overallAvg": 1377.72
+            },
+            {
+                "sections_title": "biomech research",
+                "overallAvg": 178.66
+            },
+            {
+                "sections_title": "biomed dsgn proj",
+                "overallAvg": 178.44
+            },
+            {
+                "sections_title": "fluid mechanics",
+                "overallAvg": 178.66
+            },
+            {
+                "sections_title": "linear vibrtns",
+                "overallAvg": 364.54
+            },
+            {
+                "sections_title": "lin fea sld&heat",
+                "overallAvg": 178.66
+            },
+            {
+                "sections_title": "cntrl sens & act",
+                "overallAvg": 176.76
+            },
+            {
+                "sections_title": "modl dynam systm",
+                "overallAvg": 367.5
+            },
+            {
+                "sections_title": "biofluids",
+                "overallAvg": 534.34
+            },
+            {
+                "sections_title": "fdmt inj biomech",
+                "overallAvg": 361.52
+            },
+            {
+                "sections_title": "fuel cell system",
+                "overallAvg": 357.68
+            },
+            {
+                "sections_title": "microelectromech",
+                "overallAvg": 364.04
+            },
+            {
+                "sections_title": "convec ht transf",
+                "overallAvg": 176.34
+            },
+            {
+                "sections_title": "adv eng acoustcs",
+                "overallAvg": 365
+            },
+            {
+                "sections_title": "mch tool str&vib",
+                "overallAvg": 907.72
+            },
+            {
+                "sections_title": "proj mec studies",
+                "overallAvg": 361.75
+            },
+            {
+                "sections_title": "research seminar",
+                "overallAvg": 1608.77
+            },
+            {
+                "sections_title": "seminar",
+                "overallAvg": 7675.36
+            },
+            {
+                "sections_title": "genome analysis",
+                "overallAvg": 1454.38
+            },
+            {
+                "sections_title": "adv hum mole gen",
+                "overallAvg": 1430.06
+            },
+            {
+                "sections_title": "biolgy of cancer",
+                "overallAvg": 1249.94
+            },
+            {
+                "sections_title": "adv human gene",
+                "overallAvg": 723.36
+            },
+            {
+                "sections_title": "genetics& ethics",
+                "overallAvg": 184.28
+            },
+            {
+                "sections_title": "tpcs med gen res",
+                "overallAvg": 891.55
+            },
+            {
+                "sections_title": "cncpts clin gene",
+                "overallAvg": 536.34
+            },
+            {
+                "sections_title": "mole & cell biol",
+                "overallAvg": 181.36
+            },
+            {
+                "sections_title": "exptl med method",
+                "overallAvg": 1098.22
+            },
+            {
+                "sections_title": "gastroenterology",
+                "overallAvg": 353.5
+            },
+            {
+                "sections_title": "msc thesis",
+                "overallAvg": 1267
+            },
+            {
+                "sections_title": "pulmonry pthphyl",
+                "overallAvg": 909.72
+            },
+            {
+                "sections_title": "cardiovas path",
+                "overallAvg": 181.5
+            },
+            {
+                "sections_title": "top mol virology",
+                "overallAvg": 537.24
+            },
+            {
+                "sections_title": "viral infec humn",
+                "overallAvg": 359.4
+            },
+            {
+                "sections_title": "top immun resrch",
+                "overallAvg": 1067.2
+            },
+            {
+                "sections_title": "expermntl micb",
+                "overallAvg": 361.54
+            },
+            {
+                "sections_title": "micb eco genomic",
+                "overallAvg": 360.94
+            },
+            {
+                "sections_title": "research problem",
+                "overallAvg": 555.4
+            },
+            {
+                "sections_title": "adv immunogeneti",
+                "overallAvg": 913.28
+            },
+            {
+                "sections_title": "tp mol pth & imm",
+                "overallAvg": 887.96
+            },
+            {
+                "sections_title": "cnsl mat cr prov",
+                "overallAvg": 934.28
+            },
+            {
+                "sections_title": "birth meaning",
+                "overallAvg": 889.22
+            },
+            {
+                "sections_title": "appl hlth serv",
+                "overallAvg": 734.22
+            },
+            {
+                "sections_title": "lactation conslt",
+                "overallAvg": 178.66
+            },
+            {
+                "sections_title": "theory & practic",
+                "overallAvg": 178.3
+            },
+            {
+                "sections_title": "crit apprais lit",
+                "overallAvg": 187.5
+            },
+            {
+                "sections_title": "primry care thry",
+                "overallAvg": 536.12
+            },
+            {
+                "sections_title": "ethics mtrnycare",
+                "overallAvg": 904.7
+            },
+            {
+                "sections_title": "clinical skills",
+                "overallAvg": 360.74
+            },
+            {
+                "sections_title": "sr rsrch project",
+                "overallAvg": 178.92
+            },
+            {
+                "sections_title": "clinical clerkship",
+                "overallAvg": 184.58
+            },
+            {
+                "sections_title": "comp thry&prctc",
+                "overallAvg": 713.62
+            },
+            {
+                "sections_title": "model & simulatn",
+                "overallAvg": 177.72
+            },
+            {
+                "sections_title": "cave mn sys: d&p",
+                "overallAvg": 183.12
+            },
+            {
+                "sections_title": "mdl indstrl syst",
+                "overallAvg": 265.54
+            },
+            {
+                "sections_title": "mgmt sc meth",
+                "overallAvg": 1015.68
+            },
+            {
+                "sections_title": "min eco fin",
+                "overallAvg": 181.04
+            },
+            {
+                "sections_title": "min & soc",
+                "overallAvg": 181.38
+            },
+            {
+                "sections_title": "main eng",
+                "overallAvg": 178.58
+            },
+            {
+                "sections_title": "eng proj",
+                "overallAvg": 533.86
+            },
+            {
+                "sections_title": "eco adp seaweeds",
+                "overallAvg": 176.66
+            },
+            {
+                "sections_title": "pop&comm ec mr o",
+                "overallAvg": 354.74
+            },
+            {
+                "sections_title": "sem&pprs mrne sc",
+                "overallAvg": 178.8
+            },
+            {
+                "sections_title": "hydromtl i lab",
+                "overallAvg": 88.36
+            },
+            {
+                "sections_title": "seminar iii",
+                "overallAvg": 88.42
+            },
+            {
+                "sections_title": "mtrl manufact",
+                "overallAvg": 185.78
+            },
+            {
+                "sections_title": "fin el heat tran",
+                "overallAvg": 181.66
+            },
+            {
+                "sections_title": "hydrmtllgcl rctr",
+                "overallAvg": 382.5
+            },
+            {
+                "sections_title": "adv nanofbr tech",
+                "overallAvg": 176.8
+            },
+            {
+                "sections_title": "adv compsit mtrl",
+                "overallAvg": 358.28
+            },
+            {
+                "sections_title": "intro musc thry",
+                "overallAvg": 453.93
+            },
+            {
+                "sections_title": "clbrtv piano i",
+                "overallAvg": 177.6
+            },
+            {
+                "sections_title": "contem players",
+                "overallAvg": 905.66
+            },
+            {
+                "sections_title": "jazz ensemble",
+                "overallAvg": 1687.69
+            },
+            {
+                "sections_title": "piano chamber",
+                "overallAvg": 176.26
+            },
+            {
+                "sections_title": "opera repertr 2",
+                "overallAvg": 177.5
+            },
+            {
+                "sections_title": "clbrtv piano ii",
+                "overallAvg": 899.68
+            },
+            {
+                "sections_title": "rdngs orch rep",
+                "overallAvg": 539.56
+            },
+            {
+                "sections_title": "conducting",
+                "overallAvg": 618.59
+            },
+            {
+                "sections_title": "hist poplr music",
+                "overallAvg": 186.9
+            },
+            {
+                "sections_title": "opera tht tech2",
+                "overallAvg": 177.46
+            },
+            {
+                "sections_title": "vocal techniques",
+                "overallAvg": 185.34
+            },
+            {
+                "sections_title": "orch repertoire",
+                "overallAvg": 746.65
+            },
+            {
+                "sections_title": "int ethnmuscolgy",
+                "overallAvg": 354.78
+            },
+            {
+                "sections_title": "art song int prf",
+                "overallAvg": 180.16
+            },
+            {
+                "sections_title": "ubc singers",
+                "overallAvg": 1312
+            },
+            {
+                "sections_title": "early music ens",
+                "overallAvg": 713.86
+            },
+            {
+                "sections_title": "ubc chamb string",
+                "overallAvg": 193
+            },
+            {
+                "sections_title": "contemp players",
+                "overallAvg": 1087.86
+            },
+            {
+                "sections_title": "shp prod ind eng",
+                "overallAvg": 358.84
+            },
+            {
+                "sections_title": "shpbld proj mgmt",
+                "overallAvg": 543.26
+            },
+            {
+                "sections_title": "cmptr ship desgn",
+                "overallAvg": 176.54
+            },
+            {
+                "sections_title": "relational pract",
+                "overallAvg": 352.94
+            },
+            {
+                "sections_title": "ldrshp, ethics",
+                "overallAvg": 364.36
+            },
+            {
+                "sections_title": "commnty & popltn",
+                "overallAvg": 269.1
+            },
+            {
+                "sections_title": "rl div hlth expr",
+                "overallAvg": 723.76
+            },
+            {
+                "sections_title": "crit inq & rs pr",
+                "overallAvg": 176.72
+            },
+            {
+                "sections_title": "practice praxis",
+                "overallAvg": 183.66
+            },
+            {
+                "sections_title": "ldrshp ethcs pol",
+                "overallAvg": 913.86
+            },
+            {
+                "sections_title": "synthesis projct",
+                "overallAvg": 177.3
+            },
+            {
+                "sections_title": "chldren&families",
+                "overallAvg": 366.8
+            },
+            {
+                "sections_title": "mntl hlth concrn",
+                "overallAvg": 190
+            },
+            {
+                "sections_title": "rsrch evidence",
+                "overallAvg": 90.65
+            },
+            {
+                "sections_title": "stat lit nursing",
+                "overallAvg": 357.95
+            },
+            {
+                "sections_title": "hlth promo prac",
+                "overallAvg": 182.94
+            },
+            {
+                "sections_title": "pharcgy prm care",
+                "overallAvg": 1075.38
+            },
+            {
+                "sections_title": "pthophysiol proc",
+                "overallAvg": 711.74
+            },
+            {
+                "sections_title": "cl pro prim care",
+                "overallAvg": 1511.64
+            },
+            {
+                "sections_title": "adv hlth assess",
+                "overallAvg": 1653.86
+            },
+            {
+                "sections_title": "fndtns nurs prac",
+                "overallAvg": 88.39
+            },
+            {
+                "sections_title": "admn ldrshp nurs",
+                "overallAvg": 898.92
+            },
+            {
+                "sections_title": "adv prct nurs",
+                "overallAvg": 535.86
+            },
+            {
+                "sections_title": "educ prc nurs",
+                "overallAvg": 357.48
+            },
+            {
+                "sections_title": "quant mtds&anyl",
+                "overallAvg": 358.06
+            },
+            {
+                "sections_title": "adv quant design",
+                "overallAvg": 182
+            },
+            {
+                "sections_title": "primary care i",
+                "overallAvg": 356
+            },
+            {
+                "sections_title": "primary care ii",
+                "overallAvg": 540.22
+            },
+            {
+                "sections_title": "primary care iii",
+                "overallAvg": 1448.26
+            },
+            {
+                "sections_title": "fam nrs pract",
+                "overallAvg": 1511.6
+            },
+            {
+                "sections_title": "eth&profl issues",
+                "overallAvg": 1697.34
+            },
+            {
+                "sections_title": "msn major essay",
+                "overallAvg": 94
+            },
+            {
+                "sections_title": "sch adv rsrch pr",
+                "overallAvg": 91
+            },
+            {
+                "sections_title": "primry care proj",
+                "overallAvg": 178.34
+            },
+            {
+                "sections_title": "reprd endocrin i",
+                "overallAvg": 178.28
+            },
+            {
+                "sections_title": "sem reprd biol",
+                "overallAvg": 537
+            },
+            {
+                "sections_title": "perinatal epidem",
+                "overallAvg": 186
+            },
+            {
+                "sections_title": "concepts in onco",
+                "overallAvg": 1279.08
+            },
+            {
+                "sections_title": "haematology",
+                "overallAvg": 177.62
+            },
+            {
+                "sections_title": "med lab toxiclgy",
+                "overallAvg": 535.18
+            },
+            {
+                "sections_title": "clk in lab medic",
+                "overallAvg": 534.66
+            },
+            {
+                "sections_title": "tpcs path rsrch",
+                "overallAvg": 368.74
+            },
+            {
+                "sections_title": "tech mlc biol&ex",
+                "overallAvg": 1261.84
+            },
+            {
+                "sections_title": "intro to pcol",
+                "overallAvg": 537.7
+            },
+            {
+                "sections_title": "systematic pcol",
+                "overallAvg": 533.12
+            },
+            {
+                "sections_title": "systmtc pcol lab",
+                "overallAvg": 1257.64
+            },
+            {
+                "sections_title": "drug assay&phrmc",
+                "overallAvg": 353.82
+            },
+            {
+                "sections_title": "drugs &intercell",
+                "overallAvg": 358.98
+            },
+            {
+                "sections_title": "design & bioassy",
+                "overallAvg": 543.38
+            },
+            {
+                "sections_title": "pcol anaesthesia",
+                "overallAvg": 903.26
+            },
+            {
+                "sections_title": "ms thesis",
+                "overallAvg": 1454.5
+            },
+            {
+                "sections_title": "pers writ & read",
+                "overallAvg": 89.25
+            },
+            {
+                "sections_title": "adv persian 1",
+                "overallAvg": 354.9
+            },
+            {
+                "sections_title": "pharmacokinetics",
+                "overallAvg": 358.1
+            },
+            {
+                "sections_title": "biophys pharm i",
+                "overallAvg": 360.02
+            },
+            {
+                "sections_title": "bio pharm chem i",
+                "overallAvg": 177.36
+            },
+            {
+                "sections_title": "pathophys i",
+                "overallAvg": 357.02
+            },
+            {
+                "sections_title": "pharm mgmt",
+                "overallAvg": 805.08
+            },
+            {
+                "sections_title": "admn of injectns",
+                "overallAvg": 746.79
+            },
+            {
+                "sections_title": "peer teaching 2",
+                "overallAvg": 356.32
+            },
+            {
+                "sections_title": "drug safety",
+                "overallAvg": 910.62
+            },
+            {
+                "sections_title": "clin pharcknetcs",
+                "overallAvg": 1080.84
+            },
+            {
+                "sections_title": "pain res & thera",
+                "overallAvg": 182.4
+            },
+            {
+                "sections_title": "phar care aborig",
+                "overallAvg": 637.89
+            },
+            {
+                "sections_title": "non-pres drug 3",
+                "overallAvg": 177.08
+            },
+            {
+                "sections_title": "cs phar sci iv",
+                "overallAvg": 1249.28
+            },
+            {
+                "sections_title": "adv pharmacother",
+                "overallAvg": 176.26
+            },
+            {
+                "sections_title": "adv conc pharmac",
+                "overallAvg": 1265.94
+            },
+            {
+                "sections_title": "adv appl clin ph",
+                "overallAvg": 532.52
+            },
+            {
+                "sections_title": "diag img & rdoph",
+                "overallAvg": 180.86
+            },
+            {
+                "sections_title": "adv hos phr mngt",
+                "overallAvg": 532.76
+            },
+            {
+                "sections_title": "log & crit think",
+                "overallAvg": 187.5
+            },
+            {
+                "sections_title": "directed reading",
+                "overallAvg": 629.21
+            },
+            {
+                "sections_title": "phrm in practc 1",
+                "overallAvg": 188.46
+            },
+            {
+                "sections_title": "tech in hlthcare",
+                "overallAvg": 184.12
+            },
+            {
+                "sections_title": "path for pt 1",
+                "overallAvg": 354.6
+            },
+            {
+                "sections_title": "clinical dec i",
+                "overallAvg": 726.52
+            },
+            {
+                "sections_title": "clinical dec ii",
+                "overallAvg": 363.02
+            },
+            {
+                "sections_title": "exercise move ii",
+                "overallAvg": 352.72
+            },
+            {
+                "sections_title": "case integr i",
+                "overallAvg": 533.46
+            },
+            {
+                "sections_title": "clin prac iva",
+                "overallAvg": 531.38
+            },
+            {
+                "sections_title": "clin make iv",
+                "overallAvg": 379.38
+            },
+            {
+                "sections_title": "intro exper phys",
+                "overallAvg": 179.33
+            },
+            {
+                "sections_title": "enrch exper phys",
+                "overallAvg": 88.25
+            },
+            {
+                "sections_title": "intro cptnl phys",
+                "overallAvg": 179.3
+            },
+            {
+                "sections_title": "intmd exp phys 2",
+                "overallAvg": 88.05
+            },
+            {
+                "sections_title": "quantum mech ii",
+                "overallAvg": 366.62
+            },
+            {
+                "sections_title": "cond matter ii",
+                "overallAvg": 544
+            },
+            {
+                "sections_title": "relativty & elec",
+                "overallAvg": 183.5
+            },
+            {
+                "sections_title": "elm prticle phys",
+                "overallAvg": 537.22
+            },
+            {
+                "sections_title": "quant fld theory",
+                "overallAvg": 1288.48
+            },
+            {
+                "sections_title": "quantum elctrdyn",
+                "overallAvg": 715.24
+            },
+            {
+                "sections_title": "rdiothrpy phy ii",
+                "overallAvg": 181.4
+            },
+            {
+                "sections_title": "adv rad biophys",
+                "overallAvg": 901.78
+            },
+            {
+                "sections_title": "rdtn dosimetry",
+                "overallAvg": 181.66
+            },
+            {
+                "sections_title": "anat phys stats",
+                "overallAvg": 1086.94
+            },
+            {
+                "sections_title": "urbnism glbl lif",
+                "overallAvg": 176.82
+            },
+            {
+                "sections_title": "urb dsgn thr&met",
+                "overallAvg": 730.9
+            },
+            {
+                "sections_title": "cty plan craft",
+                "overallAvg": 355.28
+            },
+            {
+                "sections_title": "sem r prpty dv&p",
+                "overallAvg": 1831.46
+            },
+            {
+                "sections_title": "urban transport",
+                "overallAvg": 715.72
+            },
+            {
+                "sections_title": "urbn restructing",
+                "overallAvg": 716.4
+            },
+            {
+                "sections_title": "nat resrce mngmt",
+                "overallAvg": 938.98
+            },
+            {
+                "sections_title": "plan thy adv sem",
+                "overallAvg": 178.5
+            },
+            {
+                "sections_title": "phd colloquium",
+                "overallAvg": 624.29
+            },
+            {
+                "sections_title": "lit&film translt",
+                "overallAvg": 176.6
+            },
+            {
+                "sections_title": "elementary port",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "intermed port",
+                "overallAvg": 176.5
+            },
+            {
+                "sections_title": "advanced port",
+                "overallAvg": 177
+            },
+            {
+                "sections_title": "port for busines",
+                "overallAvg": 179.5
+            },
+            {
+                "sections_title": "health psych",
+                "overallAvg": 941.4
+            },
+            {
+                "sections_title": "teaching of psyc",
+                "overallAvg": 178.94
+            },
+            {
+                "sections_title": "exp npsy & an mo",
+                "overallAvg": 356.16
+            },
+            {
+                "sections_title": "assm intrv techn",
+                "overallAvg": 542.66
+            },
+            {
+                "sections_title": "behav assessment",
+                "overallAvg": 359.66
+            },
+            {
+                "sections_title": "psycopathy child",
+                "overallAvg": 533.58
+            },
+            {
+                "sections_title": "eth & prof clin",
+                "overallAvg": 1291.66
+            },
+            {
+                "sections_title": "intro psychthrpy",
+                "overallAvg": 1278.7
+            },
+            {
+                "sections_title": "cog/beh interven",
+                "overallAvg": 1261.08
+            },
+            {
+                "sections_title": "clinical res des",
+                "overallAvg": 1253.18
+            },
+            {
+                "sections_title": "srvy soc psyc ii",
+                "overallAvg": 533.26
+            },
+            {
+                "sections_title": "psychoneuroendro",
+                "overallAvg": 178.5
+            },
+            {
+                "sections_title": "intro punjabi",
+                "overallAvg": 178.16
+            },
+            {
+                "sections_title": "adv conc rehb rs",
+                "overallAvg": 539.14
+            },
+            {
+                "sections_title": "eval src evidenc",
+                "overallAvg": 542.86
+            },
+            {
+                "sections_title": "evidnc for pract",
+                "overallAvg": 177.05
+            },
+            {
+                "sections_title": "rehab theory",
+                "overallAvg": 537.34
+            },
+            {
+                "sections_title": "reas & dec-mking",
+                "overallAvg": 360.97
+            },
+            {
+                "sections_title": "meas in practice",
+                "overallAvg": 182.5
+            },
+            {
+                "sections_title": "assess plan eval",
+                "overallAvg": 626.97
+            },
+            {
+                "sections_title": "dev rehab prog",
+                "overallAvg": 356.62
+            },
+            {
+                "sections_title": "rehab learning",
+                "overallAvg": 545.29
+            },
+            {
+                "sections_title": "major proj prt 1",
+                "overallAvg": 542.8
+            },
+            {
+                "sections_title": "qual mthd intdsc",
+                "overallAvg": 176.5
+            },
+            {
+                "sections_title": "climate change",
+                "overallAvg": 178.4
+            },
+            {
+                "sections_title": "environ anyl",
+                "overallAvg": 353.24
+            },
+            {
+                "sections_title": "theory & prac",
+                "overallAvg": 176.04
+            },
+            {
+                "sections_title": "prac skills i",
+                "overallAvg": 177.26
+            },
+            {
+                "sections_title": "pro prct i",
+                "overallAvg": 177.34
+            },
+            {
+                "sections_title": "prac skills ii",
+                "overallAvg": 176.56
+            },
+            {
+                "sections_title": "pract project",
+                "overallAvg": 354.52
+            },
+            {
+                "sections_title": "soci environ",
+                "overallAvg": 364.18
+            },
+            {
+                "sections_title": "dev effective pr",
+                "overallAvg": 177.56
+            },
+            {
+                "sections_title": "basic russian ii",
+                "overallAvg": 269.17
+            },
+            {
+                "sections_title": "third-year russ",
+                "overallAvg": 184.6
+            },
+            {
+                "sections_title": "russ throug film",
+                "overallAvg": 176.9
+            },
+            {
+                "sections_title": "fourth-year russ",
+                "overallAvg": 179.08
+            },
+            {
+                "sections_title": "intro sanskrit",
+                "overallAvg": 543.58
+            },
+            {
+                "sections_title": "intermd sanskrit",
+                "overallAvg": 180.58
+            },
+            {
+                "sections_title": "contemp theory",
+                "overallAvg": 530.66
+            },
+            {
+                "sections_title": "rs dsg&tec: qual",
+                "overallAvg": 177.42
+            },
+            {
+                "sections_title": "adv fld&soil sci",
+                "overallAvg": 179.34
+            },
+            {
+                "sections_title": "land water semnr",
+                "overallAvg": 181.42
+            },
+            {
+                "sections_title": "urbn wtrshd mgmt",
+                "overallAvg": 179.5
+            },
+            {
+                "sections_title": "prof comms strat",
+                "overallAvg": 182.86
+            },
+            {
+                "sections_title": "int sem in sw th",
+                "overallAvg": 1158.95
+            },
+            {
+                "sections_title": "intr sowk resrch",
+                "overallAvg": 176.22
+            },
+            {
+                "sections_title": "soc anl sowk",
+                "overallAvg": 177.88
+            },
+            {
+                "sections_title": "can soci plcy",
+                "overallAvg": 632.66
+            },
+            {
+                "sections_title": "sowk practice ii",
+                "overallAvg": 357.67
+            },
+            {
+                "sections_title": "adv int sem in sw th",
+                "overallAvg": 446.32
+            },
+            {
+                "sections_title": "first nat soc is",
+                "overallAvg": 536.81
+            },
+            {
+                "sections_title": "health care team",
+                "overallAvg": 180.18
+            },
+            {
+                "sections_title": "adv can soc plcy",
+                "overallAvg": 358.68
+            },
+            {
+                "sections_title": "social analysis",
+                "overallAvg": 561.28
+            },
+            {
+                "sections_title": "fst ntns soc iss",
+                "overallAvg": 367.2
+            },
+            {
+                "sections_title": "pr mental health",
+                "overallAvg": 910.87
+            },
+            {
+                "sections_title": "soc wrk & justce",
+                "overallAvg": 539.28
+            },
+            {
+                "sections_title": "hlth & soc care",
+                "overallAvg": 365.83
+            },
+            {
+                "sections_title": "adv int seminar",
+                "overallAvg": 639.04
+            },
+            {
+                "sections_title": "soc work doc sem",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "advanced span i",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "advancd span iii",
+                "overallAvg": 369.7
+            },
+            {
+                "sections_title": "manag accounting",
+                "overallAvg": 179.52
+            },
+            {
+                "sections_title": "qual health care",
+                "overallAvg": 176.94
+            },
+            {
+                "sections_title": "sociocult determ",
+                "overallAvg": 286.61
+            },
+            {
+                "sections_title": "work int health",
+                "overallAvg": 197.96
+            },
+            {
+                "sections_title": "tpcs hlth inform",
+                "overallAvg": 176.48
+            },
+            {
+                "sections_title": "imprv pblic hlth",
+                "overallAvg": 184.16
+            },
+            {
+                "sections_title": "violenc lifespan",
+                "overallAvg": 267.94
+            },
+            {
+                "sections_title": "an meth epid res",
+                "overallAvg": 637.4
+            },
+            {
+                "sections_title": "epid methods 1",
+                "overallAvg": 89.37
+            },
+            {
+                "sections_title": "epidem methods 2",
+                "overallAvg": 88.85
+            },
+            {
+                "sections_title": "meas health care",
+                "overallAvg": 902.44
+            },
+            {
+                "sections_title": "clinical epidlgy",
+                "overallAvg": 355
+            },
+            {
+                "sections_title": "hlth cr dec anly",
+                "overallAvg": 357.66
+            },
+            {
+                "sections_title": "survlnc&monitrng",
+                "overallAvg": 1092.54
+            },
+            {
+                "sections_title": "syst rev hlth rs",
+                "overallAvg": 364.46
+            },
+            {
+                "sections_title": "rsch surgical pr",
+                "overallAvg": 185.66
+            },
+            {
+                "sections_title": "math mdl com dis",
+                "overallAvg": 563.76
+            },
+            {
+                "sections_title": "qual mth res des",
+                "overallAvg": 540
+            },
+            {
+                "sections_title": "cntrl com dis",
+                "overallAvg": 627.03
+            },
+            {
+                "sections_title": "hlth & human sec",
+                "overallAvg": 1254.66
+            },
+            {
+                "sections_title": "biol p hlth prac",
+                "overallAvg": 1345.64
+            },
+            {
+                "sections_title": "iss public hlth",
+                "overallAvg": 360.55
+            },
+            {
+                "sections_title": "ldrship pub hlth",
+                "overallAvg": 718.96
+            },
+            {
+                "sections_title": "soc detrmin hlth",
+                "overallAvg": 806.05
+            },
+            {
+                "sections_title": "hltcr systm anyl",
+                "overallAvg": 180.76
+            },
+            {
+                "sections_title": "occ hlt ill prcs",
+                "overallAvg": 177.66
+            },
+            {
+                "sections_title": "aborig pb health",
+                "overallAvg": 182.5
+            },
+            {
+                "sections_title": "perinatl epidlgy",
+                "overallAvg": 896.1
+            },
+            {
+                "sections_title": "hlth srv res i",
+                "overallAvg": 360.22
+            },
+            {
+                "sections_title": "prog pln & eval",
+                "overallAvg": 907.44
+            },
+            {
+                "sections_title": "hlth tech asmnt",
+                "overallAvg": 186.4
+            },
+            {
+                "sections_title": "com hlth prom",
+                "overallAvg": 1962.4
+            },
+            {
+                "sections_title": "sbst use addictn",
+                "overallAvg": 367.84
+            },
+            {
+                "sections_title": "chem&biol hz mea",
+                "overallAvg": 353.08
+            },
+            {
+                "sections_title": "chem&biol hz con",
+                "overallAvg": 178.58
+            },
+            {
+                "sections_title": "case studies",
+                "overallAvg": 178.5
+            },
+            {
+                "sections_title": "stat infrnce i",
+                "overallAvg": 539.14
+            },
+            {
+                "sections_title": "stat infrnce ii",
+                "overallAvg": 358.64
+            },
+            {
+                "sections_title": "stat meth hd bio",
+                "overallAvg": 716.78
+            },
+            {
+                "sections_title": "tech stat conslt",
+                "overallAvg": 359.04
+            },
+            {
+                "sections_title": "sts core seminar",
+                "overallAvg": 176.8
+            },
+            {
+                "sections_title": "sts mstrs colloq",
+                "overallAvg": 180
+            },
+            {
+                "sections_title": "surgical rsrch",
+                "overallAvg": 1285.5
+            },
+            {
+                "sections_title": "global disabilit",
+                "overallAvg": 177.34
+            },
+            {
+                "sections_title": "intro tech prod",
+                "overallAvg": 184.3
+            },
+            {
+                "sections_title": "sound design",
+                "overallAvg": 367.56
+            },
+            {
+                "sections_title": "perf study ii",
+                "overallAvg": 182.2
+            },
+            {
+                "sections_title": "scenery prod i",
+                "overallAvg": 727.96
+            },
+            {
+                "sections_title": "scene painting i",
+                "overallAvg": 180.92
+            },
+            {
+                "sections_title": "costume constr",
+                "overallAvg": 548.34
+            },
+            {
+                "sections_title": "scenery dsgn ii",
+                "overallAvg": 176.5
+            },
+            {
+                "sections_title": "lighting dsgn ii",
+                "overallAvg": 179.66
+            },
+            {
+                "sections_title": "dramaturgy",
+                "overallAvg": 180.28
+            },
+            {
+                "sections_title": "scene paint ii",
+                "overallAvg": 176.72
+            },
+            {
+                "sections_title": "costum constr ii",
+                "overallAvg": 359.18
+            },
+            {
+                "sections_title": "adv bfa act ii",
+                "overallAvg": 177.14
+            },
+            {
+                "sections_title": "adv spch&move ii",
+                "overallAvg": 177.14
+            },
+            {
+                "sections_title": "bibliog & resrch",
+                "overallAvg": 542.36
+            },
+            {
+                "sections_title": "sc dsgn std i",
+                "overallAvg": 359.5
+            },
+            {
+                "sections_title": "studio sust neig",
+                "overallAvg": 178.46
+            },
+            {
+                "sections_title": "policymaking",
+                "overallAvg": 179
+            },
+            {
+                "sections_title": "special study i",
+                "overallAvg": 176.9
+            },
+            {
+                "sections_title": "studio v",
+                "overallAvg": 176.66
+            },
+            {
+                "sections_title": "studio vi",
+                "overallAvg": 177.5
+            },
+            {
+                "sections_title": "mfa studio vi",
+                "overallAvg": 177.34
+            },
+            {
+                "sections_title": "quant meth wood",
+                "overallAvg": 178
+            },
+            {
+                "sections_title": "comp animal phyl",
+                "overallAvg": 1087.54
+            }
+        ]
+
+}
