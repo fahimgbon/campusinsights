@@ -29,7 +29,6 @@ export default class InsightFacade implements IInsightFacade {
 
 	constructor() {
 		this.datasets = new Map<string, Dataset>();
-		// console.log("Constructor:", this.datasets.keys);
 		this.data = new Map<string, Section[]>();
 
 		// Call the async initialize method immediately after construction
@@ -73,23 +72,28 @@ export default class InsightFacade implements IInsightFacade {
 		if(!isQueryValid) {
 			return Promise.reject(new InsightError("Insight Error: the query is not valid."));
 		}
-		const sectionsOrRooms = this.data.get(queryValidator.idsArray[0]);
-		if(!sectionsOrRooms) {
+
+		if (!this.data.get(queryValidator.idsArray[0])) {
 			return Promise.reject(new InsightError("Insight Error: dataset not found."));
 		}
 
-		return Promise.resolve([]);
-		// const applyQuery = new ApplyQuery();
-		// const results = applyQuery.getSections(sections, query);
-		// if (!results) {
-		// 	return Promise.reject(new ResultTooLargeError());
-		// }
-		// return Promise.resolve(results as InsightResult[]);
+		const isRoom = Object.keys(this.data.get(queryValidator.idsArray[0])?.[0] as any)[0] === "fullname" ;
+
+		const sectionsOrRooms = this.data.get(queryValidator.idsArray[0]);
+
+
+		const applyQuery = new ApplyQuery();
+		const results = applyQuery.getSections(sectionsOrRooms as Section[] | Room[], query, isRoom);
+		if (!results) {
+			return Promise.reject(new ResultTooLargeError());
+		}
+		return Promise.resolve(results as InsightResult[]);
+
+
 	}
 
 	// worried may not work for multiple instances of insightafacade because i'm using datasets variable instead of json content
 	public async listDatasets(): Promise<InsightDataset[]> {
-		// console.log("Values:", [...this.datasets.values()]);
 		return Array.from(this.datasets.values()).map((dataset) => ({
 			id: dataset.id,
 			kind: dataset.kind,
@@ -115,7 +119,6 @@ export default class InsightFacade implements IInsightFacade {
 				let processor: KindProcessor;
 				if (kind === InsightDatasetKind.Rooms) {
 					processor = new RoomProcessor(this); // ChatGPT - Passing a reference to the InsightFacade instance to the class so I can modify the data/datasets variables
-					// console.log("!!! Processor:", processor);
 				} else if (kind === InsightDatasetKind.Sections) {
 					processor = new SectionProcessor(this);
 				} else {
@@ -165,7 +168,6 @@ export default class InsightFacade implements IInsightFacade {
 						const dataset = new Dataset(id, content, kind);
 
 						// Add the dataset to datasets
-						// console.log("Last Set:", this.datasets.keys);
 						this.datasets.set(id, dataset);
 					} catch (error) {
 						console.error(`Failed to load dataset from file ${file}: ${error}`);
@@ -193,7 +195,6 @@ export default class InsightFacade implements IInsightFacade {
 				data: data
 			};
 
-			// console.log("JSON", json);
 			// Write the JSON object to the file
 			await fs.promises.writeFile(filePath, JSON.stringify(json, null, 2), "utf-8");
 		} catch (error) {
