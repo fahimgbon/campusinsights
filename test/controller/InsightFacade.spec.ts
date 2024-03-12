@@ -1020,6 +1020,110 @@ describe("Room Class", function() {
 	});
 });
 
+
+describe("RoomProcessor", function() {
+	let insightFacade: InsightFacade;
+	let roomProcessor: RoomProcessor;
+
+	beforeEach(async function () {
+		await clearDisk();
+		insightFacade = new InsightFacade();
+		roomProcessor = new RoomProcessor(insightFacade);
+	});
+
+	it("should add room dataset with valid idString", async function() {
+
+		const content = await getContentFromArchives("campus.zip");
+		const idString = "ubc";
+		const expected: string[] = [idString];
+
+		await insightFacade.addDataset(idString, content, InsightDatasetKind.Rooms).then((result: string[]) => {
+			expect(result).to.deep.equal(expected);
+		}).catch((error: any) => {
+			expect.fail(error, expected, "Should not have rejected");
+		});
+
+		await insightFacade.listDatasets().then((result: InsightDataset[]) => {
+			expect(result).to.have.lengthOf(1);
+		});
+	});
+	// it("should process valid zip contents", async function() {
+	// 	const content = await getContentFromArchives("campus.zip");
+	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
+	// 	const idString = "rooms";
+	// 	const kind = InsightDatasetKind.Rooms;
+
+	// 	await roomProcessor.processZipContents(idString, kind, zipContents)
+	// 		.then((result: string[]) => {
+	// 			expect(result).to.include(idString);
+	// 		})
+	// 		.catch((error: any) => {
+	// 			expect.fail(error, "Should not have rejected");
+	// 		});
+	// });
+
+	// it("should parse valid index file", async function() {
+	// 	const content = await getContentFromArchives("campus.zip");
+	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
+	// 	const file = zipContents.file("index.htm");
+
+	// 	if (file) {
+	// 		const buildings = await roomProcessor.parseIndexFile(file);
+	// 		expect(buildings).to.be.an("array").that.is.not.empty;
+	// 	} else {
+	// 		expect.fail("index.htm file not found in zip");
+	// 	}
+	// });
+
+
+	// it("should parse and save rooms from valid building files", async function() {
+	// 	const content = await getContentFromArchives("campus.zip");
+	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
+	// 	const idString = "rooms";
+	// 	const buildingFiles = zipContents.folder("buildings").file(/\.htm$/);
+
+	// 	const roomData = await roomProcessor.parseAndSaveRooms(idString, buildingFiles);
+	// 	expect(roomData).to.be.an("array").that.is.not.empty;
+	// });
+});
+
+describe("C2 queries", function() {
+
+	beforeEach(async function () {
+		await clearDisk();
+	});
+
+	const insightFacade: InsightFacade = new InsightFacade();
+
+	let validQueries: ITestQuery[];
+
+	try {
+
+		validQueries = readFileQueries("c2");
+
+	} catch (e: unknown) {
+
+		expect.fail(`Failed to read one or more test queries. ${e}`);
+
+	}
+
+	validQueries.forEach(function(test: any) {
+
+		it(`${test.title}`, async function () {
+			const content = await getContentFromArchives("campus.zip");
+			const idString = "rooms";
+			await insightFacade.addDataset(idString, content, InsightDatasetKind.Rooms);
+			return insightFacade.performQuery(test.input).then((result) => {
+				expect(result).to.deep.equal(test.expected);
+			}).catch((error: string) => {
+				expect.fail(`Failed inside test. ${error}`);
+			});
+		});
+
+	});
+
+});
+
 // describe("RoomProcessor", function() {
 // 	let insightFacade: InsightFacade;
 // 	let roomProcessor: RoomProcessor;
@@ -1310,110 +1414,4 @@ describe("Room Class", function() {
 
 // 		});
 
-describe("RoomProcessor", function() {
-	let insightFacade: InsightFacade;
-	let roomProcessor: RoomProcessor;
 
-	beforeEach(async function () {
-		await clearDisk();
-		insightFacade = new InsightFacade();
-		roomProcessor = new RoomProcessor(insightFacade);
-	});
-
-	it("should add room dataset with valid idString", async function() {
-
-		const content = await getContentFromArchives("campus.zip");
-		const idString = "ubc";
-		const expected: string[] = [idString];
-
-		await insightFacade.addDataset(idString, content, InsightDatasetKind.Rooms).then((result: string[]) => {
-			expect(result).to.deep.equal(expected);
-		}).catch((error: any) => {
-			expect.fail(error, expected, "Should not have rejected");
-		});
-
-		await insightFacade.listDatasets().then((result: InsightDataset[]) => {
-			expect(result).to.have.lengthOf(1);
-		});
-	});
-	// it("should process valid zip contents", async function() {
-	// 	const content = await getContentFromArchives("campus.zip");
-	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
-	// 	const idString = "rooms";
-	// 	const kind = InsightDatasetKind.Rooms;
-
-	// 	await roomProcessor.processZipContents(idString, kind, zipContents)
-	// 		.then((result: string[]) => {
-	// 			expect(result).to.include(idString);
-	// 		})
-	// 		.catch((error: any) => {
-	// 			expect.fail(error, "Should not have rejected");
-	// 		});
-	// });
-
-	// it("should parse valid index file", async function() {
-	// 	const content = await getContentFromArchives("campus.zip");
-	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
-	// 	const file = zipContents.file("index.htm");
-
-	// 	if (file) {
-	// 		const buildings = await roomProcessor.parseIndexFile(file);
-	// 		expect(buildings).to.be.an("array").that.is.not.empty;
-	// 	} else {
-	// 		expect.fail("index.htm file not found in zip");
-	// 	}
-	// });
-
-
-	// it("should parse and save rooms from valid building files", async function() {
-	// 	const content = await getContentFromArchives("campus.zip");
-	// 	const zipContents = await JSZip.loadAsync(content, {base64: true});
-	// 	const idString = "rooms";
-	// 	const buildingFiles = zipContents.folder("buildings").file(/\.htm$/);
-
-	// 	const roomData = await roomProcessor.parseAndSaveRooms(idString, buildingFiles);
-	// 	expect(roomData).to.be.an("array").that.is.not.empty;
-	// });
-});
-
-describe("C2 queries", function() {
-
-	beforeEach(async function () {
-		await clearDisk();
-	});
-
-	const insightFacade: InsightFacade = new InsightFacade();
-
-	let validQueries: ITestQuery[];
-
-	try {
-
-		validQueries = readFileQueries("c2");
-
-	} catch (e: unknown) {
-
-		expect.fail(`Failed to read one or more test queries. ${e}`);
-
-	}
-
-	validQueries.forEach(function(test: any) {
-
-		it(`${test.title}`, async function () {
-			const content = await getContentFromArchives("campus.zip");
-			const idString = "rooms";
-			await insightFacade.addDataset(idString, content, InsightDatasetKind.Rooms);
-			return insightFacade.performQuery(test.input).then((result) => {
-
-				expect(result).to.deep.equal(test.expected);
-
-			}).catch((error: string) => {
-
-				expect.fail(`Failed inside test. ${error}`);
-
-			});
-
-		});
-
-	});
-
-});

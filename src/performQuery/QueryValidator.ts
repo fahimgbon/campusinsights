@@ -35,6 +35,21 @@ export class QueryValidator {
 			if(!areTransfomrationsValid) {
 				return false;
 			}
+			if (query.TRANSFORMATIONS.GROUP) {
+				let colsToBeCovered: string[] = [];
+				for (const groupCol of query.TRANSFORMATIONS.GROUP) {
+					colsToBeCovered.push(groupCol);
+				}
+				for (const groupCol of this.newCols) {
+					colsToBeCovered.push(groupCol);
+				}
+				for(const column of query.OPTIONS.COLUMNS) {
+					colsToBeCovered = colsToBeCovered.filter((item) => item !== column);
+				}
+				if(colsToBeCovered.length > 0) {
+					return false;
+				}
+			}
 		}
 
 		const areOptionsValid = this.areOptionsValid(query);
@@ -88,8 +103,11 @@ export class QueryValidator {
 		}
 
 		const order = optionsObject["ORDER"];
+		if(order) {
+			return this.isOrderValid(order, cols);
+		}
 
-		return this.isOrderValid(order, cols);
+		return true;
 	}
 
 	public isOrderValid(order: any, cols: any) {
@@ -300,6 +318,9 @@ export class QueryValidator {
 				return false;
 			}
 
+			if (this.newCols.includes(Object.keys(currObject)[0])) {
+				return false;
+			}
 			this.newCols.push(Object.keys(currObject)[0]);
 			const innerObject = Object.values(currObject)[0];
 
