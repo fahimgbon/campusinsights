@@ -77,6 +77,36 @@ export class ApplyQuery {
 			return Math.max(...values);
 		}
 
+		if (Object.keys((rule as any)[key])[0] === "MIN") {
+			const index = rule[key][Object.keys((rule as any)[key])[0]].split("_")[1];
+			const values = sectionsOrRooms.map((item) => item[index]);
+			return Math.min(...values);
+		}
+
+		if (Object.keys((rule as any)[key])[0] === "AVG") {
+			const index = rule[key][Object.keys((rule as any)[key])[0]].split("_")[1];
+			const values = sectionsOrRooms.map((item) => item[index]);
+			let sum = 0;
+			for(const value of values) {
+				sum += value;
+			}
+			return sum / values.length;
+		}
+
+		if (Object.keys((rule as any)[key])[0] === "SUM") {
+			const index = rule[key][Object.keys((rule as any)[key])[0]].split("_")[1];
+			const values = sectionsOrRooms.map((item) => item[index]);
+			let sum = 0;
+			for(const value of values) {
+				sum += value;
+			}
+			return sum;
+		}
+
+		if (Object.keys((rule as any)[key])[0] === "COUNT") {
+			return sectionsOrRooms.length;
+		}
+
 		return {};
 	}
 
