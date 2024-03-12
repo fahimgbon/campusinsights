@@ -1124,6 +1124,48 @@ describe("C2 queries", function() {
 
 });
 
+describe("C2 section queries", function() {
+
+	beforeEach(async function () {
+		await clearDisk();
+	});
+
+	const insightFacade: InsightFacade = new InsightFacade();
+
+	let validQueries: ITestQuery[];
+
+	try {
+
+		validQueries = readFileQueries("c2room");
+
+	} catch (e: unknown) {
+
+		expect.fail(`Failed to read one or more test queries. ${e}`);
+
+	}
+
+	validQueries.forEach(function(test: any) {
+
+		it(`${test.title}`, async function () {
+			const content = await getContentFromArchives("pair.zip");
+			const idString = "sections";
+			await insightFacade.addDataset(idString, content, InsightDatasetKind.Sections);
+			return insightFacade.performQuery(test.input).then((result) => {
+
+				expect(result).to.deep.equal(test.expected);
+
+			}).catch((error: string) => {
+
+				expect.fail(`Inside failed. ${error}`);
+
+			});
+
+		});
+
+	});
+
+});
+
 // describe("RoomProcessor", function() {
 // 	let insightFacade: InsightFacade;
 // 	let roomProcessor: RoomProcessor;

@@ -1,29 +1,39 @@
 import {InsightError, InsightResult} from "../controller/IInsightFacade";
 import Room from "../controller/Room";
 import Section from "../controller/Section";
+import {Decimal} from "decimal.js";
 
 export class ApplyQuery {
 
+	public throw = false;
 	public getSections(sectionsOrRooms: Section[] | Room[], query: any, isRoom: boolean): object | null {
 
 		const whereObject = query.WHERE;
-		if (Object.keys(whereObject).length === 0) {
-			if (sectionsOrRooms.length > 5000) {
-				return null;
-			}
-			return this.makeInsightResult(sectionsOrRooms, query.OPTIONS, undefined);
-		}
+		// if (Object.keys(whereObject).length === 0) {
+		// 	if (sectionsOrRooms.length > 5000) {
+		// 		return null;
+		// 	}
+		// 	return this.makeInsightResult(sectionsOrRooms, query.OPTIONS, undefined);
+		// }
 
 		let sectionsFiltered = this.filterSections(sectionsOrRooms, query.WHERE);
 
-		if (sectionsFiltered.length > 5000) {
+
+		if (query.TRANSFORMATIONS) {
+
+			const sectionsFiltered2 = this.applyTransformations(sectionsFiltered, query.TRANSFORMATIONS, query);
+			console.log("length is " + sectionsFiltered2.length);
+
+			if (sectionsFiltered2.length > 5000 || this.throw) {
+				return null;
+			}
+			return this.makeInsightResult(sectionsFiltered, query.OPTIONS, sectionsFiltered2);
+		}
+
+		if (sectionsFiltered.length > 5000 || this.throw) {
 			return null;
 		}
 
-		if (query.TRANSFORMATIONS) {
-			const sectionsFiltered2 = this.applyTransformations(sectionsFiltered, query.TRANSFORMATIONS, query);
-			return this.makeInsightResult(sectionsFiltered, query.OPTIONS, sectionsFiltered2);
-		}
 		return this.makeInsightResult(sectionsFiltered, query.OPTIONS, undefined);
 	}
 
@@ -80,17 +90,17 @@ export class ApplyQuery {
 		if (Object.keys((rule as any)[key])[0] === "MIN") {
 			const index = rule[key][Object.keys((rule as any)[key])[0]].split("_")[1];
 			const values = sectionsOrRooms.map((item) => item[index]);
-			return Math.min(...values);
+			return Math.min(...values).toFixed(2);
 		}
 
 		if (Object.keys((rule as any)[key])[0] === "AVG") {
 			const index = rule[key][Object.keys((rule as any)[key])[0]].split("_")[1];
 			const values = sectionsOrRooms.map((item) => item[index]);
-			let sum = 0;
+			let total = new Decimal(0);
 			for(const value of values) {
-				sum += value;
+				total = Decimal.add(new Decimal(value), total);
 			}
-			return sum / values.length;
+			return Number((total.toNumber() / values.length).toFixed(2));
 		}
 
 		if (Object.keys((rule as any)[key])[0] === "SUM") {
@@ -100,7 +110,7 @@ export class ApplyQuery {
 			for(const value of values) {
 				sum += value;
 			}
-			return sum;
+			return Number(sum.toFixed(2));
 		}
 
 		if (Object.keys((rule as any)[key])[0] === "COUNT") {
@@ -116,35 +126,38 @@ export class ApplyQuery {
 		let item = {};
 		const columns = options["COLUMNS"];
 
-		if (typeof options.ORDER === "string") {
+		if (transfomations) {
+			console.log("INSIDEEEEE");
+			if(options.ORDER && options.ORDER.dir && options.ORDER.keys) {
+				const order = options.ORDER.dir;
+				if (order === "UP") {
+					transfomations?.sort(
+						(a, b) => {
+							for (const key of options.ORDER.keys) {
+								if((a as any)[key] !== (b as any)[key]) {
+									return (a as any)[key] - (b as any)[key];
+								}
+							}
+							return 0;
+						});
+				} else {
+					transfomations?.sort(
+						(a, b) => {
+							for (const key of options.ORDER.keys) {
+								if((a as any)[key] !== (b as any)[key]) {
+									return (b as any)[key] - (a as any)[key];
+								}
+							}
+							return 0;
+						});
+				}
+			}
+			return this.transformationsHelper(transfomations as any[]);
+		} else if (typeof options.ORDER === "string") {
 			const order = options.ORDER.split("_")[1];
 			sectionsOrRooms.sort(
 				(a, b) => (a as any)[order] - (b as any)[order]
 			);
-		} else if (options.ORDER && options.ORDER.dir && options.ORDER.keys) {
-			const order = options.ORDER.dir;
-			if (order === "UP") {
-				transfomations?.sort(
-					(a, b) => {
-						for (const key of options.ORDER.keys) {
-							if((a as any)[key] !== (b as any)[key]) {
-								return (a as any)[key] - (b as any)[key];
-							}
-						}
-						return 0;
-					});
-			} else {
-				transfomations?.sort(
-					(a, b) => {
-						for (const key of options.ORDER.keys) {
-							if((a as any)[key] !== (b as any)[key]) {
-								return (b as any)[key] - (a as any)[key];
-							}
-						}
-						return 0;
-					});
-			}
-			return this.transformationsHelper(transfomations as any[]);
 		}
 
 		for(const section of sectionsOrRooms) {
@@ -161,7 +174,6 @@ export class ApplyQuery {
 
 	public transformationsHelper(transfomations: any[]) {
 		const results: any[] = [];
-		let item = {};
 
 		for(const section of transfomations) {
 			results.push(section);
@@ -202,7 +214,8 @@ export class ApplyQuery {
 				return object.some((member: any) => this.isSectionValid(sectionOrRoom, member));
 			}
 		}
-		throw new InsightError();
+
+		return true;
 	}
 
 	public IS(sectionOrRoom: Section | Room, currQuery: any): boolean {
