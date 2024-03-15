@@ -168,7 +168,7 @@ export default class RoomProcessor implements KindProcessor {
 							// Extract the room number from the href attribute
 							let number = a.attrs.find((attr: any) =>
 								attr.name === "href").value.split("-").pop().trim();
-							let seats = parseInt(this.findNode(tdCapacity, "#text").value.trim(), 10);
+							let seats = this.findNode(tdCapacity, "#text").value.trim();
 							let furniture = this.findNode(tdFurniture, "#text").value.trim();
 							let type = this.findNode(tdType, "#text").value.trim();
 							// let shortname = building.shortname;
