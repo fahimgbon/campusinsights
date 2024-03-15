@@ -157,6 +157,8 @@ export default class RoomProcessor implements KindProcessor {
 						let tdCapacity = this.findNode(row, "td", "views-field views-field-field-room-capacity");
 						let tdFurniture = this.findNode(row, "td", "views-field views-field-field-room-furniture");
 						let tdType = this.findNode(row, "td", "views-field views-field-field-room-type");
+						// let tdHref = this.findNode(row, "td", "views-field views-field-nothing");
+
 						// console.log("!!! td:", td);
 
 						if (tdNumber && tdCapacity && tdFurniture && tdType) {
@@ -170,14 +172,15 @@ export default class RoomProcessor implements KindProcessor {
 							let furniture = this.findNode(tdFurniture, "#text").value.trim();
 							let type = this.findNode(tdType, "#text").value.trim();
 							// let shortname = building.shortname;
-							// let href = building.href;
+							let href = a.attrs.find((attr: any) => attr.name === "href").value;
 							let name = building.shortname + "_" + number;
+							// console.log("!!! href2:", a.attrs.find((attr: any) => attr.name === "href").value);
 							// let lat = geolocation.lat;
 							// let lon = geolocation.lon;
 							// Create a new Room object and add it to the roomData array
 							let room = new Room(
 								fullname, building.shortname, number, name, seats,
-								type, furniture, address, geolocation.lat, geolocation.lon, building.href);
+								type, furniture, address, geolocation.lat, geolocation.lon, href);
 							roomData.push(room);
 
 						}
