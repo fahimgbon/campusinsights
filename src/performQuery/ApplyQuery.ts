@@ -63,7 +63,7 @@ export class ApplyQuery {
 			const curr: Record<string, any> = {};
 			const numeric = ["avg" , "pass" , "fail" , "audit" , "year", "lat", "lon", "seats"];
 			for(const otherKey in JSON.parse(groupKey)) {
-				if(numeric.includes(otherKey)) {
+				if(numeric.includes(otherKey.split("_")[1])) {
 					curr[otherKey] = Number(JSON.parse(groupKey)[otherKey]);
 				} else {
 					curr[otherKey] = JSON.parse(groupKey)[otherKey];
@@ -127,7 +127,6 @@ export class ApplyQuery {
 		const columns = options["COLUMNS"];
 
 		if (transfomations) {
-			console.log("INSIDEEEEE");
 			if(options.ORDER && options.ORDER.dir && options.ORDER.keys) {
 				const order = options.ORDER.dir;
 				if (order === "UP") {
