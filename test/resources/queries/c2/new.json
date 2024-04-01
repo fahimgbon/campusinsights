@@ -1,0 +1,1484 @@
+{
+    "title": "new",
+    "input": {
+        "WHERE": {},
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_href",
+                "roomAvg"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "rooms_href"
+            ],
+            "APPLY": [
+                {
+                    "roomAvg": {
+                        "MAX": "rooms_seats"
+                    }
+                }
+            ]
+        }
+    },
+    "errorExpected": false,
+    "expected": [
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ALRD-105",
+                "roomAvg": 94
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ALRD-112",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ALRD-113",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ALRD-121",
+                "roomAvg": 50
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ALRD-B101",
+                "roomAvg": 44
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANSO-202",
+                "roomAvg": 26
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANSO-203",
+                "roomAvg": 33
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANSO-205",
+                "roomAvg": 37
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANSO-207",
+                "roomAvg": 90
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/AERL-120",
+                "roomAvg": 144
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/AUDX-142",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/AUDX-157",
+                "roomAvg": 21
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BIOL-1503",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BIOL-2000",
+                "roomAvg": 228
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BIOL-2200",
+                "roomAvg": 76
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BIOL-2519",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BRKX-2365",
+                "roomAvg": 70
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BRKX-2367",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-A101",
+                "roomAvg": 275
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-A102",
+                "roomAvg": 150
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-A103",
+                "roomAvg": 131
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-A104",
+                "roomAvg": 150
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-A201",
+                "roomAvg": 181
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-A202",
+                "roomAvg": 108
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-A203",
+                "roomAvg": 108
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B141",
+                "roomAvg": 42
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B142",
+                "roomAvg": 26
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B208",
+                "roomAvg": 56
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B209",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B210",
+                "roomAvg": 48
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B211",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B213",
+                "roomAvg": 78
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B215",
+                "roomAvg": 78
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B216",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B218",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B219",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B302",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B303",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B304",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B306",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B307",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B308",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B309",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B310",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B312",
+                "roomAvg": 18
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B313",
+                "roomAvg": 78
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B315",
+                "roomAvg": 78
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B316",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B318",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-B319",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D201",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D204",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D205",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D207",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D209",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D213",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D214",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D216",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D217",
+                "roomAvg": 65
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D218",
+                "roomAvg": 65
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D219",
+                "roomAvg": 65
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D221",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D222",
+                "roomAvg": 65
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D228",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D229",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D301",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D304",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D306",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D307",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D312",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D313",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D314",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D315",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D316",
+                "roomAvg": 50
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D317",
+                "roomAvg": 50
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D319",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D322",
+                "roomAvg": 50
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D323",
+                "roomAvg": 31
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/BUCH-D325",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CIRS-1250",
+                "roomAvg": 426
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHBE-101",
+                "roomAvg": 200
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHBE-102",
+                "roomAvg": 94
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHBE-103",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHEM-B150",
+                "roomAvg": 265
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHEM-B250",
+                "roomAvg": 240
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHEM-C124",
+                "roomAvg": 90
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHEM-C126",
+                "roomAvg": 90
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHEM-D200",
+                "roomAvg": 114
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CHEM-D300",
+                "roomAvg": 114
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CEME-1202",
+                "roomAvg": 100
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CEME-1204",
+                "roomAvg": 62
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CEME-1206",
+                "roomAvg": 26
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CEME-1210",
+                "roomAvg": 22
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CEME-1212",
+                "roomAvg": 34
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/CEME-1215",
+                "roomAvg": 45
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/EOSM-135",
+                "roomAvg": 50
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ESB-1012",
+                "roomAvg": 150
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ESB-1013",
+                "roomAvg": 350
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ESB-2012",
+                "roomAvg": 80
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FNH-20",
+                "roomAvg": 12
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FNH-30",
+                "roomAvg": 28
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FNH-320",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FNH-40",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FNH-50",
+                "roomAvg": 43
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FNH-60",
+                "roomAvg": 99
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1001",
+                "roomAvg": 65
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1002",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1003",
+                "roomAvg": 65
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1005",
+                "roomAvg": 250
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1221",
+                "roomAvg": 99
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1402",
+                "roomAvg": 18
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1611",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1613",
+                "roomAvg": 36
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1615",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FSC-1617",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FORW-303",
+                "roomAvg": 63
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FORW-317",
+                "roomAvg": 44
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FORW-519",
+                "roomAvg": 35
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LASR-102",
+                "roomAvg": 80
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LASR-104",
+                "roomAvg": 94
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LASR-105",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LASR-107",
+                "roomAvg": 51
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LASR-211",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LASR-5C",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/FRDM-153",
+                "roomAvg": 160
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-100",
+                "roomAvg": 225
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-101",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-147",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-200",
+                "roomAvg": 100
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-201",
+                "roomAvg": 42
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-212",
+                "roomAvg": 72
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-214",
+                "roomAvg": 39
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/GEOG-242",
+                "roomAvg": 21
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HEBB-10",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HEBB-100",
+                "roomAvg": 375
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HEBB-12",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HEBB-13",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HENN-200",
+                "roomAvg": 257
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HENN-201",
+                "roomAvg": 155
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HENN-202",
+                "roomAvg": 150
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HENN-301",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HENN-302",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/HENN-304",
+                "roomAvg": 36
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-037",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-039",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-098",
+                "roomAvg": 260
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-232",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-234",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-235",
+                "roomAvg": 41
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-237",
+                "roomAvg": 41
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-241",
+                "roomAvg": 70
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-243",
+                "roomAvg": 68
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-254",
+                "roomAvg": 80
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-291",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-292",
+                "roomAvg": 35
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-293",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-295",
+                "roomAvg": 54
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-296",
+                "roomAvg": 37
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-332",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-334",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-335",
+                "roomAvg": 41
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-339",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-343",
+                "roomAvg": 68
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-345",
+                "roomAvg": 68
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-347",
+                "roomAvg": 70
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-350",
+                "roomAvg": 58
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-354",
+                "roomAvg": 44
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-432",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-434",
+                "roomAvg": 44
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-435",
+                "roomAvg": 53
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ANGU-437",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/DMP-101",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/DMP-110",
+                "roomAvg": 120
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/DMP-201",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/DMP-301",
+                "roomAvg": 80
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/DMP-310",
+                "roomAvg": 160
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IONA-301",
+                "roomAvg": 100
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IONA-633",
+                "roomAvg": 50
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-155",
+                "roomAvg": 50
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-156",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-157",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-158",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-182",
+                "roomAvg": 154
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-185",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-191",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-192",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-193",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-194",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-195",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-261",
+                "roomAvg": 112
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-263",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-264",
+                "roomAvg": 12
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-265",
+                "roomAvg": 10
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-266",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-460",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/IBLC-461",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SOWK-122",
+                "roomAvg": 12
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SOWK-124",
+                "roomAvg": 68
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SOWK-222",
+                "roomAvg": 29
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SOWK-223",
+                "roomAvg": 29
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SOWK-224",
+                "roomAvg": 31
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SOWK-324",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SOWK-326",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSK-200",
+                "roomAvg": 205
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSK-201",
+                "roomAvg": 183
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSK-460",
+                "roomAvg": 75
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSK-462",
+                "roomAvg": 42
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSC-1001",
+                "roomAvg": 350
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSC-1002",
+                "roomAvg": 350
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSC-1003",
+                "roomAvg": 125
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCLD-202",
+                "roomAvg": 123
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCLD-214",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCLD-220",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCLD-228",
+                "roomAvg": 136
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCLD-242",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCLD-254",
+                "roomAvg": 84
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-154",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-158",
+                "roomAvg": 74
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-160",
+                "roomAvg": 72
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-166",
+                "roomAvg": 200
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-256",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-260",
+                "roomAvg": 32
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-358",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360A",
+                "roomAvg": 6
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360B",
+                "roomAvg": 6
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360C",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360D",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360E",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360F",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360G",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360H",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360J",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360K",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360L",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MCML-360M",
+                "roomAvg": 8
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-100",
+                "roomAvg": 224
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-102",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-104",
+                "roomAvg": 48
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-105",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-202",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-203",
+                "roomAvg": 48
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-204",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATH-225",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MATX-1100",
+                "roomAvg": 106
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-100",
+                "roomAvg": 280
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1003",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1004",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1005",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1020",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1021",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1022",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1023",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1024",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-1328",
+                "roomAvg": 38
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-200",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-201",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-202",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-203",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-204",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-204A",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-205",
+                "roomAvg": 34
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-206",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-207",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-208",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-209",
+                "roomAvg": 60
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SCRF-210",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-1001",
+                "roomAvg": 72
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3002",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3004",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3016",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3018",
+                "roomAvg": 48
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3052",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3058",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3062",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3068",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3072",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-3074",
+                "roomAvg": 72
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4002",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4004",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4016",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4018",
+                "roomAvg": 48
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4052",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4058",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4062",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4068",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4072",
+                "roomAvg": 20
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/ORCH-4074",
+                "roomAvg": 72
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-1101",
+                "roomAvg": 236
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-1201",
+                "roomAvg": 167
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3112",
+                "roomAvg": 7
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3114",
+                "roomAvg": 7
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3115",
+                "roomAvg": 7
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3116",
+                "roomAvg": 14
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3118",
+                "roomAvg": 7
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3120",
+                "roomAvg": 7
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3122",
+                "roomAvg": 7
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3124",
+                "roomAvg": 7
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PHRM-3208",
+                "roomAvg": 72
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1001",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1002",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1003",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1008",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1009",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1011",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1215",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/PCOH-1302",
+                "roomAvg": 24
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/OSBO-203A",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/OSBO-203B",
+                "roomAvg": 39
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/OSBO-A",
+                "roomAvg": 442
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SPPH-143",
+                "roomAvg": 28
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SPPH-B108",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SPPH-B112",
+                "roomAvg": 16
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SPPH-B136",
+                "roomAvg": 12
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SPPH-B138",
+                "roomAvg": 14
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SPPH-B151",
+                "roomAvg": 66
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SRC-220A",
+                "roomAvg": 299
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SRC-220B",
+                "roomAvg": 299
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SRC-220C",
+                "roomAvg": 299
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/UCLL-101",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/UCLL-103",
+                "roomAvg": 55
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/UCLL-107",
+                "roomAvg": 48
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/UCLL-109",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MGYM-206",
+                "roomAvg": 25
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/MGYM-208",
+                "roomAvg": 40
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WESB-100",
+                "roomAvg": 325
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WESB-201",
+                "roomAvg": 102
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-105",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-106",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-107",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-108",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-109",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-110",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-121",
+                "roomAvg": 187
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-122",
+                "roomAvg": 188
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-221",
+                "roomAvg": 190
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-222",
+                "roomAvg": 190
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-305",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-306",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-307",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-308",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-309",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-310",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-405",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-406",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-407",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-408",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-409",
+                "roomAvg": 47
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/SWNG-410",
+                "roomAvg": 27
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-1",
+                "roomAvg": 120
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-2",
+                "roomAvg": 503
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-3",
+                "roomAvg": 88
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-4",
+                "roomAvg": 120
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-5",
+                "roomAvg": 120
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-6",
+                "roomAvg": 181
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-B75",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-B79",
+                "roomAvg": 21
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G41",
+                "roomAvg": 30
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G44",
+                "roomAvg": 14
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G53",
+                "roomAvg": 10
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G55",
+                "roomAvg": 10
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G57",
+                "roomAvg": 12
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G59",
+                "roomAvg": 10
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G65",
+                "roomAvg": 12
+            },
+            {
+                "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/WOOD-G66",
+                "roomAvg": 16
+            }
+        ]
+    
+}
