@@ -31,6 +31,16 @@ export const options = {
     },
   };
 
+  export const options2 = {
+    responsive: true,
+    plugins: {
+
+      title: {
+        display: true,
+        text: 'Departments With Most Sections',
+      },
+    },
+  };
 
 function Dataset(id) {
 
@@ -55,15 +65,21 @@ function Dataset(id) {
             .then(response => { 
               const avgSummed = {}
               const deps: string[] = []
+              const profs: string[] = []
               response.data.result.forEach(element => {
                 const avgKey = id.id + "_dept";
                 const deptKey = id.id + "_avg";
+                const profKey = id.id + "_instructor";
+
                 const dept = element[avgKey];
                 const avg = element[deptKey]
+                const prof = element[profKey];
+
                 if(!avgSummed[dept]) {
                   avgSummed[dept] = []
                   deps.push(dept)
                 }
+                profs.push(dept)
                 avgSummed[dept].push(avg)
     
               });
@@ -90,20 +106,33 @@ function Dataset(id) {
                 ],
               };
               setData(dataToBe)
+              const count = {}
+              profs.forEach(prof => {
+                if (!count[prof]) {
+                    count[prof] = 0;
+                }
+                count[prof] = count[prof] + 1;
+              })
+              const profArray = Object.entries(count).map(([string,count])  => ({string, count}))
+              profArray.sort((a ,b) => (b as any).count - (a as any).count)
+              const top5Profs = profArray.slice(0,5);
+              const names = top5Profs.map(item => item.string)
+              const counts = top5Profs.map(item => item.count)
               const dataToBe2 = {
-                labels: deps,
+                labels: names,
                 datasets: [
                   {
                     label: id.id + " Data",
-                    backgroundColor: 'rgba(75,192,192,0.2)',
-                    borderColor: 'rgba(75,192,192,1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderColor: 'rgba(255, 99, 132, 0.5)',
                     borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(75,192,192,0.4)',
+                    hoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
                     hoverBorderColor: 'red',
-                    data: avgs,
+                    data: counts,
                   },
                 ],
               };
+              setData2(dataToBe2)
             }) 
             
       }, [])
@@ -122,7 +151,7 @@ function Dataset(id) {
         }
         {
            data && <div style={{ width: '370px', height: '200px', paddingRight:30 }}>
-            <Bar data = {data} options={options} ></Bar> 
+            <Bar data = {data2} options={options2} ></Bar> 
             </div>
         }
         {
