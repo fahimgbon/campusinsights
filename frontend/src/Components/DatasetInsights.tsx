@@ -1,30 +1,24 @@
 
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Dataset from './Dataset.tsx';
 
 function DatasetInsights() {
-  const str = "sf"
-  const query = {
-    "WHERE": {
-    },
-    "OPTIONS": {
-      "COLUMNS": [
-        str + "_dept",
-        "sf_avg"
-      ],
-      "ORDER": "sf_avg"
-    }
-  }
+  const [ids, setIds] = useState([]); 
 
   useEffect(() => {
-    axios.post('http://localhost:4321/query', query) 
+    axios.get('http://localhost:4321/datasets') 
     .then(response => { 
-      console.log(response.data.result)
+      const ids = response.data.result.map(item => item.id);
+      setIds(ids)
     }) 
   }, [])
+
   
   return (
-    <div> Dataset Insights </div>
+    <div style={{ display: 'flex', flexDirection: 'column'}}>
+    {ids.map(id => ( <Dataset id={id} /> ))}
+    </div>
   );
 }
   
