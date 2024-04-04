@@ -118,7 +118,7 @@ export default class Server {
 		try {
 			const id = req.params.id;
 			const kind = req.params.kind as InsightDatasetKind;
-			const content = req.body.toString("base64");
+			const content = Buffer.from(req.body).toString("base64");
 			const result = await this.insightFacade.addDataset(id, content, kind);
 			res.status(200).json({result});
 		} catch (err) {
