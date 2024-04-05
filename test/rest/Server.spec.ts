@@ -93,7 +93,6 @@ describe("Facade D3", function () {
 				.send(INVALID_SECTIONS_ZIP_FILE_DATA)
 				.set("Content-Type", "application/x-zip-compressed")
 				.then(function (res: Response) {
-					console.log("status:", res.status);
 					expect(res.status).to.be.equal(400);
 					expect(res.body).to.have.property("error");
 					expect(res.body.error).to.be.a("string");
@@ -162,7 +161,6 @@ describe("Facade D3", function () {
 			return request(SERVER_URL)
 				.delete(ENDPOINT_URL)
 				.then(function (res: Response) {
-					console.log("status:", res.status);
 					expect(res.status).to.be.equal(404);
 					expect(res.body).to.have.property("error");
 					expect(res.body.error).to.be.a("string");
@@ -184,7 +182,6 @@ describe("Facade D3", function () {
 			return request(SERVER_URL)
 				.delete(ENDPOINT_URL)
 				.then(function (res: Response) {
-					console.log("status:", res.status);
 					expect(res.status).to.be.equal(400);
 					expect(res.body).to.have.property("error");
 					expect(res.body.error).to.be.a("string");
@@ -243,6 +240,8 @@ describe("Facade D3", function () {
 			.send(query)
 			.then(function (res: Response) {
 				expect(res.status).to.be.equal(400);
+				expect(res.body).to.have.property("error");
+				expect(res.body.error).to.be.a("string");
 			})
 			.catch(function (err) {
 				expect.fail(err.message);

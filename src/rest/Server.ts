@@ -130,6 +130,7 @@ export default class Server {
 		}
 	}
 
+
 	private async removeDataset(req: Request, res: Response) {
 		try {
 			const id = req.params.id;
@@ -163,5 +164,6 @@ export default class Server {
 	private async listDatasets(req: Request, res: Response) {
 		const result = await this.insightFacade.listDatasets();
 		res.status(200).json({result: result});
+
 	}
 }

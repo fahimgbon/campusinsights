@@ -727,131 +727,131 @@ const resultTooLargeError = new ResultTooLargeError();
 
 // });
 
-// describe("valid queries", function() {
+describe("valid queries", function() {
 
-// 	beforeEach(async function () {
-// 		await clearDisk();
-// 	});
+	beforeEach(async function () {
+		await clearDisk();
+	});
 
-// 	const insightFacade: InsightFacade = new InsightFacade();
+	const insightFacade: InsightFacade = new InsightFacade();
 
-// 	let validQueries: ITestQuery[];
+	let validQueries: ITestQuery[];
 
-// 	try {
+	try {
 
-// 		validQueries = readFileQueries("customValid");
+		validQueries = readFileQueries("customValid");
 
-// 	} catch (e: unknown) {
+	} catch (e: unknown) {
 
-// 		expect.fail(`Failed to read one or more test queries. ${e}`);
+		expect.fail(`Failed to read one or more test queries. ${e}`);
 
-// 	}
+	}
 
-// 	validQueries.forEach(function(test: any) {
+	validQueries.forEach(function(test: any) {
 
-// 		it(`${test.title}`, async function () {
-// 			const content = await getContentFromArchives("courses.zip");
-// 			const idString = "sections";
-// 			await insightFacade.addDataset(idString, content, InsightDatasetKind.Sections);
-// 			return insightFacade.performQuery(test.input).then((result) => {
+		it(`${test.title}`, async function () {
+			const content = await getContentFromArchives("courses.zip");
+			const idString = "sections";
+			await insightFacade.addDataset(idString, content, InsightDatasetKind.Sections);
+			return insightFacade.performQuery(test.input).then((result) => {
 
-// 				expect(result).to.deep.equal(test.expected);
+				expect(result).to.deep.equal(test.expected);
 
-// 			}).catch((error: string) => {
+			}).catch((error: string) => {
 
-// 				expect.fail(`Failed to read one or more test queries. ${error}`);
+				expect.fail(`Failed to read one or more test queries. ${error}`);
 
-// 			});
+			});
 
-// 		});
+		});
 
-// 	});
+	});
 
-// });
+});
 
-// describe("invalid queries", function() {
+describe("invalid queries", function() {
 
-// 	beforeEach(async function () {
-// 		await clearDisk();
-// 	});
-
-
-// 	const insightFacade: InsightFacade = new InsightFacade();
-
-// 	let validQueries: ITestQuery[];
-
-// 	try {
-
-// 		validQueries = readFileQueries("invalid");
-
-// 	} catch (e: unknown) {
-
-// 		expect.fail(`Failed to read one or more test queries. ${e}`);
-
-// 	}
+	beforeEach(async function () {
+		await clearDisk();
+	});
 
 
-// 	validQueries.forEach(function(test: any) {
+	const insightFacade: InsightFacade = new InsightFacade();
+
+	let validQueries: ITestQuery[];
+
+	try {
+
+		validQueries = readFileQueries("invalid");
+
+	} catch (e: unknown) {
+
+		expect.fail(`Failed to read one or more test queries. ${e}`);
+
+	}
 
 
-// 		it(`${test.title}`, async function () {
-// 			const content = await getContentFromArchives("courses_valid.zip");
-// 			const idString = "sections";
-// 			await insightFacade.addDataset(idString, content, InsightDatasetKind.Sections);
-// 			return insightFacade.performQuery(test.input).then((result) => {
-// 				expect.fail("Failed to reject invalid query");
-
-// 			}).catch((error: any) => {
-// 				expect(error).to.be.instanceOf(InsightError);
-
-// 			});
-
-// 		});
-
-// 	});
-
-// });
-
-// describe("too large query", function() {
-
-// 	beforeEach(async function () {
-// 		await clearDisk();
-// 	});
+	validQueries.forEach(function(test: any) {
 
 
-// 	const insightFacade: InsightFacade = new InsightFacade();
+		it(`${test.title}`, async function () {
+			const content = await getContentFromArchives("courses_valid.zip");
+			const idString = "sections";
+			await insightFacade.addDataset(idString, content, InsightDatasetKind.Sections);
+			return insightFacade.performQuery(test.input).then((result) => {
+				expect.fail("Failed to reject invalid query");
 
-// 	let validQueries: ITestQuery[];
+			}).catch((error: any) => {
+				expect(error).to.be.instanceOf(InsightError);
 
-// 	try {
+			});
 
-// 		validQueries = readFileQueries("tooLarge");
+		});
 
-// 	} catch (e: unknown) {
+	});
 
-// 		expect.fail(`Failed to read one or more test queries. ${e}`);
+});
 
-// 	}
+describe("too large query", function() {
+
+	beforeEach(async function () {
+		await clearDisk();
+	});
 
 
-// 	validQueries.forEach(function(test: any) {
+	const insightFacade: InsightFacade = new InsightFacade();
+
+	let validQueries: ITestQuery[];
+
+	try {
+
+		validQueries = readFileQueries("tooLarge");
+
+	} catch (e: unknown) {
+
+		expect.fail(`Failed to read one or more test queries. ${e}`);
+
+	}
 
 
-// 		it(`${test.title}`, async function () {
-// 			const content = await getContentFromArchives("pair.zip");
-// 			const idString = "sections";
-// 			await insightFacade.addDataset(idString, content, InsightDatasetKind.Sections);
-// 			return insightFacade.performQuery(test.input).then((result) => {
-// 				expect.fail("Failed to reject too large query");
-// 			}).catch((error: any) => {
-// 				expect(error).to.be.instanceOf(ResultTooLargeError);
-// 			});
+	validQueries.forEach(function(test: any) {
 
-// 		});
 
-// 	});
+		it(`${test.title}`, async function () {
+			const content = await getContentFromArchives("pair.zip");
+			const idString = "sections";
+			await insightFacade.addDataset(idString, content, InsightDatasetKind.Sections);
+			return insightFacade.performQuery(test.input).then((result) => {
+				expect.fail("Failed to reject too large query");
+			}).catch((error: any) => {
+				expect(error).to.be.instanceOf(ResultTooLargeError);
+			});
 
-// });
+		});
+
+	});
+
+});
 
 describe("Dataset Class", function() {
 	let dataset: Dataset;
