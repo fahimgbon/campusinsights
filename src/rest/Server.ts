@@ -124,6 +124,8 @@ export default class Server {
 		} catch (err) {
 			if (err instanceof InsightError) {
 				res.status(400).json({error: err.message});
+			} else {
+				res.status(400).json({error: "An error occured"});
 			}
 		}
 	}
@@ -139,6 +141,8 @@ export default class Server {
 				res.status(404).json({error: err.message});
 			} else if (err instanceof InsightError) {
 				res.status(400).json({error: err.message});
+			} else {
+				res.status(400).json({error: "An error occured"});
 			}
 		}
 	}
@@ -151,6 +155,8 @@ export default class Server {
 		} catch (err) {
 			if (err instanceof InsightError || err instanceof ResultTooLargeError) {
 				res.status(400).json({error: err.message});
+			} else {
+				res.status(400).json({error: "An error occured"});
 			}
 		}
 	}

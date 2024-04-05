@@ -37,13 +37,14 @@ function AddDataset() {
         setFail(false)
       })
       .catch(error => {
-		setSuccess(false);
-		setFail(true);
+        setSuccess(false)
+        setFail(true)
+        // setFailMsg(error.message)
+		
 		// Access the server's response message
 		const message = error.response?.data?.error || "An unexpected error occurred";
 		setFailMsg(message);
-	  })
-
+      })
 
     }
     fileReader.readAsArrayBuffer(form.selectedFile)
