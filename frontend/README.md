@@ -7,6 +7,7 @@ Sections Insight is a frontend application that allows users to manage and gain 
 Note, volume might be low, apologies for that - I don't have a good mic. I think using headphones would help.
 Check out our project video demo: [Sections Insight - Frontend]
 https://drive.google.com/file/d/1SsjX5yDGk1tInyj3CEuETwFo7hUk-DTQ/view?usp=sharing
+or:
 https://www.youtube.com/watch?v=jEkAeMHZ1Vc
 
 ## Installation and Setup
