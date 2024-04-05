@@ -1,4 +1,4 @@
-# Sections Insight
+# 💻 Sections Insight
 
 ## Project Overview
 Sections Insight is a frontend application that allows users to manage and gain insights into course section data at the University of British Columbia (UBC). The application enables users to add, remove, and view course section datasets, as well as access visual insights into the data.
@@ -26,13 +26,9 @@ yarn start
 cd project_team106/frontend
 ```
 
-3. Install dependencies:
+4. Install dependencies & start the server:
 ```
 yarn install
-```
-
-4. Start the development server:
-```
 yarn start
 ```
 
