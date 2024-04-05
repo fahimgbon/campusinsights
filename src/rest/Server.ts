@@ -2,7 +2,7 @@ import express, {Application, Request, Response} from "express";
 import * as http from "http";
 import cors from "cors";
 import InsightFacade from "../controller/InsightFacade";
-import {InsightDatasetKind, NotFoundError} from "../controller/IInsightFacade";
+import {InsightDatasetKind, InsightError, NotFoundError} from "../controller/IInsightFacade";
 
 export default class Server {
 	private readonly port: number;
@@ -122,7 +122,9 @@ export default class Server {
 			const result = await this.insightFacade.addDataset(id, content, kind);
 			res.status(200).json({result: result});
 		} catch (err) {
-			res.status(400).json({error: err});
+			if (err instanceof InsightError) {
+				res.status(400).json({error: err.message});
+			}
 		}
 	}
 
@@ -133,9 +135,9 @@ export default class Server {
 			res.status(200).json({result: result});
 		} catch (err) {
 			if (err instanceof NotFoundError) {
-				res.status(404).json({error: err});
-			} else {
-				res.status(400).json({error: err});
+				res.status(404).json({error: err.message});
+			} else if (err instanceof InsightError) {
+				res.status(400).json({error: err.message});
 			}
 		}
 	}
@@ -146,16 +148,14 @@ export default class Server {
 			const result = await this.insightFacade.performQuery(query);
 			res.status(200).json({result: result});
 		} catch (err) {
-			res.status(400).json({error: err});
+			if (err instanceof InsightError) {
+				res.status(400).json({error: err.message});
+			}
 		}
 	}
 
 	private async listDatasets(req: Request, res: Response) {
-		try {
-			const result = await this.insightFacade.listDatasets();
-			res.status(200).json({result: result});
-		} catch (err) {
-			res.status(400).json({error: err});
-		}
+		const result = await this.insightFacade.listDatasets();
+		res.status(200).json({result: result});
 	}
 }
