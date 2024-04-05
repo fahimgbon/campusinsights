@@ -4,7 +4,11 @@
 Sections Insight is a frontend application that allows users to manage and gain insights into course section data at the University of British Columbia (UBC). The application enables users to add, remove, and view course section datasets, as well as access visual insights into the data.
 
 ## Video Walkthrough
-Check out our project video demo: [Sections Insight - Frontend](https://www.youtube.com/watch?v=jfKfPfyJRdk)
+Note, volume might be low, apologies for that - I don't have a good mic. I think using headphones would help.
+Check out our project video demo: [Sections Insight - Frontend]
+https://drive.google.com/file/d/1SsjX5yDGk1tInyj3CEuETwFo7hUk-DTQ/view?usp=sharing
+or:
+https://www.youtube.com/watch?v=jEkAeMHZ1Vc
 
 ## Installation and Setup
 
