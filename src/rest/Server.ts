@@ -120,7 +120,7 @@ export default class Server {
 			const kind = req.params.kind as InsightDatasetKind;
 			const content = Buffer.from(req.body).toString("base64");
 			const result = await this.insightFacade.addDataset(id, content, kind);
-			res.status(200).json({result});
+			res.status(200).json({result: result});
 		} catch (err) {
 			res.status(400).json({error: err});
 		}
@@ -130,7 +130,7 @@ export default class Server {
 		try {
 			const id = req.params.id;
 			const result = await this.insightFacade.removeDataset(id);
-			res.status(200).json({result});
+			res.status(200).json({result: result});
 		} catch (err) {
 			if (err instanceof NotFoundError) {
 				res.status(404).json({error: err});
@@ -144,7 +144,7 @@ export default class Server {
 		try {
 			const query = req.body;
 			const result = await this.insightFacade.performQuery(query);
-			res.status(200).json({result});
+			res.status(200).json({result: result});
 		} catch (err) {
 			res.status(400).json({error: err});
 		}
@@ -153,7 +153,7 @@ export default class Server {
 	private async listDatasets(req: Request, res: Response) {
 		try {
 			const result = await this.insightFacade.listDatasets();
-			res.status(200).json({result});
+			res.status(200).json({result: result});
 		} catch (err) {
 			res.status(400).json({error: err});
 		}

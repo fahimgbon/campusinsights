@@ -853,172 +853,172 @@ const resultTooLargeError = new ResultTooLargeError();
 
 // });
 
-// describe("Dataset Class", function() {
-// 	let dataset: Dataset;
+describe("Dataset Class", function() {
+	let dataset: Dataset;
 
-// 	beforeEach(function () {
-// 		dataset = new Dataset("ubc", "content", InsightDatasetKind.Sections);
-// 	});
+	beforeEach(function () {
+		dataset = new Dataset("ubc", "content", InsightDatasetKind.Sections);
+	});
 
-// 	it("should check ID", function() {
-// 		dataset.setId("sfu");
-// 		expect(dataset.getId()).to.equal("sfu");
-// 	});
+	it("should check ID", function() {
+		dataset.setId("sfu");
+		expect(dataset.getId()).to.equal("sfu");
+	});
 
-// 	it("should check content", function() {
-// 		dataset.setContent("newContent");
-// 		expect(dataset.getContent()).to.equal("newContent");
-// 	});
+	it("should check content", function() {
+		dataset.setContent("newContent");
+		expect(dataset.getContent()).to.equal("newContent");
+	});
 
-// 	it("should check kind", function() {
-// 		dataset.setKind(InsightDatasetKind.Sections);
-// 		expect(dataset.getKind()).to.equal(InsightDatasetKind.Sections);
-// 	});
+	it("should check kind", function() {
+		dataset.setKind(InsightDatasetKind.Sections);
+		expect(dataset.getKind()).to.equal(InsightDatasetKind.Sections);
+	});
 
-// 	it("should check numRows", function() {
-// 		dataset.setNumRows(10);
-// 		expect(dataset.getNumRows()).to.equal(10);
-// 	});
-// });
+	it("should check numRows", function() {
+		dataset.setNumRows(10);
+		expect(dataset.getNumRows()).to.equal(10);
+	});
+});
 
-// describe("Section Class", function() {
-// 	let section: Section;
+describe("Section Class", function() {
+	let section: Section;
 
-// 	beforeEach(function () {
-// 		section = new Section(
-// 			"uuid",
-// 			"id",
-// 			"title",
-// 			"instructor",
-// 			"dept",
-// 			2023,
-// 			80,
-// 			50,
-// 			10,
-// 			5
-// 		);
-// 	});
+	beforeEach(function () {
+		section = new Section(
+			"uuid",
+			"id",
+			"title",
+			"instructor",
+			"dept",
+			2023,
+			80,
+			50,
+			10,
+			5
+		);
+	});
 
-// 	it("should check UUID", function() {
-// 		expect(section.getUuid()).to.equal("uuid");
-// 	});
+	it("should check UUID", function() {
+		expect(section.getUuid()).to.equal("uuid");
+	});
 
-// 	it("should check ID", function() {
-// 		expect(section.getId()).to.equal("id");
-// 	});
+	it("should check ID", function() {
+		expect(section.getId()).to.equal("id");
+	});
 
-// 	it("should check title", function() {
-// 		expect(section.getTitle()).to.equal("title");
-// 	});
+	it("should check title", function() {
+		expect(section.getTitle()).to.equal("title");
+	});
 
-// 	it("should check instructor", function() {
-// 		expect(section.getInstructor()).to.equal("instructor");
-// 	});
+	it("should check instructor", function() {
+		expect(section.getInstructor()).to.equal("instructor");
+	});
 
-// 	it("should check department", function() {
-// 		expect(section.getDept()).to.equal("dept");
-// 	});
+	it("should check department", function() {
+		expect(section.getDept()).to.equal("dept");
+	});
 
-// 	it("should check year", function() {
-// 		expect(section.getYear()).to.equal(2023);
-// 	});
+	it("should check year", function() {
+		expect(section.getYear()).to.equal(2023);
+	});
 
-// 	it("should check average", function() {
-// 		expect(section.getAvg()).to.equal(80);
-// 	});
+	it("should check average", function() {
+		expect(section.getAvg()).to.equal(80);
+	});
 
-// 	it("should check pass count", function() {
-// 		expect(section.getPass()).to.equal(50);
-// 	});
+	it("should check pass count", function() {
+		expect(section.getPass()).to.equal(50);
+	});
 
-// 	it("should check fail count", function() {
-// 		expect(section.getFail()).to.equal(10);
-// 	});
+	it("should check fail count", function() {
+		expect(section.getFail()).to.equal(10);
+	});
 
-// 	it("should check audit count", function() {
-// 		expect(section.getAudit()).to.equal(5);
-// 	});
-// });
+	it("should check audit count", function() {
+		expect(section.getAudit()).to.equal(5);
+	});
+});
 
-// describe("Room Class", function() {
-// 	let room: Room;
+describe("Room Class", function() {
+	let room: Room;
 
-// 	beforeEach(function () {
-// 		room = new Room(
-// 			"Henry Angus Building",
-// 			"ANGU",
-// 			"347",
-// 			"ANGU_347",
-// 			70,
-// 			"Classroom",
-// 			"Fixed Tables",
-// 			"2053 Main Mall, Vancouver, BC V6T 1Z2",
-// 			49.26486,
-// 			-123.25364,
-// 			"https://learningspaces.ubc.ca/classrooms/angu-347"
-// 		);
-// 	});
+	beforeEach(function () {
+		room = new Room(
+			"Henry Angus Building",
+			"ANGU",
+			"347",
+			"ANGU_347",
+			70,
+			"Classroom",
+			"Fixed Tables",
+			"2053 Main Mall, Vancouver, BC V6T 1Z2",
+			49.26486,
+			-123.25364,
+			"https://learningspaces.ubc.ca/classrooms/angu-347"
+		);
+	});
 
-// 	it("should set and get fullname", function() {
-// 		room.setFullname("Henry Angus Building");
-// 		expect(room.getFullname()).to.equal("Henry Angus Building");
-// 	});
+	it("should set and get fullname", function() {
+		room.setFullname("Henry Angus Building");
+		expect(room.getFullname()).to.equal("Henry Angus Building");
+	});
 
-// 	it("should set and get shortname and update name", function() {
-// 		room.setShortname("ALRD");
-// 		expect(room.getShortname()).to.equal("ALRD");
-// 		expect(room.getName()).to.equal("ALRD_347");
-// 	});
+	it("should set and get shortname and update name", function() {
+		room.setShortname("ALRD");
+		expect(room.getShortname()).to.equal("ALRD");
+		expect(room.getName()).to.equal("ALRD_347");
+	});
 
-// 	it("should set and get number and update name", function() {
-// 		room.setNumber("098");
-// 		expect(room.getNumber()).to.equal("098");
-// 		expect(room.getName()).to.equal("ANGU_098");
-// 	});
+	it("should set and get number and update name", function() {
+		room.setNumber("098");
+		expect(room.getNumber()).to.equal("098");
+		expect(room.getName()).to.equal("ANGU_098");
+	});
 
-// 	it("should set and get name", function() {
-// 		const shortname = "ANGU";
-// 		const number = "098";
+	it("should set and get name", function() {
+		const shortname = "ANGU";
+		const number = "098";
 
-// 		room.setName(shortname, number);
-// 		expect(room.getName()).to.equal("ANGU_098");
-// 	});
+		room.setName(shortname, number);
+		expect(room.getName()).to.equal("ANGU_098");
+	});
 
-// 	it("should set and get seats", function() {
-// 		room.setSeats(260);
-// 		expect(room.getSeats()).to.equal(260);
-// 	});
+	it("should set and get seats", function() {
+		room.setSeats(260);
+		expect(room.getSeats()).to.equal(260);
+	});
 
-// 	it("should set and get type", function() {
-// 		room.setType("Classroom");
-// 		expect(room.getType()).to.equal("Classroom");
-// 	});
+	it("should set and get type", function() {
+		room.setType("Classroom");
+		expect(room.getType()).to.equal("Classroom");
+	});
 
-// 	it("should set and get furniture", function() {
-// 		room.setFurniture("Fixed Tables");
-// 		expect(room.getFurniture()).to.equal("Fixed Tables");
-// 	});
+	it("should set and get furniture", function() {
+		room.setFurniture("Fixed Tables");
+		expect(room.getFurniture()).to.equal("Fixed Tables");
+	});
 
-// 	it("should set and get address", function() {
-// 		room.setAddress("2053 Main Mall, Vancouver, BC V6T 1Z2");
-// 		expect(room.getAddress()).to.equal("2053 Main Mall, Vancouver, BC V6T 1Z2");
-// 	});
+	it("should set and get address", function() {
+		room.setAddress("2053 Main Mall, Vancouver, BC V6T 1Z2");
+		expect(room.getAddress()).to.equal("2053 Main Mall, Vancouver, BC V6T 1Z2");
+	});
 
-// 	it("should set and get latitude", function() {
-// 		room.setLat(49.26486);
-// 		expect(room.getLat()).to.equal(49.26486);
-// 	});
+	it("should set and get latitude", function() {
+		room.setLat(49.26486);
+		expect(room.getLat()).to.equal(49.26486);
+	});
 
-// 	it("should set and get longitude", function() {
-// 		room.setLon(-123.25364);
-// 		expect(room.getLon()).to.equal(-123.25364);
-// 	});
+	it("should set and get longitude", function() {
+		room.setLon(-123.25364);
+		expect(room.getLon()).to.equal(-123.25364);
+	});
 
-// 	it("should set and get href", function() {
-// 		room.setHref("https://learningspaces.ubc.ca/classrooms/angu-098");
-// 		expect(room.getHref()).to.equal("https://learningspaces.ubc.ca/classrooms/angu-098");
-// 	});
-// });
+	it("should set and get href", function() {
+		room.setHref("https://learningspaces.ubc.ca/classrooms/angu-098");
+		expect(room.getHref()).to.equal("https://learningspaces.ubc.ca/classrooms/angu-098");
+	});
+});
 
 
 // describe("RoomProcessor", function() {
